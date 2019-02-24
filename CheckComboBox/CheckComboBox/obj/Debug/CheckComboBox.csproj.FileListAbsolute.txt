@@ -1,0 +1,8 @@
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\bin\Debug\CheckComboBox.exe
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\bin\Debug\CheckComboBox.pdb
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\obj\Debug\CheckComboBox.csprojResolveAssemblyReference.cache
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\obj\Debug\CheckBoxCombo.Form1.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\obj\Debug\CheckBoxCombo.Properties.Resources.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\obj\Debug\CheckComboBox.csproj.GenerateResource.Cache
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\obj\Debug\CheckComboBox.exe
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\CheckComboBox\CheckComboBox\obj\Debug\CheckComboBox.pdb

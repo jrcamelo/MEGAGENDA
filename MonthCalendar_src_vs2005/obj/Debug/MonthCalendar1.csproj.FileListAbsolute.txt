@@ -1,0 +1,20 @@
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar1.csprojResolveAssemblyReference.cache
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.AlignControl.resources
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.ImageListPanel.resources
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.MonthCalendar.resources
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.Resource1.resources
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar1.csproj.GenerateResource.Cache
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar.dll
+D:\Downloads\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar.pdb
+D:\Downloads\MonthCalendar_src_vs2005\bin\Debug\MonthCalendar.dll
+D:\Downloads\MonthCalendar_src_vs2005\bin\Debug\MonthCalendar.pdb
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\bin\Debug\MonthCalendar.dll
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\bin\Debug\MonthCalendar.pdb
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar1.csprojResolveAssemblyReference.cache
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.AlignControl.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.ImageListPanel.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.MonthCalendar.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\Pabo.Calendar.Resource1.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar1.csproj.GenerateResource.Cache
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar.dll
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Debug\MonthCalendar.pdb

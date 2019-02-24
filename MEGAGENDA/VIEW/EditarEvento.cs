@@ -1,0 +1,527 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+using MEGAGENDA.CONTROLLER;
+using MEGAGENDA.MODEL;
+
+namespace MEGAGENDA.VIEW
+{
+    public partial class EditarEvento : Form
+    {
+
+        int id = -1;
+        int pid = -1;
+        int eid = -1;
+        int peid = -1;
+
+        bool guestbook = true;
+
+        bool editando = false;
+
+        DateTimePicker oDateTimePicker = new DateTimePicker();
+        Rectangle _Rectangle;
+
+        public EditarEvento()
+        {
+            InitializeComponent();
+            deletarButton.Hide();
+
+            editando = false;
+
+            contratanteLabel.Text = "SELECIONE UM CLIENTE!";
+
+            Inicializar();
+            MudarID();
+
+            pidBox.Show();
+        }
+
+        public EditarEvento(int pid, string nome)
+        {
+            InitializeComponent();
+
+            Inicializar();
+            MudarID();
+
+            pidLabel.Text = "ID: " + pid;
+            contratanteLabel.Text = nome;
+        }
+
+        public EditarEvento(Evento evento)
+        {
+            InitializeComponent();
+            editando = true;
+
+            Inicializar();
+            InicializarEditar(evento);
+
+            LerEquipe(evento.equipe);
+            LerPagamentos(evento.pagamentos);
+        }
+        
+        public void Inicializar()
+        {
+            foreach (string tipo in Configs.tiposEventos)
+            {
+                tipoBox.Items.Add(tipo);
+            }
+
+            foreach (string cab in Cabine.GetAll())
+            {
+                cabineBox.Items.Add(cab);
+            }
+
+            foreach (var funci in Database.Funcionarios.Keys)
+            {
+                equipeComboBox.Items.Add(new CheckComboBoxItem(funci, false));
+            }
+
+            pagamentosGrid.Controls.Add(oDateTimePicker);
+            oDateTimePicker.Visible = false;
+            oDateTimePicker.Format = DateTimePickerFormat.Custom;
+            oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+        }
+
+        public void InicializarEditar(Evento evento)
+        {
+
+            this.Name = "Editar Evento";
+            editando = true;
+
+            MudarID(evento.ID);
+            MudarCliente(evento.PID);
+
+            eid = evento.local.id;
+            ChecarEnderecoCliente();
+
+            idLabel.Text = "ID: " + evento.ID.ToString();
+            eidLabel.Text = eid.ToString();
+            situacaoLabel.Text = evento.situacao;
+            if (evento.situacao == "FINALIZADO")
+            {
+                situacaoLabel.ForeColor = Color.Black;
+            }
+
+            guestbook = evento.guestbook;
+            if (!guestbook)
+            {
+                guestNaoButton.BackgroundImage = Properties.Resources.Glow;
+                guestSimButton.BackgroundImage = Properties.Resources.Border;
+            }
+
+            pidLabel.Text = "ID: " + evento.PID.ToString();
+            
+            tipoBox.Text = evento.tipo;
+            dataPicker.Value = evento.data;
+
+            horaCabine.Value = evento.horaCabine;
+            horaEvento.Value = evento.horaEvento;
+
+            protagonistaBox.Text = evento.protagonista;
+            valorBox.Value = (decimal)evento.valor;
+            entradaBox.Value = (decimal)evento.entrada;
+            entradaCheck.Checked = evento.entradaQuitada;
+            fornecedoresBox.Text = evento.fornecedores;
+            obserBox.Text = evento.observacoes;
+            materialBox.Checked = evento.material;
+
+            ruaBox.Text = evento.local.rua;
+            numeroBox.Text = evento.local.numero;
+            bairroBox.Text = evento.local.bairro;
+            cidadeBox.Text = evento.local.cidade;
+            ufBox.Text = evento.local.estado;
+            compBox.Text = evento.local.complemento;
+
+            cabineBox.Text = evento.cabine;
+        }
+
+        public void MudarID(int ID = 0)
+        {
+            if (ID == 0)
+                ID = id;
+            else
+                id = ID;
+
+            idLabel.Text = "ID: " + id.ToString();
+        }
+
+
+        private void MudarCliente(int PID)
+        {
+            Pessoa cliente = Pessoa.Get(PID);
+            if (cliente != null)
+            {
+                contratanteLabel.Text = cliente.nome;
+                pid = PID;
+                peid = cliente.endereco.id;
+            }
+            else
+            {
+                contratanteLabel.Text = "SELECIONE UM CLIENTE!";
+                pid = 0;
+            }
+        }
+
+        private bool MudarEndereco(int EID)
+        {
+            Endereco local = Endereco.Get(EID);
+            if (local != null)
+            {
+                ruaBox.Text = local.rua;
+                numeroBox.Text = local.numero;
+                bairroBox.Text = local.bairro;
+                cidadeBox.Text = local.cidade;
+                ufBox.Text = local.estado;
+                compBox.Text = local.complemento;
+                eid = local.id;
+                eidLabel.Text = eid.ToString();
+
+                return true;
+            }
+            return false;
+        }
+
+        private void ChecarEnderecoCliente(bool mudar = false)
+        {
+            if (pid > 0 && peid > 0)
+            {
+                if (eid == peid)
+                {
+                    if (mudar)
+                    {
+                        ligarEnderecoButton.Text = "Ligar ao Endereço do Cliente";
+                        eid = 0;
+                        eidLabel.Text = eid.ToString();
+                    }
+                    else
+                    {
+                        ligarEnderecoButton.Text = "Separar do Endereço do Cliente";
+                    }
+                }
+                else
+                {
+                    if (mudar)
+                    {
+                        ligarEnderecoButton.Text = "Separar do Endereço do Cliente";
+                        MudarEndereco(peid);
+                    }
+                    else
+                    {
+                        ligarEnderecoButton.Text = "Ligar ao Endereço do Cliente";
+                    }
+                }
+            }
+        }
+
+        public void LerEquipe(string equipe)
+        {
+            List<string> equipeList = new List<string>(equipe.Split(';'));
+            foreach (string funci in equipeList)
+            {
+                if (!equipeComboBox.Items.Contains(funci))
+                {
+                    equipeComboBox.Items.Add(new CheckComboBoxItem(funci, true));
+                }
+            }
+            atualizarEquipe();
+
+        }
+
+        public void LerPagamentos(List<Pagamento> pagamentos)
+        {
+            foreach (Pagamento pag in pagamentos)
+            {
+                pagamentosGrid.Rows.Add(pag.data.ToShortDateString(), pag.valor, pag.pago);
+            }
+        }
+
+        private void guestSimButton_Click(object sender, EventArgs e)
+        {
+            guestbook = true;
+            guestSimButton.BackgroundImage = Properties.Resources.Glow;
+            guestNaoButton.BackgroundImage = Properties.Resources.Border;
+        }
+
+        private void guestNaoButton_Click(object sender, EventArgs e)
+        {
+            guestbook = false;
+            guestNaoButton.BackgroundImage = Properties.Resources.Glow;
+            guestSimButton.BackgroundImage = Properties.Resources.Border;
+        }
+
+        private void parcelaAutoButton_Click(object sender, EventArgs e)
+        {
+            pagamentosGrid.Rows.Clear();
+
+            decimal valor = valorBox.Value;
+            DateTime parcela = parcelaPrimeiraBox.Value.Date;
+            int qtd = (int)parcelaQtdBox.Value;
+
+            decimal valorParcela = valor / qtd;
+
+            for (int i = 0; i < qtd; i++)
+            {
+                pagamentosGrid.Rows.Add(parcela.ToShortDateString(), valorParcela.ToString("0.00"), false);
+                parcela = parcela.AddMonths(1);
+            }
+
+            ChecarParcelas();
+        }
+
+        private void pagamentosGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            ChecarParcelas();
+        }
+        private void valorBox_ValueChanged(object sender, EventArgs e)
+        {
+            ChecarParcelas();
+        }
+
+        public void ChecarParcelas()
+        {
+            if (pagamentosGrid.Rows.Count > 0)
+            {
+                double valor = (double)valorBox.Value;
+                double total = 0;
+                double result = 0;
+                for (int i = 0; i < pagamentosGrid.Rows.Count; i++)
+                {
+                    object v = pagamentosGrid.Rows[i].Cells[1].Value;
+                    if (v != null)
+                    {
+                        double.TryParse(pagamentosGrid.Rows[i].Cells[1].Value.ToString(), out result);
+                        total += result;
+
+                        if (result == 0)
+                        {
+                            total = 0;
+                            pagamentosLabel.Text = "Parcela zerada ou errada";
+                            pagamentosLabel.ForeColor = Color.Red;
+                            break;
+                        }
+                    }
+                }
+                pagamentosLabel.Text = "Pagamentos";
+                pagamentosLabel.ForeColor = Color.Black;
+
+                if (total > 0)
+                {
+                    pagamentosLabel.ForeColor = Color.Red;
+                    if (total + 1 < valor)
+                        pagamentosLabel.Text = "Soma MENOR que o contrato";
+                    else
+                    {
+                        if (total - 1 > valor)
+                            pagamentosLabel.Text = "Soma MAIOR que o contrato";
+                        else
+                        {
+                            pagamentosLabel.Text = "Pagamentos";
+                            pagamentosLabel.ForeColor = Color.Black;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void finalizarButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Você tem certeza?", "Finalizar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                situacaoLabel.Text = "FINALIZADO";
+                situacaoLabel.ForeColor = Color.Black;
+            }
+        }
+
+        private Evento FazerEvento()
+        {
+            List<Pagamento> pagamentos = FazerPagamentos();
+
+            Endereco local = new Endereco(ruaBox.Text, numeroBox.Text, compBox.Text, bairroBox.Text, cidadeBox.Text, ufBox.Text, eid);
+
+            string equipe = equipeTextBox.Text;
+            if (equipe == "" || equipe == ";")
+                equipe = null;
+
+            return new Evento(pid, tipoBox.Text, protagonistaBox.Text, (double)valorBox.Value, (double)entradaBox.Value, entradaCheck.Checked,
+                equipeTextBox.Text, cabineBox.Text, local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (int)numericDuracao.Value, guestbook, materialBox.Checked,
+                situacaoLabel.Text, fornecedoresBox.Text, obserBox.Text, pagamentos, id);
+        }
+
+        private List<Pagamento> FazerPagamentos()
+        {
+            List<Pagamento> pagamentos = new List<Pagamento>();
+
+            int count = 1;
+            pagamentosGrid.Sort(data, ListSortDirection.Ascending);
+            foreach (DataGridViewRow row in pagamentosGrid.Rows)
+            {
+                double parcelaValor = 0;
+                DateTime parcelaData = DateTime.MinValue;
+                bool parcelaPaga = false;
+
+                if (row.Cells["data"].Value != null)
+                    DateTime.TryParse(row.Cells["data"].Value.ToString(), out parcelaData);
+
+                if (row.Cells["Valor"].Value != null)
+                    double.TryParse(row.Cells["Valor"].Value.ToString(), out parcelaValor);
+
+                if (row.Cells["Paga"].Value != null)
+                    bool.TryParse(row.Cells["Paga"].Value.ToString(), out parcelaPaga);
+
+                if (parcelaData != DateTime.MinValue && parcelaValor > 0)
+                {
+                    pagamentos.Add(new Pagamento(id, parcelaValor, parcelaData, parcelaPaga, count));
+                    count++;
+                }
+            }
+
+            return pagamentos;
+        }
+
+        private void salvarButton_Click(object sender, EventArgs e)
+        {
+            Evento evento = FazerEvento();
+
+            int result;
+            if (editando)
+            {
+                result = Evento.Edit(evento);
+            }
+            else
+            {
+                result = Evento.Add(evento);
+            }
+
+            MessageBox.Show(result.ToString());
+
+            if (result > 0)
+            {
+                Telas.getListas().PreencherEvento();
+                Telas.getListas().SelectRowEvento(result);
+            }
+            AntesDispose();
+            this.Dispose();
+
+        }
+
+        private void deletarButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Você tem certeza que vai DELETAR para SEMPRE este evento?", "Deletar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                int erro = Evento.Delete(id);
+                if (erro < 0)
+                {
+                    MessageBox.Show(erro.ToString());
+                }
+                else
+                {
+                    AntesDispose();
+                    this.Dispose();
+                }
+            }
+        }
+
+
+        private void pagamentosGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            oDateTimePicker.Visible = false;
+        }
+        private void pagamentosGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            switch (e.ColumnIndex)
+            {
+                case 0:
+                    if (pagamentosGrid.CurrentCell.RowIndex >= 0)
+                    {
+                        DateTime date = DateTime.Today;
+
+                        _Rectangle = pagamentosGrid.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true); //  
+                        oDateTimePicker.Size = new Size(_Rectangle.Width, _Rectangle.Height); //  
+                        oDateTimePicker.Location = new Point(_Rectangle.X, _Rectangle.Y); //  
+                        oDateTimePicker.Visible = true;
+
+                        if (pagamentosGrid.CurrentCell.Value != null)
+                            DateTime.TryParse(pagamentosGrid.CurrentCell.Value.ToString(), out date);
+                        oDateTimePicker.CloseUp += oDateTimePicker_CloseUp;
+                        oDateTimePicker.Value = date;
+                        pagamentosGrid.CurrentCell.Value = oDateTimePicker.Text.ToString();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        private void dateTimePicker_OnTextChange(object sender, EventArgs e)
+        {
+            pagamentosGrid.CurrentCell.Value = oDateTimePicker.Text.ToString();
+        }
+        void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        {
+            // Hiding the control after use   
+            oDateTimePicker.Visible = false;
+        }
+
+        private void pagamentosGrid_Leave(object sender, EventArgs e)
+        {
+            oDateTimePicker.Visible = false;
+        }
+
+        private void equipeComboBox_CheckStateChanged(object sender, EventArgs e)
+        {
+            atualizarEquipe();
+        }
+
+        private void atualizarEquipe()
+        {
+            equipeTextBox.Text = "";
+            foreach (CheckComboBoxItem item in equipeComboBox.Items)
+            {
+                if (item.CheckState)
+                    equipeTextBox.Text += item.Text + ";";
+            }
+        }
+
+        private void equipeTextBox_Click(object sender, EventArgs e)
+        {
+            equipeComboBox.DroppedDown = true;
+            equipeComboBox.Focus();
+        }
+
+        private void copiarLocalButton_Click(object sender, EventArgs e)
+        {
+            ChecarEnderecoCliente(true);
+        }
+
+        private void pidBox_ValueChanged(object sender, EventArgs e)
+        {
+            MudarCliente((int)pidBox.Value);
+        }
+
+        
+        private void cancelarButton_Click(object sender, EventArgs e)
+        {
+            AntesDispose();
+            this.Dispose();
+        }
+
+        private void EditarEvento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AntesDispose();
+        }
+
+        private void AntesDispose()
+        {
+            Telas.getAgenda().RecarregarDatabase();
+            Telas.getListas().PreencherEvento();
+        }
+    }
+}
