@@ -160,9 +160,9 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@numero", end.numero);
             parameters.Add("@manual", end.manual);
 
-            id_existente = Database.DoScalar(sql, parameters);
-            Debug.Log("ENDERECO ADICIONADO: " + id_existente.ToString());
-            return id_existente;
+            int id = Database.DoScalar(sql, parameters);
+            Debug.Log("ENDERECO ADICIONADO: " + id.ToString());
+            return id;
         }
 
         public static int Edit(Endereco end)

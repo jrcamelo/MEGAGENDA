@@ -15,13 +15,11 @@ namespace MEGAGENDA.CONTROLLER
     public static class Database
     {
         //Classe principal que lê e mantém as informações dos clientes, eventos e pagamentos
-        
+
         public static Dictionary<string, Modelo> Modelos = new Dictionary<string, Modelo>();
-        
+
         public static Dictionary<string, Funcionario> Funcionarios = new Dictionary<string, Funcionario>() { { "Dono", new Funcionario("Dono", "Nido") } };
-
-        public static Dictionary<string, Cabine> Cabines = new Dictionary<string, Cabine>() { { "Cabine 1", new Cabine("Cabine 1") } };
-
+        
         private static SQLiteConnection Lite;
 
         private static string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"MEGAGENDA\");
@@ -33,7 +31,7 @@ namespace MEGAGENDA.CONTROLLER
             Directory.CreateDirectory(path + @"\Modelos");
             Directory.CreateDirectory(path + @"\Eventos");
             Directory.CreateDirectory(path + @"\Contratos");
-            
+
             Lite = Connect();
             Debug.Log("DATABASE CARREGADO EM " + path + dbname);
 
@@ -46,45 +44,82 @@ namespace MEGAGENDA.CONTROLLER
                 MessageBox.Show(ex.Message);
             }
         }
-
-        public static SQLiteConnection Connect()
-        {
-            if (Lite != null && Lite.State == ConnectionState.Open)
-                Lite.Close();
-
-            SQLiteConnectionStringBuilder connectString = new SQLiteConnectionStringBuilder();
-            connectString.DataSource = path + dbname;
-            connectString.ForeignKeys = true;
-            connectString.JournalMode = SQLiteJournalModeEnum.Wal;
-
-            Debug.Log(connectString.ToString());
-            SQLiteConnection newLite = new SQLiteConnection(connectString.ToString());
-            newLite.Open();
-            Debug.Log("Reconnect");
-            return newLite;
-        }
-
         public static void CreateDatabase()
         {
             List<string> queries = new List<string>()
             {
-                @"CREATE TABLE IF NOT EXISTS Endereco (Endereco_ID     INTEGER      PRIMARY KEY AUTOINCREMENT, Estado STRING (2), Cidade VARCHAR (24), Bairro VARCHAR (24), Rua VARCHAR (36), Comp VARCHAR (24), Numero VARCHAR (8), Manual TEXT);",
+                "CREATE TABLE IF NOT EXISTS Endereco( "
+                + "    Endereco_ID     INTEGER      PRIMARY KEY AUTOINCREMENT, "
+                + "    Estado STRING (2), "
+                + "    Cidade VARCHAR (24), "
+                + "    Bairro VARCHAR (24), "
+                + "    Rua VARCHAR (36), "
+                + "    Comp VARCHAR (24), "
+                + "    Numero VARCHAR (8), "
+                + "    Manual TEXT);",
 
-                @"CREATE TABLE IF NOT EXISTS Pessoa(Pessoa_ID INTEGER  PRIMARY KEY AUTOINCREMENT, Endereco_FK INTEGER  REFERENCES Endereco (Endereco_ID), Nome VARCHAR(64) NOT NULL, isJuridica BOOLEAN DEFAULT(0), RG VARCHAR(24), CPFCNPJ VARCHAR(24), Representante VARCHAR(64), Genero CHAR NOT NULL, Telefone  VARCHAR(36), Celular VARCHAR(36), Email VARCHAR(36), Facebook VARCHAR(36), Anotacoes TEXT);",
+                "CREATE TABLE IF NOT EXISTS Pessoa("
+                + "    Pessoa_ID INTEGER  PRIMARY KEY AUTOINCREMENT, "
+                + "    Endereco_FK INTEGER  REFERENCES Endereco (Endereco_ID), "
+                + "    Nome VARCHAR(64) NOT NULL, "
+                + "    isJuridica BOOLEAN DEFAULT(0), "
+                + "    RG VARCHAR(24), CPFCNPJ VARCHAR(24), "
+                + "    Representante VARCHAR(64), "
+                + "    Genero CHAR NOT NULL, "
+                + "    Telefone  VARCHAR(36), "
+                + "    Celular VARCHAR(36), "
+                + "    Email VARCHAR(36), "
+                + "    Facebook VARCHAR(36), "
+                + "    Anotacoes TEXT);",
 
-                @"CREATE TABLE IF NOT EXISTS Cabine(Cabine_Nome VARCHAR (24) PRIMARY KEY);",
+                "CREATE TABLE IF NOT EXISTS Cabine("
+                + "    Cabine_Nome VARCHAR (24) PRIMARY KEY);",
 
-                @"CREATE TABLE IF NOT EXISTS Evento(Evento_ID INTEGER  PRIMARY KEY AUTOINCREMENT, Pessoa_FK INTEGER  NOT NULL REFERENCES Pessoa (Pessoa_ID) ON DELETE CASCADE, Endereco_FK INTEGER  REFERENCES Endereco(Endereco_ID) NOT NULL, Cabine_FK  VARCHAR(24) REFERENCES Cabine(Cabine_Nome), Tipo VARCHAR(32) NOT NULL, Situacao   VARCHAR(16) DEFAULT AGENDADO, Protagonista   VARCHAR(64), Valor DOUBLE   NOT NULL, Entrada DOUBLE, EntradaQuitada BOOLEAN  DEFAULT(0), Data DATE NOT NULL, Duracao INTEGER NOT NULL, horaCabine TIME NOT NULL, horaEvento TIME NOT NULL, Guestbook BOOLEAN  DEFAULT(0), MaterialPronto BOOLEAN  DEFAULT(0), Fornecedores VARCHAR(64), Observacoes TEXT);",
+                "CREATE TABLE IF NOT EXISTS Evento("
+                + "    Evento_ID INTEGER  PRIMARY KEY AUTOINCREMENT, "
+                + "    Pessoa_FK INTEGER  NOT NULL REFERENCES Pessoa (Pessoa_ID) ON DELETE CASCADE, "
+                + "    Endereco_FK INTEGER  REFERENCES Endereco(Endereco_ID) NOT NULL, "
+                + "    Cabine_FK  VARCHAR(24) REFERENCES Cabine(Cabine_Nome), "
+                + "    Tipo VARCHAR(32) NOT NULL, Situacao   VARCHAR(16) DEFAULT AGENDADO, "
+                + "    Protagonista   VARCHAR(64), "
+                + "    Valor DOUBLE   NOT NULL, "
+                + "    Entrada DOUBLE, "
+                + "    EntradaQuitada BOOLEAN  DEFAULT(0), "
+                + "    Data DATE NOT NULL, "
+                + "    Duracao INTEGER NOT NULL, "
+                + "    horaCabine TIME NOT NULL, "
+                + "    horaEvento TIME NOT NULL, "
+                + "    Guestbook BOOLEAN  DEFAULT(0), "
+                + "    MaterialPronto BOOLEAN  DEFAULT(0), "
+                + "    Fornecedores VARCHAR(64), "
+                + "    Observacoes TEXT);",
 
-                @"CREATE TABLE IF NOT EXISTS Pagamento(Evento_FK INTEGER REFERENCES Evento (Evento_ID) ON DELETE CASCADE, Parcela INTEGER NOT NULL, Valor DOUBLE  NOT NULL, Vencimento DATE, Pago BOOLEAN DEFAULT (0), PRIMARY KEY(Evento_FK, Parcela));",
+                "CREATE TABLE IF NOT EXISTS Pagamento("
+                + "    Evento_FK INTEGER REFERENCES Evento (Evento_ID) ON DELETE CASCADE, "
+                + "    Parcela INTEGER NOT NULL, "
+                + "    Valor DOUBLE  NOT NULL, "
+                + "    Vencimento DATE, "
+                + "    Pago BOOLEAN DEFAULT (0), "
+                + "    PRIMARY KEY(Evento_FK, Parcela));",
 
-                @"CREATE TABLE IF NOT EXISTS Funcionario(Funcionario_Nome VARCHAR (24) PRIMARY KEY);",
+                "CREATE TABLE IF NOT EXISTS Funcionario("
+                + "    Funcionario_Nome VARCHAR (24) PRIMARY KEY);",
 
-                @"CREATE TABLE IF NOT EXISTS Equipe(Evento_FK INTEGER REFERENCES Evento (Evento_ID) ON DELETE CASCADE, Funcionario_FK INTEGER REFERENCES Funcionario(Funcionario_Nome), Data DATE NOT NULL, PRIMARY KEY(Evento_FK, Funcionario_FK));",
+                "CREATE TABLE IF NOT EXISTS Equipe("
+                + "    Evento_FK INTEGER REFERENCES Evento (Evento_ID) ON DELETE CASCADE, "
+                + "    Funcionario_FK VARCHAR REFERENCES Funcionario(Funcionario_Nome), "
+                + "    Data DATE NOT NULL, "
+                + "    PRIMARY KEY(Evento_FK, Funcionario_FK));",
 
-                @"CREATE TABLE IF NOT EXISTS Modelo(Modelo_Nome VARCHAR (24) PRIMARY KEY);",
+                "CREATE TABLE IF NOT EXISTS Modelo("
+                + "    Modelo_Nome VARCHAR (24) PRIMARY KEY);",
 
-                @"CREATE TABLE IF NOT EXISTS Clausula(Modelo_Nome VARCHAR (24) REFERENCES Modelo(Modelo_Nome) ON DELETE CASCADE, Secao VARCHAR(24) NOT NULL, Numero  INTEGER, Texto TEXT, PRIMARY KEY(Modelo_Nome ASC, Secao, Numero));"
+                "CREATE TABLE IF NOT EXISTS Clausula("
+                + "    Modelo_Nome VARCHAR (24) REFERENCES Modelo(Modelo_Nome) ON DELETE CASCADE, "
+                + "    Secao VARCHAR(24) NOT NULL, "
+                + "    Numero  INTEGER, "
+                + "    Texto TEXT, "
+                + "    PRIMARY KEY(Modelo_Nome ASC, Secao, Numero));"
             };
 
             try
@@ -99,6 +134,22 @@ namespace MEGAGENDA.CONTROLLER
             {
                 MessageBox.Show(e.Message);
             }
+        }
+
+        public static SQLiteConnection Connect()
+        {
+            if (Lite != null && Lite.State == ConnectionState.Open)
+                Lite.Close();
+
+            SQLiteConnectionStringBuilder connectString = new SQLiteConnectionStringBuilder();
+            connectString.DataSource = path + dbname;
+            connectString.ForeignKeys = true;
+            connectString.JournalMode = SQLiteJournalModeEnum.Wal;
+            
+            SQLiteConnection newLite = new SQLiteConnection(connectString.ToString());
+            newLite.Open();
+            Debug.Log("Reconnect");
+            return newLite;
         }
 
         public static DataTable SelectQuery(string sql, Dictionary<string, object> parameters = null)
@@ -116,7 +167,7 @@ namespace MEGAGENDA.CONTROLLER
                 SQLiteCommand command = new SQLiteCommand(sql, Lite);
                 foreach (KeyValuePair<string, object> p in parameters)
                     command.Parameters.AddWithValue(p.Key, p.Value);
-                
+
                 if (Debug.ON)
                 {
                     string msg = "Getting Table for: " + command.CommandText;
@@ -131,7 +182,6 @@ namespace MEGAGENDA.CONTROLLER
             }
             catch (SQLiteException ex)
             {
-                //Add your exception code here.
                 MessageBox.Show(ex.Message);
             }
             return datatable;
@@ -141,11 +191,9 @@ namespace MEGAGENDA.CONTROLLER
         {
             if (DoNonQuery(sql, parameters) == -101)
                 return -101;
-            
+
             try
             {
-                Lite = Connect();
-
                 Debug.Log("Getting last row");
                 sql = "SELECT last_insert_rowid()";
                 SQLiteCommand command = new SQLiteCommand(sql, Lite);
@@ -167,7 +215,7 @@ namespace MEGAGENDA.CONTROLLER
             if (parameters == null)
                 parameters = new Dictionary<string, object>();
 
-            
+
             try
             {
                 SQLiteCommand command = new SQLiteCommand(sql, Lite);
@@ -221,14 +269,10 @@ namespace MEGAGENDA.CONTROLLER
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                Lite.Close();
-            }
             return code;
         }
-                
-        
+
+
         #region Equipe
         public static List<Funcionario> GetEquipe(int evento)
         {

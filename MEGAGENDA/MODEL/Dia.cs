@@ -39,7 +39,7 @@ namespace MEGAGENDA.MODEL
         }
 
 
-        public static string FazerWhere(bool finalizados, bool possiveis, string primeiro, string ultimo)
+        private static string FazerWhere(bool finalizados, bool possiveis, string primeiro, string ultimo)
         {
             string where = "WHERE (Situacao = 'AGENDADO'";
 

@@ -20,9 +20,7 @@ namespace MEGAGENDA.VIEW
     {
         public Modelo modelo;
         public string modelo_nome = "";
-
-        public Contrato contrato = null;
-
+        
         public Evento evento = null;
         public Pessoa cliente = null;
         

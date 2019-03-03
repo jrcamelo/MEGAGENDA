@@ -29,7 +29,7 @@ namespace MEGAGENDA.VIEW
             
             int pid = Pessoa.Add(new Pessoa("João", "9084461", "10846444445", "M", "3241-5803", "995363055", "joaorafaelx@gmail.com", "", new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), "Observ"));
 
-            Evento.Add(new Evento(pid, "Formatura", "João Rafael", 1200, 400, true, "Nido", "Primeira", new Endereco("teste"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, "AGENDADO", "Fornecedores", "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1), new Pagamento(1, 0, DateTime.Today, false, 2) }));
+            Evento.Add(new Evento(pid, "Formatura", "João Rafael", 1200, 400, true, "Nido", "Primeira", new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, "AGENDADO", "Fornecedores", "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1), new Pagamento(1, 0, DateTime.Today, false, 2) }));
 
             Modelo modelo = new Modelo("Padrão");
             modelo.padrao_teste();

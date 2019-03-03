@@ -33,7 +33,6 @@ namespace MEGAGENDA.MODEL
         public string anotacoes;
 
         public Endereco endereco;
-        public Conta conta;
 
         public DateTime maisRecente = DateTime.MinValue;
                 
@@ -75,19 +74,6 @@ namespace MEGAGENDA.MODEL
             this.anotacoes = anotacoes;
         }
         
-        //Usuário Pessoa Física com Conta
-        public Pessoa(string nome, string rg, string cpf, string genero, Endereco endereco, Conta conta)
-        {
-            isJuridica = false;
-
-            this.nome = nome;
-            this.rg = rg;
-            this.cpf = cpf;
-            this.genero = genero;
-            this.endereco = endereco;
-            this.conta = conta;
-        }
-
         //Cliente completo
         public Pessoa(int id, Boolean juridica, string nome, string rg, string cpfcnpj, string representante, string genero, string telefone, string celular, string email, string facebook, Endereco endereco, string anotacoes)
         {

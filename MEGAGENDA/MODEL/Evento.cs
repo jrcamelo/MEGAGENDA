@@ -280,25 +280,6 @@ namespace MEGAGENDA.MODEL
             else
                 Debug.Log($"EVENTO {id} DELETADO");
             return result;
-        }
-
-        //public static int DeleteCliente(int pid)
-        //{
-        //    string sql = $"SELECT Evento_ID FROM Evento WHERE Pessoa_FK = @pid";
-
-        //    Dictionary<string, object> parameters = new Dictionary<string, object>();
-        //    parameters.Add("@pid", pid);
-
-        //    SQLiteDataReader reader = Database.DoReader(sql, parameters);
-
-        //    int contagem = 0;
-        //    if (reader != null && reader.HasRows)
-        //        while (reader.NextResult())
-        //        {
-        //            Delete(Database.ObjToInt(reader[0]));
-        //            contagem++;
-        //        }
-        //    return contagem;
-        //}
+        }        
     }
 }
