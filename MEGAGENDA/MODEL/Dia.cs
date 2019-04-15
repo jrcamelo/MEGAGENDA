@@ -13,7 +13,7 @@ namespace MEGAGENDA.MODEL
         public Dia(Evento evento) : base(evento.data, evento.ID, evento.tipo, Color.Empty)
         {
             Color cor;
-            if (evento.data < DateTime.Today || evento.situacao != "AGENDADO")
+            if (evento.data < DateTime.Today || evento.situacao != 0)
                 cor = Color.Empty;
             else if (evento.data == DateTime.Today || evento.data == DateTime.Today.AddDays(1))
                 cor = Color.Red;
@@ -41,12 +41,12 @@ namespace MEGAGENDA.MODEL
 
         private static string FazerWhere(bool finalizados, bool possiveis, string primeiro, string ultimo)
         {
-            string where = "WHERE (Situacao = 'AGENDADO'";
+            string where = "WHERE (Situacao = 1";
 
             if (finalizados)
-                where += " OR Situacao = 'FINALIZADO'";
+                where += " OR Situacao = 0";
             if (possiveis)
-                where += " OR Situacao = 'POSSÍVEL'";
+                where += " OR Situacao = 2";
 
             return where + ") ";
         }

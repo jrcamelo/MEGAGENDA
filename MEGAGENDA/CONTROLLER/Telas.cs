@@ -13,6 +13,8 @@ namespace MEGAGENDA.CONTROLLER
         private static VIEW.Listas TelaListas;
         private static VIEW.Agenda TelaAgenda;
         private static VIEW.Contratos TelaContratos;
+        private static VIEW.Resumo TelaResumo;
+        private static VIEW.Configuracoes TelaConfiguracoes;
 
         public static void setPrincipal(FormPrincipal principal)
         {
@@ -30,14 +32,27 @@ namespace MEGAGENDA.CONTROLLER
             switch (tela)
             {
                 case "Agenda":
+                    //TelaAgenda = null;
+                    //TelaAgenda = new Agenda();
+                    //
                     TelaAgenda.RecarregarDatabase();
                     form = TelaAgenda;
                     break;
                 case "Contratos":
+                    //TelaContratos = null;
+                    //TelaContratos = new Contratos();
+                    //
                     form = TelaContratos;
                     break;
                 case "Listas":
                     form = TelaListas;
+                    break;
+                case "Configurações":
+                    form = TelaConfiguracoes;
+                    break;
+                case "Resumo":
+                    TelaResumo.Atualizar();
+                    form = TelaResumo;
                     break;
                 default:
                     break;
@@ -57,6 +72,7 @@ namespace MEGAGENDA.CONTROLLER
         {
             return TelaListas;
         }
+
         public static void setAgenda(VIEW.Agenda agenda)
         {
             TelaAgenda = agenda;
@@ -66,6 +82,7 @@ namespace MEGAGENDA.CONTROLLER
         {
             return TelaAgenda;
         }
+
         public static void setContratos(VIEW.Contratos contratos)
         {
             TelaContratos = contratos;
@@ -74,6 +91,25 @@ namespace MEGAGENDA.CONTROLLER
         public static VIEW.Contratos getContratos()
         {
             return TelaContratos;
+        }
+        public static void setConfiguracoes(VIEW.Configuracoes configuracoes)
+        {
+            TelaConfiguracoes = configuracoes;
+        }
+
+        public static VIEW.Configuracoes getConfiguracoes()
+        {
+            return TelaConfiguracoes;
+        }
+
+        public static void setResumo(VIEW.Resumo resumo)
+        {
+            TelaResumo = resumo;
+        }
+
+        public static VIEW.Resumo getResumo()
+        {
+            return TelaResumo;
         }
     }
 }

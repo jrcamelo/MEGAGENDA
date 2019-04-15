@@ -22,6 +22,7 @@ namespace MEGAGENDA.VIEW
         int peid = -1;
 
         bool guestbook = true;
+        int situacao = 2;
 
         bool editando = false;
 
@@ -65,23 +66,17 @@ namespace MEGAGENDA.VIEW
             LerEquipe(evento.equipe);
             LerPagamentos(evento.pagamentos);
         }
-        
+
         public void Inicializar()
         {
-            foreach (string tipo in Configs.tiposEventos)
-            {
+            foreach (string tipo in Evento.GetAllTipos())
                 tipoBox.Items.Add(tipo);
-            }
 
             foreach (string cab in Cabine.GetAll())
-            {
                 cabineBox.Items.Add(cab);
-            }
 
-            foreach (var funci in Database.Funcionarios.Keys)
-            {
+            foreach (var funci in Funcionario.GetAllIdentificadores())
                 equipeComboBox.Items.Add(new CheckComboBoxItem(funci, false));
-            }
 
             pagamentosGrid.Controls.Add(oDateTimePicker);
             oDateTimePicker.Visible = false;
@@ -103,11 +98,9 @@ namespace MEGAGENDA.VIEW
 
             idLabel.Text = "ID: " + evento.ID.ToString();
             eidLabel.Text = eid.ToString();
-            situacaoLabel.Text = evento.situacao;
-            if (evento.situacao == "FINALIZADO")
-            {
-                situacaoLabel.ForeColor = Color.Black;
-            }
+
+            situacao = evento.situacao;
+            AtualizarSituacao();
 
             guestbook = evento.guestbook;
             if (!guestbook)
@@ -117,7 +110,7 @@ namespace MEGAGENDA.VIEW
             }
 
             pidLabel.Text = "ID: " + evento.PID.ToString();
-            
+
             tipoBox.Text = evento.tipo;
             dataPicker.Value = evento.data;
 
@@ -128,7 +121,6 @@ namespace MEGAGENDA.VIEW
             valorBox.Value = (decimal)evento.valor;
             entradaBox.Value = (decimal)evento.entrada;
             entradaCheck.Checked = evento.entradaQuitada;
-            fornecedoresBox.Text = evento.fornecedores;
             obserBox.Text = evento.observacoes;
             materialBox.Checked = evento.material;
 
@@ -220,40 +212,48 @@ namespace MEGAGENDA.VIEW
             }
         }
 
-        public void LerEquipe(string equipe)
+        public void LerEquipe(List<string> equipe)
         {
-            List<string> equipeList = new List<string>(equipe.Split(';'));
-            foreach (string funci in equipeList)
-            {
-                if (!equipeComboBox.Items.Contains(funci))
-                {
-                    equipeComboBox.Items.Add(new CheckComboBoxItem(funci, true));
-                }
-            }
+            foreach (string funci in equipe)
+                foreach (CheckComboBoxItem item in equipeComboBox.Items)
+                    if (item.Text == funci)
+                        item.CheckState = true;
             atualizarEquipe();
-
         }
 
         public void LerPagamentos(List<Pagamento> pagamentos)
         {
             foreach (Pagamento pag in pagamentos)
-            {
                 pagamentosGrid.Rows.Add(pag.data.ToShortDateString(), pag.valor, pag.pago);
+        }
+
+        private void AtualizarSituacao()
+        {
+            switch (situacao)
+            {
+                case 0:
+                    situacaoLabel.Text = "FINALIZADO";
+                    situacaoLabel.ForeColor = Color.Black;
+                    situacaoAgendarButton.Enabled = true;
+                    situacaoFinalizarButton.Enabled = false;
+                    situacaoPossivelButton.Enabled = true;
+                    break;
+                case 1:
+                    situacaoLabel.Text = "AGENDADO";
+                    situacaoLabel.ForeColor = Color.DarkGreen;
+                    situacaoAgendarButton.Enabled = false;
+                    situacaoFinalizarButton.Enabled = true;
+                    situacaoPossivelButton.Enabled = true;
+                    break;
+                case 2:
+                default:
+                    situacaoLabel.Text = "NÃO CONFIRMADO";
+                    situacaoLabel.ForeColor = Color.DarkGray;
+                    situacaoAgendarButton.Enabled = true;
+                    situacaoFinalizarButton.Enabled = true;
+                    situacaoPossivelButton.Enabled = false;
+                    break;
             }
-        }
-
-        private void guestSimButton_Click(object sender, EventArgs e)
-        {
-            guestbook = true;
-            guestSimButton.BackgroundImage = Properties.Resources.Glow;
-            guestNaoButton.BackgroundImage = Properties.Resources.Border;
-        }
-
-        private void guestNaoButton_Click(object sender, EventArgs e)
-        {
-            guestbook = false;
-            guestNaoButton.BackgroundImage = Properties.Resources.Glow;
-            guestSimButton.BackgroundImage = Properties.Resources.Border;
         }
 
         private void parcelaAutoButton_Click(object sender, EventArgs e)
@@ -271,16 +271,6 @@ namespace MEGAGENDA.VIEW
                 pagamentosGrid.Rows.Add(parcela.ToShortDateString(), valorParcela.ToString("0.00"), false);
                 parcela = parcela.AddMonths(1);
             }
-
-            ChecarParcelas();
-        }
-
-        private void pagamentosGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            ChecarParcelas();
-        }
-        private void valorBox_ValueChanged(object sender, EventArgs e)
-        {
             ChecarParcelas();
         }
 
@@ -328,31 +318,22 @@ namespace MEGAGENDA.VIEW
                     }
                 }
             }
-
-        }
-
-        private void finalizarButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Você tem certeza?", "Finalizar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                situacaoLabel.Text = "FINALIZADO";
-                situacaoLabel.ForeColor = Color.Black;
-            }
         }
 
         private Evento FazerEvento()
         {
             List<Pagamento> pagamentos = FazerPagamentos();
 
-            Endereco local = new Endereco(ruaBox.Text, numeroBox.Text, compBox.Text, bairroBox.Text, cidadeBox.Text, ufBox.Text, eid);
-
-            string equipe = equipeTextBox.Text;
-            if (equipe == "" || equipe == ";")
-                equipe = null;
+            Endereco local = FazerLocal();
 
             return new Evento(pid, tipoBox.Text, protagonistaBox.Text, (double)valorBox.Value, (double)entradaBox.Value, entradaCheck.Checked,
-                equipeTextBox.Text, cabineBox.Text, local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (int)numericDuracao.Value, guestbook, materialBox.Checked,
-                situacaoLabel.Text, fornecedoresBox.Text, obserBox.Text, pagamentos, id);
+                FazerEquipe(), cabineBox.Text, local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (int)numericDuracao.Value, guestbook, materialBox.Checked,
+                situacao, obserBox.Text, pagamentos, id);
+        }
+
+        private Endereco FazerLocal()
+        {
+            return new Endereco(ruaBox.Text, numeroBox.Text, compBox.Text, bairroBox.Text, cidadeBox.Text, ufBox.Text, eid);
         }
 
         private List<Pagamento> FazerPagamentos()
@@ -376,7 +357,7 @@ namespace MEGAGENDA.VIEW
                 if (row.Cells["Paga"].Value != null)
                     bool.TryParse(row.Cells["Paga"].Value.ToString(), out parcelaPaga);
 
-                if (parcelaData != DateTime.MinValue && parcelaValor > 0)
+                if (parcelaData != DateTime.MinValue)
                 {
                     pagamentos.Add(new Pagamento(id, parcelaValor, parcelaData, parcelaPaga, count));
                     count++;
@@ -384,6 +365,17 @@ namespace MEGAGENDA.VIEW
             }
 
             return pagamentos;
+        }
+
+        public List<string> FazerEquipe()
+        {
+            List<string> result = new List<string>();
+            foreach (CheckComboBoxItem func in equipeComboBox.Items)
+            {
+                if (func.CheckState)
+                    result.Add(func.Text);
+            }
+            return result;
         }
 
         private void salvarButton_Click(object sender, EventArgs e)
@@ -429,7 +421,6 @@ namespace MEGAGENDA.VIEW
             }
         }
 
-
         private void pagamentosGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             oDateTimePicker.Visible = false;
@@ -459,7 +450,30 @@ namespace MEGAGENDA.VIEW
                     break;
             }
         }
-        
+
+        private void guestSimButton_Click(object sender, EventArgs e)
+        {
+            guestbook = true;
+            guestSimButton.BackgroundImage = Properties.Resources.Glow;
+            guestNaoButton.BackgroundImage = Properties.Resources.Border;
+        }
+
+        private void guestNaoButton_Click(object sender, EventArgs e)
+        {
+            guestbook = false;
+            guestNaoButton.BackgroundImage = Properties.Resources.Glow;
+            guestSimButton.BackgroundImage = Properties.Resources.Border;
+        }
+
+        private void pagamentosGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            ChecarParcelas();
+        }
+        private void valorBox_ValueChanged(object sender, EventArgs e)
+        {
+            ChecarParcelas();
+        }
+
         private void dateTimePicker_OnTextChange(object sender, EventArgs e)
         {
             pagamentosGrid.CurrentCell.Value = oDateTimePicker.Text.ToString();
@@ -486,7 +500,9 @@ namespace MEGAGENDA.VIEW
             foreach (CheckComboBoxItem item in equipeComboBox.Items)
             {
                 if (item.CheckState)
-                    equipeTextBox.Text += item.Text + ";";
+                {
+                    equipeTextBox.Text += item.Text + "/";
+                }
             }
         }
 
@@ -506,7 +522,7 @@ namespace MEGAGENDA.VIEW
             MudarCliente((int)pidBox.Value);
         }
 
-        
+
         private void cancelarButton_Click(object sender, EventArgs e)
         {
             AntesDispose();
@@ -522,6 +538,51 @@ namespace MEGAGENDA.VIEW
         {
             Telas.getAgenda().RecarregarDatabase();
             Telas.getListas().PreencherEvento();
+        }
+
+        private void situacaoPossivelButton_Click(object sender, EventArgs e)
+        {
+            situacao = 2;
+            AtualizarSituacao();
+        }
+
+        private void situacaoAgendarButton_Click(object sender, EventArgs e)
+        {
+            situacao = 1;
+            AtualizarSituacao();
+        }
+
+        private void situacaoFinalizarButton_Click(object sender, EventArgs e)
+        {
+            situacao = 0;
+            AtualizarSituacao();
+        }
+
+        Color badcolor = Color.FromArgb(255, 192, 192);
+        Color goodcolor = Color.FromArgb(250, 248, 255);
+
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox box = (TextBox)sender;
+            if (box.Text == "")
+                box.BackColor = badcolor;
+            else
+                box.BackColor = goodcolor;
+        }
+        private void ComboBox_TextChanged(object sender, EventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            if (box.Text == "")
+                box.BackColor = badcolor;
+            else
+                box.BackColor = goodcolor;
+        }
+
+        private void mapsButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Isto é uma pesquisa no Google Maps usando o que está escrito, então pode levar para o local errado. Utilize com cuidado.", "Pesquisar no Google Maps", MessageBoxButtons.OK);
+            Endereco local = FazerLocal();
+            System.Diagnostics.Process.Start("https://maps.google.com/?q=" + local.ToTexto());
         }
     }
 }

@@ -46,9 +46,8 @@ namespace MEGAGENDA.MODEL
 
             SQLiteDataReader reader = Database.DoReader(sql);
             if (reader != null && reader.HasRows)
-            {
-                cabines.Add(Database.ObjToString(reader[0]));
-            }
+                while (reader.Read())
+                    cabines.Add(Database.ObjToString(reader["Cabine_Nome"]));
             return cabines;
         }
 
@@ -67,17 +66,20 @@ namespace MEGAGENDA.MODEL
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@nome", cabine.nome);
 
-            Database.DoScalar(sql, parameters);
-            Debug.Log("CABINE ADICIONADA: " + cabine.nome);
-            return 0;
+            int result = Database.DoScalar(sql, parameters);
+            if (result > 0)
+                Debug.Log("CABINE ADICIONADA: " + cabine.nome);
+            else
+                Debug.Log("CABINE NÃO ADICIONADA: " + cabine.nome);
+            return result;
         }
 
-        public static int Delete(Cabine cabine)
+        public static int Delete(string nome)
         {
             string sql = $"DELETE FROM Cabine WHERE Cabine_Nome = @nome";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@nome", cabine.nome);
+            parameters.Add("@nome", nome);
 
             return Database.DoNonQuery(sql, parameters, -606);
         }

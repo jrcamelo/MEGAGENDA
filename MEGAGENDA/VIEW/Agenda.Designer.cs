@@ -139,9 +139,9 @@
             this.filtroPossiveisCheck.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filtroPossiveisCheck.Location = new System.Drawing.Point(18, 109);
             this.filtroPossiveisCheck.Name = "filtroPossiveisCheck";
-            this.filtroPossiveisCheck.Size = new System.Drawing.Size(150, 25);
+            this.filtroPossiveisCheck.Size = new System.Drawing.Size(210, 25);
             this.filtroPossiveisCheck.TabIndex = 142;
-            this.filtroPossiveisCheck.Text = "Eventos Possíveis";
+            this.filtroPossiveisCheck.Text = "Eventos Não Confirmados";
             this.filtroPossiveisCheck.UseVisualStyleBackColor = true;
             this.filtroPossiveisCheck.CheckedChanged += new System.EventHandler(this.filtroPossiveisCheck_CheckedChanged);
             // 

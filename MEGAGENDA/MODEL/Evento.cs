@@ -1,6 +1,7 @@
 ﻿using MEGAGENDA.CONTROLLER;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,7 @@ namespace MEGAGENDA.MODEL
         public double entrada;
         public bool entradaQuitada = false;
 
-        public string equipe;
+        public List<string> equipe;
         public string cabine;
 
         public Endereco local;
@@ -34,17 +35,16 @@ namespace MEGAGENDA.MODEL
         public bool guestbook;
         public bool material = false;
 
-        public string situacao = "AGENDADO";
-
-        public string fornecedores;
+        public int situacao = 2;
+        
         public string observacoes;
 
         public List<Pagamento> pagamentos = new List<Pagamento>();
         public Pessoa cliente;
 
-        public Evento(int pid, string tipo, string protagonista, double valor, double entrada, bool entradaquitada, string equipe, string cabine,
+        public Evento(int pid, string tipo, string protagonista, double valor, double entrada, bool entradaquitada, List<string> equipe, string cabine,
             Endereco local, DateTime data, DateTime horacabine, DateTime horaevento, int duracao, bool guestbook, bool material,
-            string situacao, string fornecedores, string observacoes, List<MODEL.Pagamento> pagamentos, int id = -1, Pessoa cliente = null)
+            int situacao, string observacoes, List<Pagamento> pagamentos, int id = -1, Pessoa cliente = null)
         {
             this.ID = id;
             this.PID = pid;
@@ -62,13 +62,12 @@ namespace MEGAGENDA.MODEL
             this.guestbook = guestbook;
             this.material = material;
             this.situacao = situacao;
-            this.fornecedores = fornecedores;
             this.observacoes = observacoes;
             this.pagamentos = pagamentos;
             this.cliente = cliente;
         }        
 
-        public Evento(int id, string tipo, string situacao, DateTime data)
+        public Evento(int id, string tipo, int situacao, DateTime data)
         {
             this.ID = id;
             this.tipo = tipo;
@@ -93,7 +92,7 @@ namespace MEGAGENDA.MODEL
                     Database.ObjToDouble(reader["Valor"]),
                     Database.ObjToDouble(reader["Entrada"]),
                     bool.Parse(reader["EntradaQuitada"].ToString()),
-                    Database.GetEquipeString(Database.ObjToInt(reader["Evento_ID"])),
+                    Equipe.GetIdents(Database.ObjToInt(reader["Evento_ID"])),
                     Database.ObjToString(reader["Cabine_FK"]),
                     Endereco.Get(Database.ObjToInt(reader["Endereco_FK"])),
                     Database.ObjToDate(reader["Data"]),
@@ -102,12 +101,41 @@ namespace MEGAGENDA.MODEL
                     Database.ObjToInt(reader["Duracao"]),
                     bool.Parse(reader["Guestbook"].ToString()),
                     bool.Parse(reader["MaterialPronto"].ToString()),
-                    Database.ObjToString(reader["Situacao"]),
-                    Database.ObjToString(reader["Fornecedores"]),
+                    Database.ObjToInt(reader["Situacao"]),
                     Database.ObjToString(reader["Observacoes"]),
                     Pagamento.Get(Database.ObjToInt(reader["Evento_ID"])),
                     Database.ObjToInt(reader["Evento_ID"]));
             return evento;
+        }
+        public static Tuple<Evento, Pessoa> BuildwCliente(SQLiteDataReader reader)
+        {
+            Evento evento = null;
+            Pessoa pessoa = null;
+            if (reader != null && reader.HasRows)
+            {
+                evento = new Evento(
+                    Database.ObjToInt(reader["Pessoa_FK"]),
+                    Database.ObjToString(reader["Tipo"]),
+                    Database.ObjToString(reader["Protagonista"]),
+                    Database.ObjToDouble(reader["Valor"]),
+                    Database.ObjToDouble(reader["Entrada"]),
+                    bool.Parse(reader["EntradaQuitada"].ToString()),
+                    Equipe.GetIdents(Database.ObjToInt(reader["Evento_ID"])),
+                    Database.ObjToString(reader["Cabine_FK"]),
+                    Endereco.Get(Database.ObjToInt(reader["Endereco_FK"])),
+                    Database.ObjToDate(reader["Data"]),
+                    Database.ObjToTime(reader["horaCabine"]),
+                    Database.ObjToTime(reader["horaEvento"]),
+                    Database.ObjToInt(reader["Duracao"]),
+                    bool.Parse(reader["Guestbook"].ToString()),
+                    bool.Parse(reader["MaterialPronto"].ToString()),
+                    Database.ObjToInt(reader["Situacao"]),
+                    Database.ObjToString(reader["Observacoes"]),
+                    null,
+                    Database.ObjToInt(reader["Evento_ID"]));
+                pessoa = Pessoa.Build(reader);
+            }
+            return new Tuple<Evento, Pessoa>(evento, pessoa);
         }
 
         public static Evento Get(int id)
@@ -148,9 +176,22 @@ namespace MEGAGENDA.MODEL
                     eventos.Add(new Evento(
                         Database.ObjToInt(reader["Evento_ID"]),
                         Database.ObjToString(reader["Tipo"]),
-                        Database.ObjToString(reader["Situacao"]),
+                        Database.ObjToInt(reader["Situacao"]),
                         Database.ObjToDate(reader["Data"])));
             return eventos;
+        }
+
+        public static List<string> GetAllTipos()
+        {
+            string sql = $"SELECT Tipo FROM Evento GROUP BY Tipo ORDER BY Tipo DESC";
+
+            List<string> tipos = new List<string>();
+            SQLiteDataReader reader = Database.DoReader(sql);
+
+            if (reader != null && reader.HasRows)
+                while (reader.Read())
+                    tipos.Add(Database.ObjToString(reader["Tipo"]));
+            return tipos;
         }
 
         public static int Add(Evento ev)
@@ -172,8 +213,8 @@ namespace MEGAGENDA.MODEL
             if (ev.local.id < 1)
                 return ev.local.id;
 
-            string sql = "INSERT INTO Evento (Pessoa_FK, Endereco_FK, Cabine_FK, Tipo, Situacao, Protagonista, Valor, Entrada, EntradaQuitada, Data, Duracao, horaCabine, horaEvento, Guestbook, MaterialPronto, Fornecedores, Observacoes) ";
-            sql += $"VALUES (@pid, @local, @cabine, @tipo, @situacao, @protagonista, @valor, @entrada, @entradaquitada,  @data, @duracao, @horacabine, @horaevento, @guestbook, @material, @fornecedores, @observacoes)";
+            string sql = "INSERT INTO Evento (Pessoa_FK, Endereco_FK, Cabine_FK, Tipo, Situacao, Protagonista, Valor, Entrada, EntradaQuitada, Data, Duracao, horaCabine, horaEvento, Guestbook, MaterialPronto, Observacoes) ";
+            sql += $"VALUES (@pid, @local, @cabine, @tipo, @situacao, @protagonista, @valor, @entrada, @entradaquitada,  @data, @duracao, @horacabine, @horaevento, @guestbook, @material, @observacoes)";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@pid", ev.PID);
@@ -191,7 +232,6 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@horaevento", ev.horaEvento);
             parameters.Add("@guestbook", ev.guestbook);
             parameters.Add("@material", ev.material);
-            parameters.Add("@fornecedores", ev.fornecedores);
             parameters.Add("@observacoes", ev.observacoes);
 
             int result = Database.DoScalar(sql, parameters);
@@ -203,9 +243,9 @@ namespace MEGAGENDA.MODEL
                     Pagamento.Add(ev.pagamentos, result);
                 }
 
-                if (ev.equipe.Length > 0)
+                if (ev.equipe.Count > 0)
                 {
-                    Database.AddEquipe(ev.equipe);
+                    Equipe.Add(ev.equipe, result);
                 }
                 Debug.Log($"EVENTO ADICIONADO: {result}");
             }
@@ -218,7 +258,7 @@ namespace MEGAGENDA.MODEL
         public static int Edit(Evento ev)
         {
             string sql = "UPDATE Evento SET ";
-            sql += $"Pessoa_FK = @pid, Endereco_FK = @local, Cabine_FK = @cabine, Tipo = @tipo, Situacao = @situacao, Protagonista = @protagonista, Valor = @valor, Entrada = @entrada, EntradaQuitada = @entradaquitada, Data = @data, Duracao = @duracao, horaCabine = @horacabine, horaEvento = @horaevento, Guestbook = @guestbook, MaterialPronto = @material, Fornecedores = @fornecedores, Observacoes = @observacoes ";
+            sql += $"Pessoa_FK = @pid, Endereco_FK = @local, Cabine_FK = @cabine, Tipo = @tipo, Situacao = @situacao, Protagonista = @protagonista, Valor = @valor, Entrada = @entrada, EntradaQuitada = @entradaquitada, Data = @data, Duracao = @duracao, horaCabine = @horacabine, horaEvento = @horaevento, Guestbook = @guestbook, MaterialPronto = @material, Observacoes = @observacoes ";
             sql += $"WHERE Evento_ID = @id";
 
             int result = Endereco.Edit(ev.local);
@@ -247,7 +287,6 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@horaevento", ev.horaEvento);
             parameters.Add("@guestbook", ev.guestbook);
             parameters.Add("@material", ev.material);
-            parameters.Add("@fornecedores", ev.fornecedores);
             parameters.Add("@observacoes", ev.observacoes);
                                     
             result = Database.DoNonQuery(sql, parameters, -304);
@@ -256,11 +295,15 @@ namespace MEGAGENDA.MODEL
             else
                 Debug.Log("EVENTO FOI EDITADO");
 
+            Console.WriteLine(ev.equipe.Count);
+            Console.WriteLine(ev.equipe.Count);
+            Console.WriteLine(ev.equipe.Count);
+            Console.WriteLine(ev.equipe.Count);
+
             if (result > 0)
             {
-                Pagamento.DeleteEvento(ev.ID);
                 Pagamento.Add(ev.pagamentos, ev.ID);
-
+                Equipe.Add(ev.equipe, ev.ID);
             }
 
             return result;
@@ -280,6 +323,38 @@ namespace MEGAGENDA.MODEL
             else
                 Debug.Log($"EVENTO {id} DELETADO");
             return result;
-        }        
+        }
+
+
+
+
+        public static DataTable TableEvento(string where, Dictionary<string, object> parameters = null)
+        {
+            string subquery = "(SELECT Vencimento FROM Pagamento WHERE Evento_FK = Evento.Evento_ID AND Pago = 0 ORDER BY ROWID DESC LIMIT 1) 'Prox. Parcela'";
+            string query = $"SELECT Evento_ID as ID, Pessoa_FK as Cliente, Tipo, Data, {subquery} FROM Evento";
+            string order = " ORDER BY ROWID DESC";
+
+            return Database.SelectQuery(query + where + order, parameters);
+        }
+
+
+        public static List<Tuple<Evento, Pessoa>> GetAgendadosData(DateTime datade, DateTime dataa, int situacao = 1)
+        {
+            string sql = $"SELECT * FROM Evento JOIN Pessoa ON Pessoa_FK = Pessoa_ID ";
+            string where = " WHERE Situacao = @situacao AND Data BETWEEN @datade AND @dataa ";
+
+            Dictionary<string, object> param = new Dictionary<string, object>();
+            param.Add("@situacao", situacao);
+            param.Add("@datade", datade);
+            param.Add("@dataa", dataa);
+
+            List<Tuple<Evento, Pessoa>> eventos = new List<Tuple<Evento, Pessoa>>();
+            SQLiteDataReader reader = Database.DoReader(sql + where, param);
+
+            if (reader != null && reader.HasRows)
+                while (reader.Read())
+                    eventos.Add(BuildwCliente(reader));
+            return eventos;
+        }
     }
 }

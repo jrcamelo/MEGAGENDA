@@ -28,36 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listas));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.clienteEventoButton = new System.Windows.Forms.Button();
-            this.addClienteButton = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listas));
             this.splitClientesEventos = new System.Windows.Forms.SplitContainer();
-            this.clienteLimparButton = new System.Windows.Forms.Button();
             this.idClienteBox = new System.Windows.Forms.NumericUpDown();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.editClienteButton = new System.Windows.Forms.Button();
-            this.listarEventoButton = new System.Windows.Forms.Button();
             this.clientePesquisaBox = new System.Windows.Forms.TextBox();
-            this.clientePesquisaButton = new System.Windows.Forms.Button();
             this.clientePesquisaTipo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataClientes = new System.Windows.Forms.DataGridView();
             this.PID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.eventoLimparButton = new System.Windows.Forms.Button();
             this.idEventoBox = new System.Windows.Forms.NumericUpDown();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.editEventoButton = new System.Windows.Forms.Button();
-            this.addEventoButton = new System.Windows.Forms.Button();
-            this.editEventoClienteButton = new System.Windows.Forms.Button();
-            this.contratoButton = new System.Windows.Forms.Button();
             this.eventoPesquisaTipo = new System.Windows.Forms.ComboBox();
             this.eventoPesquisaBox = new System.Windows.Forms.TextBox();
-            this.eventoPesquisaButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataEventos = new System.Windows.Forms.DataGridView();
             this.EID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +55,18 @@
             this.splitDataPesquisa = new System.Windows.Forms.SplitContainer();
             this.pesquisaDataDe = new System.Windows.Forms.DateTimePicker();
             this.pesquisaDataA = new System.Windows.Forms.DateTimePicker();
+            this.clienteLimparButton = new System.Windows.Forms.Button();
+            this.editClienteButton = new System.Windows.Forms.Button();
+            this.addClienteButton = new System.Windows.Forms.Button();
+            this.listarEventoButton = new System.Windows.Forms.Button();
+            this.clienteEventoButton = new System.Windows.Forms.Button();
+            this.clientePesquisaButton = new System.Windows.Forms.Button();
+            this.eventoLimparButton = new System.Windows.Forms.Button();
+            this.editEventoButton = new System.Windows.Forms.Button();
+            this.addEventoButton = new System.Windows.Forms.Button();
+            this.editEventoClienteButton = new System.Windows.Forms.Button();
+            this.contratoButton = new System.Windows.Forms.Button();
+            this.eventoPesquisaButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitClientesEventos)).BeginInit();
             this.splitClientesEventos.Panel1.SuspendLayout();
             this.splitClientesEventos.Panel2.SuspendLayout();
@@ -88,38 +88,6 @@
             this.splitDataPesquisa.Panel2.SuspendLayout();
             this.splitDataPesquisa.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // clienteEventoButton
-            // 
-            this.clienteEventoButton.AutoSize = true;
-            this.clienteEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clienteEventoButton.BackgroundImage")));
-            this.clienteEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clienteEventoButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.clienteEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clienteEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clienteEventoButton.Location = new System.Drawing.Point(0, 0);
-            this.clienteEventoButton.Name = "clienteEventoButton";
-            this.clienteEventoButton.Size = new System.Drawing.Size(230, 33);
-            this.clienteEventoButton.TabIndex = 1;
-            this.clienteEventoButton.Text = "Criar Evento";
-            this.clienteEventoButton.UseVisualStyleBackColor = true;
-            this.clienteEventoButton.Click += new System.EventHandler(this.clienteEventoButton_Click);
-            // 
-            // addClienteButton
-            // 
-            this.addClienteButton.AutoSize = true;
-            this.addClienteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addClienteButton.BackgroundImage")));
-            this.addClienteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addClienteButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.addClienteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addClienteButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addClienteButton.Location = new System.Drawing.Point(0, 0);
-            this.addClienteButton.Name = "addClienteButton";
-            this.addClienteButton.Size = new System.Drawing.Size(234, 33);
-            this.addClienteButton.TabIndex = 0;
-            this.addClienteButton.Text = "Adicionar Cliente";
-            this.addClienteButton.UseVisualStyleBackColor = true;
-            this.addClienteButton.Click += new System.EventHandler(this.criarClienteButton_Click);
             // 
             // splitClientesEventos
             // 
@@ -157,30 +125,15 @@
             this.splitClientesEventos.Panel2.Controls.Add(this.dataEventos);
             this.splitClientesEventos.Panel2.Controls.Add(this.splitDataPesquisa);
             this.splitClientesEventos.Panel2MinSize = 0;
-            this.splitClientesEventos.Size = new System.Drawing.Size(1042, 635);
-            this.splitClientesEventos.SplitterDistance = 505;
+            this.splitClientesEventos.Size = new System.Drawing.Size(1088, 560);
+            this.splitClientesEventos.SplitterDistance = 527;
             this.splitClientesEventos.TabIndex = 0;
-            // 
-            // clienteLimparButton
-            // 
-            this.clienteLimparButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.clienteLimparButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
-            this.clienteLimparButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clienteLimparButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clienteLimparButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clienteLimparButton.Location = new System.Drawing.Point(429, 120);
-            this.clienteLimparButton.Name = "clienteLimparButton";
-            this.clienteLimparButton.Size = new System.Drawing.Size(55, 24);
-            this.clienteLimparButton.TabIndex = 20;
-            this.clienteLimparButton.Text = "Limpar";
-            this.clienteLimparButton.UseVisualStyleBackColor = true;
-            this.clienteLimparButton.Click += new System.EventHandler(this.clienteLimparButton_Click);
             // 
             // idClienteBox
             // 
             this.idClienteBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.idClienteBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idClienteBox.Location = new System.Drawing.Point(302, 120);
+            this.idClienteBox.Location = new System.Drawing.Point(324, 120);
             this.idClienteBox.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -216,41 +169,9 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.listarEventoButton);
             this.splitContainer2.Panel2.Controls.Add(this.clienteEventoButton);
-            this.splitContainer2.Size = new System.Drawing.Size(468, 70);
-            this.splitContainer2.SplitterDistance = 234;
+            this.splitContainer2.Size = new System.Drawing.Size(490, 70);
+            this.splitContainer2.SplitterDistance = 245;
             this.splitContainer2.TabIndex = 16;
-            // 
-            // editClienteButton
-            // 
-            this.editClienteButton.AutoSize = true;
-            this.editClienteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editClienteButton.BackgroundImage")));
-            this.editClienteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.editClienteButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.editClienteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editClienteButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editClienteButton.Location = new System.Drawing.Point(0, 37);
-            this.editClienteButton.Name = "editClienteButton";
-            this.editClienteButton.Size = new System.Drawing.Size(234, 33);
-            this.editClienteButton.TabIndex = 3;
-            this.editClienteButton.Text = "Editar Selecionado";
-            this.editClienteButton.UseVisualStyleBackColor = true;
-            this.editClienteButton.Click += new System.EventHandler(this.editClienteButton_Click);
-            // 
-            // listarEventoButton
-            // 
-            this.listarEventoButton.AutoSize = true;
-            this.listarEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("listarEventoButton.BackgroundImage")));
-            this.listarEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.listarEventoButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listarEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.listarEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listarEventoButton.Location = new System.Drawing.Point(0, 37);
-            this.listarEventoButton.Name = "listarEventoButton";
-            this.listarEventoButton.Size = new System.Drawing.Size(230, 33);
-            this.listarEventoButton.TabIndex = 3;
-            this.listarEventoButton.Text = "Listar Eventos";
-            this.listarEventoButton.UseVisualStyleBackColor = true;
-            this.listarEventoButton.Click += new System.EventHandler(this.listarEventoButton_Click);
             // 
             // clientePesquisaBox
             // 
@@ -262,23 +183,8 @@
             this.clientePesquisaBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientePesquisaBox.Location = new System.Drawing.Point(111, 119);
             this.clientePesquisaBox.Name = "clientePesquisaBox";
-            this.clientePesquisaBox.Size = new System.Drawing.Size(185, 23);
+            this.clientePesquisaBox.Size = new System.Drawing.Size(207, 23);
             this.clientePesquisaBox.TabIndex = 9;
-            // 
-            // clientePesquisaButton
-            // 
-            this.clientePesquisaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.clientePesquisaButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
-            this.clientePesquisaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clientePesquisaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clientePesquisaButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientePesquisaButton.Location = new System.Drawing.Point(348, 120);
-            this.clientePesquisaButton.Name = "clientePesquisaButton";
-            this.clientePesquisaButton.Size = new System.Drawing.Size(75, 24);
-            this.clientePesquisaButton.TabIndex = 8;
-            this.clientePesquisaButton.Text = "Pesquisar";
-            this.clientePesquisaButton.UseVisualStyleBackColor = true;
-            this.clientePesquisaButton.Click += new System.EventHandler(this.clientePesquisaButton_Click);
             // 
             // clientePesquisaTipo
             // 
@@ -306,7 +212,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(483, 17);
+            this.label2.Size = new System.Drawing.Size(505, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Clientes";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -347,7 +253,7 @@
             this.dataClientes.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataClientes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataClientes.Size = new System.Drawing.Size(467, 474);
+            this.dataClientes.Size = new System.Drawing.Size(489, 399);
             this.dataClientes.TabIndex = 0;
             this.dataClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataClientes_CellDoubleClick);
             // 
@@ -374,26 +280,11 @@
             this.Documento.Name = "Documento";
             this.Documento.ReadOnly = true;
             // 
-            // eventoLimparButton
-            // 
-            this.eventoLimparButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.eventoLimparButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
-            this.eventoLimparButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.eventoLimparButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eventoLimparButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventoLimparButton.Location = new System.Drawing.Point(451, 120);
-            this.eventoLimparButton.Name = "eventoLimparButton";
-            this.eventoLimparButton.Size = new System.Drawing.Size(55, 24);
-            this.eventoLimparButton.TabIndex = 21;
-            this.eventoLimparButton.Text = "Limpar";
-            this.eventoLimparButton.UseVisualStyleBackColor = true;
-            this.eventoLimparButton.Click += new System.EventHandler(this.eventoLimparButton_Click);
-            // 
             // idEventoBox
             // 
             this.idEventoBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.idEventoBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idEventoBox.Location = new System.Drawing.Point(316, 120);
+            this.idEventoBox.Location = new System.Drawing.Point(340, 120);
             this.idEventoBox.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -430,73 +321,9 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.editEventoClienteButton);
             this.splitContainer1.Panel2.Controls.Add(this.contratoButton);
-            this.splitContainer1.Size = new System.Drawing.Size(486, 69);
-            this.splitContainer1.SplitterDistance = 243;
+            this.splitContainer1.Size = new System.Drawing.Size(510, 69);
+            this.splitContainer1.SplitterDistance = 255;
             this.splitContainer1.TabIndex = 15;
-            // 
-            // editEventoButton
-            // 
-            this.editEventoButton.AutoSize = true;
-            this.editEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editEventoButton.BackgroundImage")));
-            this.editEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.editEventoButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.editEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editEventoButton.Location = new System.Drawing.Point(0, 36);
-            this.editEventoButton.Name = "editEventoButton";
-            this.editEventoButton.Size = new System.Drawing.Size(243, 33);
-            this.editEventoButton.TabIndex = 3;
-            this.editEventoButton.Text = "Editar Selecionado";
-            this.editEventoButton.UseVisualStyleBackColor = true;
-            this.editEventoButton.Click += new System.EventHandler(this.editEventoButton_Click);
-            // 
-            // addEventoButton
-            // 
-            this.addEventoButton.AutoSize = true;
-            this.addEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addEventoButton.BackgroundImage")));
-            this.addEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addEventoButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.addEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEventoButton.Location = new System.Drawing.Point(0, 0);
-            this.addEventoButton.Name = "addEventoButton";
-            this.addEventoButton.Size = new System.Drawing.Size(243, 33);
-            this.addEventoButton.TabIndex = 2;
-            this.addEventoButton.Text = "Adicionar Evento";
-            this.addEventoButton.UseVisualStyleBackColor = true;
-            this.addEventoButton.Click += new System.EventHandler(this.addEventoButton_Click);
-            // 
-            // editEventoClienteButton
-            // 
-            this.editEventoClienteButton.AutoSize = true;
-            this.editEventoClienteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editEventoClienteButton.BackgroundImage")));
-            this.editEventoClienteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.editEventoClienteButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.editEventoClienteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editEventoClienteButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editEventoClienteButton.Location = new System.Drawing.Point(0, 36);
-            this.editEventoClienteButton.Name = "editEventoClienteButton";
-            this.editEventoClienteButton.Size = new System.Drawing.Size(239, 33);
-            this.editEventoClienteButton.TabIndex = 2;
-            this.editEventoClienteButton.Text = "Editar Cliente do Evento";
-            this.editEventoClienteButton.UseVisualStyleBackColor = true;
-            this.editEventoClienteButton.Click += new System.EventHandler(this.editEventoClienteButton_Click);
-            // 
-            // contratoButton
-            // 
-            this.contratoButton.AutoSize = true;
-            this.contratoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contratoButton.BackgroundImage")));
-            this.contratoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.contratoButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.contratoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.contratoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contratoButton.Location = new System.Drawing.Point(0, 0);
-            this.contratoButton.Name = "contratoButton";
-            this.contratoButton.Size = new System.Drawing.Size(239, 33);
-            this.contratoButton.TabIndex = 1;
-            this.contratoButton.Text = "Fazer Contrato";
-            this.contratoButton.UseVisualStyleBackColor = true;
-            this.contratoButton.Click += new System.EventHandler(this.contratoButton_Click);
             // 
             // eventoPesquisaTipo
             // 
@@ -526,23 +353,8 @@
             this.eventoPesquisaBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventoPesquisaBox.Location = new System.Drawing.Point(114, 119);
             this.eventoPesquisaBox.Name = "eventoPesquisaBox";
-            this.eventoPesquisaBox.Size = new System.Drawing.Size(196, 23);
+            this.eventoPesquisaBox.Size = new System.Drawing.Size(220, 23);
             this.eventoPesquisaBox.TabIndex = 12;
-            // 
-            // eventoPesquisaButton
-            // 
-            this.eventoPesquisaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.eventoPesquisaButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
-            this.eventoPesquisaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.eventoPesquisaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eventoPesquisaButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventoPesquisaButton.Location = new System.Drawing.Point(370, 120);
-            this.eventoPesquisaButton.Name = "eventoPesquisaButton";
-            this.eventoPesquisaButton.Size = new System.Drawing.Size(75, 24);
-            this.eventoPesquisaButton.TabIndex = 11;
-            this.eventoPesquisaButton.Text = "Pesquisar";
-            this.eventoPesquisaButton.UseVisualStyleBackColor = true;
-            this.eventoPesquisaButton.Click += new System.EventHandler(this.eventoPesquisaButton_Click);
             // 
             // label1
             // 
@@ -553,7 +365,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
             this.label1.Location = new System.Drawing.Point(16, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(505, 17);
+            this.label1.Size = new System.Drawing.Size(529, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Eventos";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -588,7 +400,7 @@
             this.dataEventos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataEventos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataEventos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataEventos.Size = new System.Drawing.Size(486, 474);
+            this.dataEventos.Size = new System.Drawing.Size(510, 399);
             this.dataEventos.TabIndex = 1;
             this.dataEventos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataEventos_CellDoubleClick);
             // 
@@ -640,8 +452,8 @@
             // splitDataPesquisa.Panel2
             // 
             this.splitDataPesquisa.Panel2.Controls.Add(this.pesquisaDataA);
-            this.splitDataPesquisa.Size = new System.Drawing.Size(196, 23);
-            this.splitDataPesquisa.SplitterDistance = 96;
+            this.splitDataPesquisa.Size = new System.Drawing.Size(220, 23);
+            this.splitDataPesquisa.SplitterDistance = 107;
             this.splitDataPesquisa.TabIndex = 16;
             // 
             // pesquisaDataDe
@@ -653,7 +465,7 @@
             this.pesquisaDataDe.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.pesquisaDataDe.Location = new System.Drawing.Point(0, 0);
             this.pesquisaDataDe.Name = "pesquisaDataDe";
-            this.pesquisaDataDe.Size = new System.Drawing.Size(96, 23);
+            this.pesquisaDataDe.Size = new System.Drawing.Size(107, 23);
             this.pesquisaDataDe.TabIndex = 13;
             this.pesquisaDataDe.ValueChanged += new System.EventHandler(this.pesquisaDataDe_ValueChanged);
             // 
@@ -666,15 +478,203 @@
             this.pesquisaDataA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.pesquisaDataA.Location = new System.Drawing.Point(0, 0);
             this.pesquisaDataA.Name = "pesquisaDataA";
-            this.pesquisaDataA.Size = new System.Drawing.Size(96, 23);
+            this.pesquisaDataA.Size = new System.Drawing.Size(109, 23);
             this.pesquisaDataA.TabIndex = 14;
             this.pesquisaDataA.ValueChanged += new System.EventHandler(this.pesquisaDataA_ValueChanged);
+            // 
+            // clienteLimparButton
+            // 
+            this.clienteLimparButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clienteLimparButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
+            this.clienteLimparButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clienteLimparButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clienteLimparButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clienteLimparButton.Location = new System.Drawing.Point(451, 120);
+            this.clienteLimparButton.Name = "clienteLimparButton";
+            this.clienteLimparButton.Size = new System.Drawing.Size(55, 24);
+            this.clienteLimparButton.TabIndex = 20;
+            this.clienteLimparButton.Text = "Limpar";
+            this.clienteLimparButton.UseVisualStyleBackColor = true;
+            this.clienteLimparButton.Click += new System.EventHandler(this.clienteLimparButton_Click);
+            // 
+            // editClienteButton
+            // 
+            this.editClienteButton.AutoSize = true;
+            this.editClienteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editClienteButton.BackgroundImage")));
+            this.editClienteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editClienteButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.editClienteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editClienteButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editClienteButton.Location = new System.Drawing.Point(0, 37);
+            this.editClienteButton.Name = "editClienteButton";
+            this.editClienteButton.Size = new System.Drawing.Size(245, 33);
+            this.editClienteButton.TabIndex = 3;
+            this.editClienteButton.Text = "Editar Selecionado";
+            this.editClienteButton.UseVisualStyleBackColor = true;
+            this.editClienteButton.Click += new System.EventHandler(this.editClienteButton_Click);
+            // 
+            // addClienteButton
+            // 
+            this.addClienteButton.AutoSize = true;
+            this.addClienteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addClienteButton.BackgroundImage")));
+            this.addClienteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addClienteButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addClienteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addClienteButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addClienteButton.Location = new System.Drawing.Point(0, 0);
+            this.addClienteButton.Name = "addClienteButton";
+            this.addClienteButton.Size = new System.Drawing.Size(245, 33);
+            this.addClienteButton.TabIndex = 0;
+            this.addClienteButton.Text = "Adicionar Cliente";
+            this.addClienteButton.UseVisualStyleBackColor = true;
+            this.addClienteButton.Click += new System.EventHandler(this.criarClienteButton_Click);
+            // 
+            // listarEventoButton
+            // 
+            this.listarEventoButton.AutoSize = true;
+            this.listarEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("listarEventoButton.BackgroundImage")));
+            this.listarEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.listarEventoButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listarEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.listarEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listarEventoButton.Location = new System.Drawing.Point(0, 37);
+            this.listarEventoButton.Name = "listarEventoButton";
+            this.listarEventoButton.Size = new System.Drawing.Size(241, 33);
+            this.listarEventoButton.TabIndex = 3;
+            this.listarEventoButton.Text = "Listar Eventos";
+            this.listarEventoButton.UseVisualStyleBackColor = true;
+            this.listarEventoButton.Click += new System.EventHandler(this.listarEventoButton_Click);
+            // 
+            // clienteEventoButton
+            // 
+            this.clienteEventoButton.AutoSize = true;
+            this.clienteEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clienteEventoButton.BackgroundImage")));
+            this.clienteEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clienteEventoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clienteEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clienteEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clienteEventoButton.Location = new System.Drawing.Point(0, 0);
+            this.clienteEventoButton.Name = "clienteEventoButton";
+            this.clienteEventoButton.Size = new System.Drawing.Size(241, 33);
+            this.clienteEventoButton.TabIndex = 1;
+            this.clienteEventoButton.Text = "Criar Evento";
+            this.clienteEventoButton.UseVisualStyleBackColor = true;
+            this.clienteEventoButton.Click += new System.EventHandler(this.clienteEventoButton_Click);
+            // 
+            // clientePesquisaButton
+            // 
+            this.clientePesquisaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clientePesquisaButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
+            this.clientePesquisaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clientePesquisaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clientePesquisaButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clientePesquisaButton.Location = new System.Drawing.Point(370, 120);
+            this.clientePesquisaButton.Name = "clientePesquisaButton";
+            this.clientePesquisaButton.Size = new System.Drawing.Size(75, 24);
+            this.clientePesquisaButton.TabIndex = 8;
+            this.clientePesquisaButton.Text = "Pesquisar";
+            this.clientePesquisaButton.UseVisualStyleBackColor = true;
+            this.clientePesquisaButton.Click += new System.EventHandler(this.clientePesquisaButton_Click);
+            // 
+            // eventoLimparButton
+            // 
+            this.eventoLimparButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.eventoLimparButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
+            this.eventoLimparButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.eventoLimparButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eventoLimparButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventoLimparButton.Location = new System.Drawing.Point(475, 120);
+            this.eventoLimparButton.Name = "eventoLimparButton";
+            this.eventoLimparButton.Size = new System.Drawing.Size(55, 24);
+            this.eventoLimparButton.TabIndex = 21;
+            this.eventoLimparButton.Text = "Limpar";
+            this.eventoLimparButton.UseVisualStyleBackColor = true;
+            this.eventoLimparButton.Click += new System.EventHandler(this.eventoLimparButton_Click);
+            // 
+            // editEventoButton
+            // 
+            this.editEventoButton.AutoSize = true;
+            this.editEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editEventoButton.BackgroundImage")));
+            this.editEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editEventoButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.editEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editEventoButton.Location = new System.Drawing.Point(0, 36);
+            this.editEventoButton.Name = "editEventoButton";
+            this.editEventoButton.Size = new System.Drawing.Size(255, 33);
+            this.editEventoButton.TabIndex = 3;
+            this.editEventoButton.Text = "Editar Selecionado";
+            this.editEventoButton.UseVisualStyleBackColor = true;
+            this.editEventoButton.Click += new System.EventHandler(this.editEventoButton_Click);
+            // 
+            // addEventoButton
+            // 
+            this.addEventoButton.AutoSize = true;
+            this.addEventoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addEventoButton.BackgroundImage")));
+            this.addEventoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addEventoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addEventoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addEventoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addEventoButton.Location = new System.Drawing.Point(0, 0);
+            this.addEventoButton.Name = "addEventoButton";
+            this.addEventoButton.Size = new System.Drawing.Size(255, 33);
+            this.addEventoButton.TabIndex = 2;
+            this.addEventoButton.Text = "Adicionar Evento";
+            this.addEventoButton.UseVisualStyleBackColor = true;
+            this.addEventoButton.Click += new System.EventHandler(this.addEventoButton_Click);
+            // 
+            // editEventoClienteButton
+            // 
+            this.editEventoClienteButton.AutoSize = true;
+            this.editEventoClienteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("editEventoClienteButton.BackgroundImage")));
+            this.editEventoClienteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editEventoClienteButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.editEventoClienteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editEventoClienteButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editEventoClienteButton.Location = new System.Drawing.Point(0, 36);
+            this.editEventoClienteButton.Name = "editEventoClienteButton";
+            this.editEventoClienteButton.Size = new System.Drawing.Size(251, 33);
+            this.editEventoClienteButton.TabIndex = 2;
+            this.editEventoClienteButton.Text = "Editar Cliente do Evento";
+            this.editEventoClienteButton.UseVisualStyleBackColor = true;
+            this.editEventoClienteButton.Click += new System.EventHandler(this.editEventoClienteButton_Click);
+            // 
+            // contratoButton
+            // 
+            this.contratoButton.AutoSize = true;
+            this.contratoButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("contratoButton.BackgroundImage")));
+            this.contratoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.contratoButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.contratoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.contratoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contratoButton.Location = new System.Drawing.Point(0, 0);
+            this.contratoButton.Name = "contratoButton";
+            this.contratoButton.Size = new System.Drawing.Size(251, 33);
+            this.contratoButton.TabIndex = 1;
+            this.contratoButton.Text = "Fazer Contrato";
+            this.contratoButton.UseVisualStyleBackColor = true;
+            this.contratoButton.Click += new System.EventHandler(this.contratoButton_Click);
+            // 
+            // eventoPesquisaButton
+            // 
+            this.eventoPesquisaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.eventoPesquisaButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
+            this.eventoPesquisaButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.eventoPesquisaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eventoPesquisaButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventoPesquisaButton.Location = new System.Drawing.Point(394, 120);
+            this.eventoPesquisaButton.Name = "eventoPesquisaButton";
+            this.eventoPesquisaButton.Size = new System.Drawing.Size(75, 24);
+            this.eventoPesquisaButton.TabIndex = 11;
+            this.eventoPesquisaButton.Text = "Pesquisar";
+            this.eventoPesquisaButton.UseVisualStyleBackColor = true;
+            this.eventoPesquisaButton.Click += new System.EventHandler(this.eventoPesquisaButton_Click);
             // 
             // Listas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1042, 635);
+            this.ClientSize = new System.Drawing.Size(1088, 560);
             this.ControlBox = false;
             this.Controls.Add(this.splitClientesEventos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

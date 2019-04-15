@@ -17,9 +17,7 @@ namespace MEGAGENDA.CONTROLLER
         //Classe principal que lê e mantém as informações dos clientes, eventos e pagamentos
 
         public static Dictionary<string, Modelo> Modelos = new Dictionary<string, Modelo>();
-
-        public static Dictionary<string, Funcionario> Funcionarios = new Dictionary<string, Funcionario>() { { "Dono", new Funcionario("Dono", "Nido") } };
-        
+                
         private static SQLiteConnection Lite;
 
         private static string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"MEGAGENDA\");
@@ -62,8 +60,10 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Pessoa_ID INTEGER  PRIMARY KEY AUTOINCREMENT, "
                 + "    Endereco_FK INTEGER  REFERENCES Endereco (Endereco_ID), "
                 + "    Nome VARCHAR(64) NOT NULL, "
+                + "    Tipo VARCHAR(12) DEFAULT('CLIENTE'), "
                 + "    isJuridica BOOLEAN DEFAULT(0), "
-                + "    RG VARCHAR(24), CPFCNPJ VARCHAR(24), "
+                + "    RG VARCHAR(24), "
+                + "    CPFCNPJ VARCHAR(24), "
                 + "    Representante VARCHAR(64), "
                 + "    Genero CHAR NOT NULL, "
                 + "    Telefone  VARCHAR(36), "
@@ -80,7 +80,8 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Pessoa_FK INTEGER  NOT NULL REFERENCES Pessoa (Pessoa_ID) ON DELETE CASCADE, "
                 + "    Endereco_FK INTEGER  REFERENCES Endereco(Endereco_ID) NOT NULL, "
                 + "    Cabine_FK  VARCHAR(24) REFERENCES Cabine(Cabine_Nome), "
-                + "    Tipo VARCHAR(32) NOT NULL, Situacao   VARCHAR(16) DEFAULT AGENDADO, "
+                + "    Tipo VARCHAR(32) NOT NULL, "
+                + "    Situacao   INTEGER DEFAULT 0, "
                 + "    Protagonista   VARCHAR(64), "
                 + "    Valor DOUBLE   NOT NULL, "
                 + "    Entrada DOUBLE, "
@@ -91,7 +92,6 @@ namespace MEGAGENDA.CONTROLLER
                 + "    horaEvento TIME NOT NULL, "
                 + "    Guestbook BOOLEAN  DEFAULT(0), "
                 + "    MaterialPronto BOOLEAN  DEFAULT(0), "
-                + "    Fornecedores VARCHAR(64), "
                 + "    Observacoes TEXT);",
 
                 "CREATE TABLE IF NOT EXISTS Pagamento("
@@ -103,23 +103,25 @@ namespace MEGAGENDA.CONTROLLER
                 + "    PRIMARY KEY(Evento_FK, Parcela));",
 
                 "CREATE TABLE IF NOT EXISTS Funcionario("
-                + "    Funcionario_Nome VARCHAR (24) PRIMARY KEY);",
+                + "    Funcionario_ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + "    Identificador VARCHAR(36) UNIQUE NOT NULL, "
+                + "    Pessoa_FK INTEGER UNIQUE NOT NULL REFERENCES Pessoa (Pessoa_ID) ON DELETE CASCADE);",
 
                 "CREATE TABLE IF NOT EXISTS Equipe("
                 + "    Evento_FK INTEGER REFERENCES Evento (Evento_ID) ON DELETE CASCADE, "
-                + "    Funcionario_FK VARCHAR REFERENCES Funcionario(Funcionario_Nome), "
-                + "    Data DATE NOT NULL, "
+                + "    Funcionario_FK INTEGER REFERENCES Funcionario(Funcionario_ID), "
                 + "    PRIMARY KEY(Evento_FK, Funcionario_FK));",
 
                 "CREATE TABLE IF NOT EXISTS Modelo("
-                + "    Modelo_Nome VARCHAR (24) PRIMARY KEY);",
+                + "    Modelo_ID INTEGER  PRIMARY KEY AUTOINCREMENT, "
+                + "    Nome VARCHAR(32) UNIQUE NOT NULL);",
 
                 "CREATE TABLE IF NOT EXISTS Clausula("
-                + "    Modelo_Nome VARCHAR (24) REFERENCES Modelo(Modelo_Nome) ON DELETE CASCADE, "
+                + "    Modelo_FK INTEGER REFERENCES Modelo(Modelo_ID) ON DELETE CASCADE, "
                 + "    Secao VARCHAR(24) NOT NULL, "
-                + "    Numero  INTEGER, "
+                + "    Numero  INTEGER NOT NULL, "
                 + "    Texto TEXT, "
-                + "    PRIMARY KEY(Modelo_Nome ASC, Secao, Numero));"
+                + "    PRIMARY KEY(Modelo_FK ASC, Secao, Numero));"
             };
 
             try
@@ -187,10 +189,10 @@ namespace MEGAGENDA.CONTROLLER
             return datatable;
         }
 
-        public static int DoScalar(string sql, Dictionary<string, object> parameters = null)
+        public static int DoScalar(string sql, Dictionary<string, object> parameters = null, bool silent = false)
         {
-            if (DoNonQuery(sql, parameters) == -101)
-                return -101;
+            if (DoNonQuery(sql, parameters, -111, true) == -111)
+                return -111;
 
             try
             {
@@ -204,17 +206,19 @@ namespace MEGAGENDA.CONTROLLER
             }
             catch (SQLiteException ex)
             {
-                MessageBox.Show(ex.Message);
+                if (!silent)
+                    MessageBox.Show(ex.Message);
+                else
+                    Debug.Log(ex.Message);
             }
 
             return -21;
         }
 
-        public static SQLiteDataReader DoReader(string sql, Dictionary<string, object> parameters = null)
+        public static SQLiteDataReader DoReader(string sql, Dictionary<string, object> parameters = null, bool silent = false)
         {
             if (parameters == null)
                 parameters = new Dictionary<string, object>();
-
 
             try
             {
@@ -230,12 +234,15 @@ namespace MEGAGENDA.CONTROLLER
             }
             catch (SQLiteException ex)
             {
-                MessageBox.Show(ex.Message);
+                if (!silent)
+                    MessageBox.Show(ex.Message);
+                else
+                    Debug.Log(ex.Message);
             }
             return null;
         }
 
-        public static int DoNonQuery(string sql, Dictionary<string, object> parameters = null, int code = -101)
+        public static int DoNonQuery(string sql, Dictionary<string, object> parameters = null, int code = -101, bool silent = false)
         {
             if (parameters == null)
                 parameters = new Dictionary<string, object>();
@@ -261,13 +268,17 @@ namespace MEGAGENDA.CONTROLLER
                 }
 
                 int result = command.ExecuteNonQuery();
+                Debug.Log(result.ToString());
                 if (result == 0)
                     return code;
                 return result;
             }
             catch (SQLiteException ex)
             {
-                MessageBox.Show(ex.Message);
+                if (!silent)
+                    MessageBox.Show(ex.Message);
+                else
+                    Debug.Log(ex.Message);
             }
             return code;
         }
@@ -322,47 +333,7 @@ namespace MEGAGENDA.CONTROLLER
         }
 
         #endregion
-
-        public static Modelo GetModelo(string nome)
-        {
-            Modelo modelo = new Modelo();
-            Database.Modelos.TryGetValue(nome, out modelo);
-            if (modelo != null)
-            {
-                return ObjectExtension.CopyObject<Modelo>(modelo);
-            }
-            return null;
-        }
-
-        public static string AddModelo(Modelo modelo)
-        {
-            if (GetModelo(modelo.Nome) == null)
-            {
-                Database.Modelos[modelo.Nome] = ObjectExtension.CopyObject<Modelo>(modelo);
-                return "";
-            }
-            else
-            {
-                return "Nome de modelo já existente";
-            }
-        }
-
-        public static string EditModelo(Modelo modelo)
-        {
-            string erroNaoFatal = "";
-            if (!Database.Modelos.ContainsKey(modelo.Nome))
-            {
-                return AddModelo(modelo);
-            }
-
-            Database.Modelos[modelo.Nome] = ObjectExtension.CopyObject<Modelo>(modelo);
-            return erroNaoFatal;
-        }
-
-        public static List<string> GetListaModelos()
-        {
-            return Database.Modelos.Keys.ToList<string>();
-        }
+        
 
 
 

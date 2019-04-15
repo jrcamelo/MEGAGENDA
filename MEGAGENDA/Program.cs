@@ -14,9 +14,16 @@ namespace MEGAGENDA
         [STAThread]
         static void Main()
         {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(MyHandler);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new VIEW.FormPrincipal());
+        }
+        static void MyHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            MODEL.Debug.Log(e.ToString());
         }
     }
 }

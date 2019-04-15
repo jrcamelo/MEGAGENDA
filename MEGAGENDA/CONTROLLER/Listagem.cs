@@ -5,18 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MEGAGENDA.VIEW;
+using MEGAGENDA.MODEL;
 
 namespace MEGAGENDA.CONTROLLER
 {
     public static class Listagem
     {
-        public static DataTable TableCliente(string where, Dictionary<string, object> parameters = null)
+        public static DataTable TableCliente(string conditions, Dictionary<string, object> parameters = null)
         {
-            string subquery = "(SELECT Evento_ID FROM Evento WHERE Pessoa_FK = Pessoa.Pessoa_ID ORDER BY ROWID DESC LIMIT 1) 'Último Evento'";
-            string query = $"SELECT Pessoa_ID as ID, Nome, CPFCNPJ as 'CPF/CNPJ', {subquery} FROM Pessoa";
-            string order = " ORDER BY ROWID DESC";
-
-            return Database.SelectQuery(query + where + order, parameters);
+            return Pessoa.TableCliente(conditions, parameters);
         }
 
         public static Dictionary<string, object> FazerParamsCliente(decimal idCliente, string clientePesquisa)
@@ -34,25 +31,23 @@ namespace MEGAGENDA.CONTROLLER
             switch (tipoPesquisa)
             {
                 case "ID":
-                    return " WHERE Pessoa_ID = @id";
+                    return " AND Pessoa_ID = @id";
                 case "Nome":
-                    return " WHERE Nome = @nome OR Representante = @nome";
+                    return " AND Nome = @nome OR Representante = @nome";
                 case "CPF/CNPJ":
-                    return " WHERE CPFCNPJ LIKE '%'||@cpfcnpj||'%'";
+                    return " AND CPFCNPJ LIKE '%'||@cpfcnpj||'%'";
                 case "Anotações":
-                    return " WHERE Anotacoes LIKE '%'||@anotacoes||'%'";
+                    return " AND Anotacoes LIKE '%'||@anotacoes||'%'";
                 default:
                     break;
             }
             return "";
         }
+
+
         public static DataTable TableEvento(string where, Dictionary<string, object> parameters = null)
         {
-            string subquery = "(SELECT Vencimento FROM Pagamento WHERE Evento_FK = Evento.Evento_ID AND Pago = 0 ORDER BY ROWID DESC LIMIT 1) 'Prox. Parcela'";
-            string query = $"SELECT Evento_ID as ID, Pessoa_FK as Cliente, Tipo, Data, {subquery} FROM Evento";
-            string order = " ORDER BY ROWID DESC";
-
-            return Database.SelectQuery(query + where + order, parameters);
+            return Evento.TableEvento(where, parameters);
         }
 
         public static Dictionary<string, object> FazerParamsEvento(decimal idEvento, DateTime dataDe, DateTime dataA, string eventoPesquisa)
@@ -85,6 +80,6 @@ namespace MEGAGENDA.CONTROLLER
                     break;
             }
             return "";
-        }
+        }        
     }
 }

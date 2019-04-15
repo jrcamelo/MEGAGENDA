@@ -51,7 +51,13 @@ namespace MEGAGENDA.MODEL
 
         public Endereco(string endereco)
         {
+            rua = endereco;
             manual = endereco;
+        }
+
+        public Endereco(int id)
+        {
+            this.id = id;
         }
 
         public void Padronizar()

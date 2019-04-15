@@ -27,6 +27,7 @@ namespace MEGAGENDA.VIEW
             int idtemp = 0;
             idLabel.Text = idtemp.ToString();
             editando = false;
+            deletarButton.Enabled = false;
 
             Iniciar();
         }
@@ -79,6 +80,7 @@ namespace MEGAGENDA.VIEW
         private void Iniciar()
         {
             idLabel.Text = ID.ToString();
+            
             representanteLabel.Show();
             representanteLabel.Text = "Anotações";
             anotacoesLabel.Hide();
@@ -210,10 +212,7 @@ namespace MEGAGENDA.VIEW
 
         private void rgBox_TextChanged(object sender, EventArgs e)
         {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(rgBox.Text, "[0-9]"))
-            {
-                rgBox.Text = "";
-            }
+
         }
 
         private Pessoa fazerCliente()
@@ -277,11 +276,6 @@ namespace MEGAGENDA.VIEW
             }
         }
 
-        private void cpfBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void EditarCliente_FormClosing(object sender, FormClosingEventArgs e)
         {
             AntesDispose();
@@ -290,6 +284,23 @@ namespace MEGAGENDA.VIEW
         private void AntesDispose()
         {
             Telas.getListas().PreencherCliente();
+        }
+
+        private void cancelarButton_Click(object sender, EventArgs e)
+        {
+            AntesDispose();
+            this.Dispose();
+        }
+
+        Color badcolor = Color.FromArgb(255, 192, 192);
+        Color goodcolor = Color.FromArgb(250, 248, 255);
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox box = (TextBox)sender;
+            if (box.Text == "")
+                box.BackColor = badcolor;
+            else
+                box.BackColor = goodcolor;
         }
     }
 }

@@ -45,11 +45,14 @@ namespace MEGAGENDA.VIEW
 
             arquivoBox.Items.Add("Padrão");
             arquivoBox.SelectedItem = "Padrão";
+
+            foreach (KeyValuePair<string, string> word in Editor.Preparar_Keywords())
+                keywordsList.Items.Add(word.Key);
         }
 
         private void LerModelos()
         {
-            foreach (string nome_modelo in Database.GetListaModelos())
+            foreach (string nome_modelo in Modelo.GetNames())
             {
                 if (!modeloBox.Items.Contains(nome_modelo))
                 {
@@ -71,7 +74,7 @@ namespace MEGAGENDA.VIEW
                 modeloBox.SelectedIndex = 0;
             }
             
-            modelo = Database.GetModelo(modeloBox.SelectedItem.ToString());
+            modelo = Modelo.Get(modeloBox.SelectedItem.ToString());
             secaoComboBox.Text = "";
             clausulaNumeric.Value = 1;
 
@@ -108,13 +111,13 @@ namespace MEGAGENDA.VIEW
                     }
                     else
                     {
-                        clienteLabel.Text = "CLIENTE NÃO ENCONTRADO";
+                        clienteLabel.Text = "EVENTO NÃO ENCONTRADO";
                         criarContratoBox.Enabled = false;
                     }
                 }
                 else
                 {
-                    clienteLabel.Text = "CLIENTE NÃO ENCONTRADO";
+                    clienteLabel.Text = "EVENTO NÃO ENCONTRADO";
                     criarContratoBox.Enabled = false;
                 }
             }
@@ -140,19 +143,16 @@ namespace MEGAGENDA.VIEW
         private void novoModeloButton_Click(object sender, EventArgs e)
         {
             SalvarClausula();
-            Modelo novo_modelo = null;
-            novo_modelo = modelo.Clone();
-            modelo = null;
-            modelo = novo_modelo;
-
-            novo_modelo.Nome = novoModeloBox.Text;
-            string error = Database.AddModelo(novo_modelo);
-            if (error != "")
+            Modelo novo_modelo = new Modelo(novoModeloBox.Text, modelo.Clausulas);
+            int error = Modelo.Add(novo_modelo);
+            if (error < 0)
             {
-                MessageBox.Show(error);
+                MessageBox.Show(error.ToString());
             }
             else
             {
+                MessageBox.Show(novoModeloBox.Text + " criado com sucesso!");
+
                 LerModelos();
                 modeloBox.SelectedItem = novoModeloBox.Text;
                 Carregar_Modelo();
@@ -186,11 +186,11 @@ namespace MEGAGENDA.VIEW
 
                 if (MessageBox.Show("Você tem certeza que deseja sobrescrever este modelo?", "Sobrescrever", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string erro = Database.EditModelo(modelo);
-                    if (erro != "")
-                    {
-                        MessageBox.Show(erro);
-                    }
+                    int erro = Modelo.Update(modelo);
+                    if (erro < 0)
+                        MessageBox.Show(erro.ToString());
+                    else
+                        MessageBox.Show("Modelo atualizado com sucesso");
                 }
             }
         }

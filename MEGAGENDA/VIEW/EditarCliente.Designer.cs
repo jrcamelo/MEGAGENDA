@@ -82,6 +82,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cnpjBox = new System.Windows.Forms.TextBox();
             this.eidLabel = new System.Windows.Forms.Label();
+            this.cancelarButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.cpfcnpjPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -125,7 +126,7 @@
             this.deletarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deletarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletarButton.ForeColor = System.Drawing.Color.DarkRed;
-            this.deletarButton.Location = new System.Drawing.Point(508, 252);
+            this.deletarButton.Location = new System.Drawing.Point(12, 252);
             this.deletarButton.Name = "deletarButton";
             this.deletarButton.Size = new System.Drawing.Size(105, 36);
             this.deletarButton.TabIndex = 139;
@@ -142,7 +143,7 @@
             this.anotacoesBox.Multiline = true;
             this.anotacoesBox.Name = "anotacoesBox";
             this.anotacoesBox.Size = new System.Drawing.Size(236, 71);
-            this.anotacoesBox.TabIndex = 137;
+            this.anotacoesBox.TabIndex = 19;
             // 
             // anotacoesLabel
             // 
@@ -163,7 +164,8 @@
             this.compBox.Location = new System.Drawing.Point(25, 211);
             this.compBox.Name = "compBox";
             this.compBox.Size = new System.Drawing.Size(241, 18);
-            this.compBox.TabIndex = 134;
+            this.compBox.TabIndex = 14;
+            this.compBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label21
             // 
@@ -187,6 +189,7 @@
             this.ufBox.Size = new System.Drawing.Size(17, 18);
             this.ufBox.TabIndex = 132;
             this.ufBox.Text = "PE";
+            this.ufBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label19
             // 
@@ -200,14 +203,15 @@
             // 
             // bairroBox
             // 
-            this.bairroBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.bairroBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bairroBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bairroBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bairroBox.HideSelection = false;
             this.bairroBox.Location = new System.Drawing.Point(25, 168);
             this.bairroBox.Name = "bairroBox";
             this.bairroBox.Size = new System.Drawing.Size(125, 18);
-            this.bairroBox.TabIndex = 130;
+            this.bairroBox.TabIndex = 12;
+            this.bairroBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label18
             // 
@@ -221,14 +225,15 @@
             // 
             // cidadeBox
             // 
-            this.cidadeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.cidadeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.cidadeBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cidadeBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cidadeBox.HideSelection = false;
             this.cidadeBox.Location = new System.Drawing.Point(156, 168);
             this.cidadeBox.Name = "cidadeBox";
             this.cidadeBox.Size = new System.Drawing.Size(87, 18);
-            this.cidadeBox.TabIndex = 128;
+            this.cidadeBox.TabIndex = 13;
+            this.cidadeBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label13
             // 
@@ -242,14 +247,15 @@
             // 
             // numeroBox
             // 
-            this.numeroBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.numeroBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.numeroBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.numeroBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numeroBox.HideSelection = false;
             this.numeroBox.Location = new System.Drawing.Point(224, 122);
             this.numeroBox.Name = "numeroBox";
             this.numeroBox.Size = new System.Drawing.Size(44, 18);
-            this.numeroBox.TabIndex = 126;
+            this.numeroBox.TabIndex = 11;
+            this.numeroBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label20
             // 
@@ -263,14 +269,15 @@
             // 
             // ruaBox
             // 
-            this.ruaBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.ruaBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ruaBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ruaBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ruaBox.HideSelection = false;
             this.ruaBox.Location = new System.Drawing.Point(25, 122);
             this.ruaBox.Name = "ruaBox";
             this.ruaBox.Size = new System.Drawing.Size(193, 18);
-            this.ruaBox.TabIndex = 124;
+            this.ruaBox.TabIndex = 10;
+            this.ruaBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label23
             // 
@@ -294,13 +301,14 @@
             // 
             // nomeBox
             // 
-            this.nomeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.nomeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.nomeBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.nomeBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nomeBox.Location = new System.Drawing.Point(24, 41);
             this.nomeBox.Name = "nomeBox";
             this.nomeBox.Size = new System.Drawing.Size(249, 18);
-            this.nomeBox.TabIndex = 117;
+            this.nomeBox.TabIndex = 0;
+            this.nomeBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label25
             // 
@@ -374,7 +382,8 @@
             this.telefoneBox.Location = new System.Drawing.Point(302, 175);
             this.telefoneBox.Name = "telefoneBox";
             this.telefoneBox.Size = new System.Drawing.Size(96, 18);
-            this.telefoneBox.TabIndex = 150;
+            this.telefoneBox.TabIndex = 15;
+            this.telefoneBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label3
             // 
@@ -395,7 +404,8 @@
             this.emailBox.Location = new System.Drawing.Point(404, 175);
             this.emailBox.Name = "emailBox";
             this.emailBox.Size = new System.Drawing.Size(136, 18);
-            this.emailBox.TabIndex = 151;
+            this.emailBox.TabIndex = 16;
+            this.emailBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // faceBox
             // 
@@ -406,7 +416,8 @@
             this.faceBox.Location = new System.Drawing.Point(404, 213);
             this.faceBox.Name = "faceBox";
             this.faceBox.Size = new System.Drawing.Size(136, 18);
-            this.faceBox.TabIndex = 154;
+            this.faceBox.TabIndex = 18;
+            this.faceBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // celularBox
             // 
@@ -417,7 +428,8 @@
             this.celularBox.Location = new System.Drawing.Point(302, 213);
             this.celularBox.Name = "celularBox";
             this.celularBox.Size = new System.Drawing.Size(96, 18);
-            this.celularBox.TabIndex = 153;
+            this.celularBox.TabIndex = 17;
+            this.celularBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label4
             // 
@@ -451,14 +463,15 @@
             // 
             // representanteBox
             // 
-            this.representanteBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.representanteBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.representanteBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.representanteBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.representanteBox.Location = new System.Drawing.Point(570, 102);
             this.representanteBox.Name = "representanteBox";
             this.representanteBox.Size = new System.Drawing.Size(236, 18);
-            this.representanteBox.TabIndex = 157;
+            this.representanteBox.TabIndex = 9;
             this.representanteBox.Visible = false;
+            this.representanteBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // cpfcnpjLabel
             // 
@@ -473,25 +486,25 @@
             // 
             // cpfBox
             // 
-            this.cpfBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.cpfBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.cpfBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cpfBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpfBox.Location = new System.Drawing.Point(570, 41);
             this.cpfBox.Name = "cpfBox";
             this.cpfBox.Size = new System.Drawing.Size(112, 18);
-            this.cpfBox.TabIndex = 159;
-            this.cpfBox.TextChanged += new System.EventHandler(this.cpfBox_TextChanged);
+            this.cpfBox.TabIndex = 6;
+            this.cpfBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // rgBox
             // 
-            this.rgBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.rgBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.rgBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rgBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rgBox.Location = new System.Drawing.Point(712, 41);
             this.rgBox.Name = "rgBox";
             this.rgBox.Size = new System.Drawing.Size(94, 18);
-            this.rgBox.TabIndex = 160;
-            this.rgBox.TextChanged += new System.EventHandler(this.rgBox_TextChanged);
+            this.rgBox.TabIndex = 7;
+            this.rgBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // cpfcnpjPicture
             // 
@@ -529,7 +542,7 @@
             this.femininoBox.Location = new System.Drawing.Point(444, 95);
             this.femininoBox.Name = "femininoBox";
             this.femininoBox.Size = new System.Drawing.Size(75, 23);
-            this.femininoBox.TabIndex = 146;
+            this.femininoBox.TabIndex = 3;
             this.femininoBox.Text = "Feminino";
             this.femininoBox.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.femininoBox.UseVisualStyleBackColor = false;
@@ -549,7 +562,7 @@
             this.masculinoBox.Location = new System.Drawing.Point(323, 95);
             this.masculinoBox.Name = "masculinoBox";
             this.masculinoBox.Size = new System.Drawing.Size(75, 23);
-            this.masculinoBox.TabIndex = 145;
+            this.masculinoBox.TabIndex = 4;
             this.masculinoBox.Text = "Masculino";
             this.masculinoBox.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.masculinoBox.UseVisualStyleBackColor = false;
@@ -588,10 +601,10 @@
             this.salvarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.salvarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salvarButton.ForeColor = System.Drawing.Color.Black;
-            this.salvarButton.Location = new System.Drawing.Point(619, 252);
+            this.salvarButton.Location = new System.Drawing.Point(602, 252);
             this.salvarButton.Name = "salvarButton";
-            this.salvarButton.Size = new System.Drawing.Size(199, 36);
-            this.salvarButton.TabIndex = 138;
+            this.salvarButton.Size = new System.Drawing.Size(216, 36);
+            this.salvarButton.TabIndex = 20;
             this.salvarButton.Text = "Salvar Cliente";
             this.salvarButton.UseVisualStyleBackColor = false;
             this.salvarButton.Click += new System.EventHandler(this.salvarButton_Click);
@@ -621,7 +634,7 @@
             this.juridicaButton.Location = new System.Drawing.Point(444, 35);
             this.juridicaButton.Name = "juridicaButton";
             this.juridicaButton.Size = new System.Drawing.Size(75, 23);
-            this.juridicaButton.TabIndex = 121;
+            this.juridicaButton.TabIndex = 1;
             this.juridicaButton.Text = "JURÍDICA";
             this.juridicaButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.juridicaButton.UseVisualStyleBackColor = false;
@@ -641,7 +654,7 @@
             this.fisicaButton.Location = new System.Drawing.Point(323, 35);
             this.fisicaButton.Name = "fisicaButton";
             this.fisicaButton.Size = new System.Drawing.Size(75, 23);
-            this.fisicaButton.TabIndex = 120;
+            this.fisicaButton.TabIndex = 2;
             this.fisicaButton.Text = "FÍSICA";
             this.fisicaButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.fisicaButton.UseVisualStyleBackColor = false;
@@ -693,14 +706,15 @@
             // 
             // cnpjBox
             // 
-            this.cnpjBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.cnpjBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.cnpjBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cnpjBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cnpjBox.Location = new System.Drawing.Point(570, 40);
             this.cnpjBox.Name = "cnpjBox";
             this.cnpjBox.Size = new System.Drawing.Size(236, 18);
-            this.cnpjBox.TabIndex = 161;
+            this.cnpjBox.TabIndex = 8;
             this.cnpjBox.Visible = false;
+            this.cnpjBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // eidLabel
             // 
@@ -713,11 +727,30 @@
             this.eidLabel.TabIndex = 162;
             this.eidLabel.Text = "0";
             // 
+            // cancelarButton
+            // 
+            this.cancelarButton.AutoEllipsis = true;
+            this.cancelarButton.BackColor = System.Drawing.Color.White;
+            this.cancelarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cancelarButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.cancelarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cancelarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelarButton.ForeColor = System.Drawing.Color.Black;
+            this.cancelarButton.Location = new System.Drawing.Point(456, 252);
+            this.cancelarButton.Name = "cancelarButton";
+            this.cancelarButton.Size = new System.Drawing.Size(140, 36);
+            this.cancelarButton.TabIndex = 21;
+            this.cancelarButton.Text = "Cancelar Mudanças";
+            this.cancelarButton.UseVisualStyleBackColor = false;
+            this.cancelarButton.Click += new System.EventHandler(this.cancelarButton_Click);
+            // 
             // EditarCliente
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(834, 296);
+            this.ClientSize = new System.Drawing.Size(834, 298);
+            this.ControlBox = false;
+            this.Controls.Add(this.cancelarButton);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.eidLabel);
             this.Controls.Add(this.cpfBox);
@@ -845,5 +878,6 @@
         private System.Windows.Forms.TextBox rgBox;
         private System.Windows.Forms.TextBox cnpjBox;
         private System.Windows.Forms.Label eidLabel;
+        private System.Windows.Forms.Button cancelarButton;
     }
 }

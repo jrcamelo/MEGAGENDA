@@ -13,18 +13,33 @@ namespace MEGAGENDA.CONTROLLER
     {
         public static int MAXCLAUSULAS = Modelo.MAXCLAUSULAS;
 
-
-        public static Dictionary<string, string> Preparar_Keywords(Pessoa cliente, Evento evento)
+        public static Dictionary<string, string> Keywords = new Dictionary<string, string>
         {
+
+        };
+
+        public static Dictionary<string, string> Preparar_Keywords(Pessoa cliente = null, Evento evento = null)
+        {
+            if (cliente == null || evento == null)
+            {
+                Endereco e = new Endereco("", "", "", "", "", "");
+                cliente = new Pessoa(0, false, "", "", "", "", "M", "", "", "", "", e, "");
+                evento = new Evento(0, "", "", 0, 0, false, new List<string>(), "", e, DateTime.Today, DateTime.Today, DateTime.Today, 0, false, false, 0, "", new List<Pagamento>());
+            }
+
             return new Dictionary<string, string>
             {
-                {"[EMPRESA NOME]", Configs.Empresa_Nome},
-                {"[EMPRESA CNPJ]", Configs.Empresa_CNPJ},
-                {"[EMPRESA ENDERECO]", Configs.Empresa_Endereco},
+                {"[EMPRESA NOME]", Configs.Empresa.nome},
+                {"[EMPRESA CNPJ]", Configs.Empresa.cpfcnpj()},
+                {"[EMPRESA ENDERECO]", Configs.Empresa.endereco.manual},
                 {"[EMPRESA CUSTO_HORA_EXTRA]", Configs.Empresa_Hora_Extra},
-                {"[EMPRESA REPRESENTANTE_ENDERECO]", Configs.Empresa_Representante_Endereco},
-                {"[EMPRESA REPRESENTANTE_CPF]", Configs.Empresa_Representante_RG},
-                {"[EMPRESA REPRESENTANTE_RG]", Configs.Empresa_Representante_CPF},
+                {"[EMPRESA REPRESENTANTE_ENDERECO]", Configs.Empresa.endereco.manual},
+                {"[EMPRESA REPRESENTANTE_CPF]", Configs.Empresa.anotacoes},
+                {"[EMPRESA REPRESENTANTE_RG]", Configs.Empresa.rg},
+                {"[EMPRESA TELEFONE]", Configs.Empresa.telefone},
+                {"[EMPRESA CELULAR]", Configs.Empresa.celular},
+                {"[EMPRESA EMAIL]", Configs.Empresa.email},
+                {"[EMPRESA FACEBOOK]", Configs.Empresa.facebook},
 
                 {"[CONTRATANTE NOME]", cliente.nome},
                 {"[CONTRATANTE ENDERECO]", cliente.endereco.ToTexto()},
@@ -33,6 +48,7 @@ namespace MEGAGENDA.CONTROLLER
                 {"[CONTRATANTE TELEFONE]", cliente.telefone},
                 {"[CONTRATANTE EMAIL]", cliente.email},
 
+                {"[EVENTO ID]", evento.ID.ToString()},
                 {"[EVENTO TIPO]", evento.tipo},
                 {"[EVENTO ENDERECO]", evento.local.ToTexto()},
                 {"[EVENTO VALOR]", Conversor.EscreverExtenso((decimal) evento.valor)},
@@ -66,8 +82,8 @@ namespace MEGAGENDA.CONTROLLER
                 doc.Replace(words.Key, words.Value, false, true);
             }
 
-            doc.SaveToFile(Configs.CONTRATO_PATH + "Contrato - " + cliente.nome + ".docx", FileFormat.Docx);
-            System.Diagnostics.Process.Start(@Configs.CONTRATO_PATH + "Contrato - " + evento.ID + ".docx");
+            doc.SaveToFile(Configs.CONTRATO_PATH + $"Contrato N{evento.ID} - {cliente.nome}.docx", FileFormat.Docx);
+            System.Diagnostics.Process.Start(Configs.CONTRATO_PATH + $"Contrato N{evento.ID} - {cliente.nome}.docx");
         }
 
         public static int count = 1;

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MEGAGENDA.CONTROLLER;
+using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +12,10 @@ namespace MEGAGENDA.MODEL
     public class Modelo
     {
         public static int MAXCLAUSULAS = 10;
-
+        
         public string Nome = "";
 
         public Dictionary<string, List<String>> Clausulas = new Dictionary<string, List<string>>();
-
-        public Modelo() { }
 
         public Modelo(string nome_modelo)
         {
@@ -74,7 +74,7 @@ namespace MEGAGENDA.MODEL
             Clausulas_Contratado.Add("Fica o Contratado responsável por chegar ao local do evento com no mínimo 2 (duas) horas de antecedência para montagem dos equipamentos.");
             Clausulas_Contratado.Add("É de responsabilidade do Contratado, testar previamente o funcionamento dos equipamentos e a impressão das fotos em papel fotográfico na presença de um representante do Contratante.");
             Clausulas_Contratado.Add("Fica o Contratado responsável pela disponibilização de, no mínimo, 1 (um) monitor para auxiliarem os convidados na utilização da Cabine.");
-            
+
             Adicionar_Secao("CONTRATADO", Clausulas_Contratado);
 
             // PAGAMENTO
@@ -82,7 +82,7 @@ namespace MEGAGENDA.MODEL
 
             Clausulas_Pagamento.Add("O valor total do Contrato é de [EVENTO VALOR].");
             Clausulas_Pagamento.Add("O pagamento será realizado mediante entrada de [EVENTO VALOR_ENTRADA] no ato da assinatura deste instrumento e o saldo mediante depósito na conta bancária de Ivanildo Fernandes da Silva, Banco do Brasil, Agência 3243-3, Conta 137521-0, CPF 030.099.874-04, até dia [EVENTO DATA_LIMITE_PAGAMENTO].");
-            
+
             Adicionar_Secao("PAGAMENTO", Clausulas_Pagamento);
 
             // DESCUMPRIMENTO
@@ -94,7 +94,7 @@ namespace MEGAGENDA.MODEL
             Clausulas_Descumprimento.Add("Caso ocorra algum impedimento à realização do evento, ligado a caso fortuito ou de força maior, as partes podem: \nI – Pactuar outra data no prazo de 6(seis) meses da data inicialmente prevista, de acordo com a disponibilidade de agenda do Contratado;\nII – Pactuar nova data após 6(seis) meses da data inicialmente prevista desde que o Contratante efetue o pagamento de eventual diferença no preço dos serviços;\nIII – Proceder à devolução dos valores pagos e à reposição do que foi gasto nos preparativos.");
             Clausulas_Descumprimento.Add("Fica estabelecido entre as partes, que o preço da hora extra custará [EMPRESA CUSTO_HORA_EXTRA], devendo ser autorizada por escrito no decorrer da festa pelo Contratante e paga até 3 (três) dias após o evento.");
             Clausulas_Descumprimento.Add("Em caso de cobrança judicial, serão crescidas custas processuais e 20% de honorários advocatícios.");
-            
+
             Adicionar_Secao("DESCUMPRIMENTO", Clausulas_Descumprimento);
 
             // GERAIS
@@ -104,20 +104,164 @@ namespace MEGAGENDA.MODEL
             Clausulas_Gerais.Add("Salvo com a expressa autorização do Contratante, não pode o Contratado transferir ou subcontratar os serviços previstos neste instrumento, sob o risco de ocorrer a rescisão imediata.");
             Clausulas_Gerais.Add("O Contratante AUTORIZA o uso de imagens do evento para divulgação, por parte do Contratado, em seu site, Facebook, Instagram, Youtube e portfólios, sempre com o único fim de divulgação de seus serviços, respeitando-se a integridade e a moralidade do Contratante e de seus convidados.");
             Clausulas_Gerais.Add("As despesas adicionais, tais como taxas e locações de espaços para o evento e outros, serão de única e exclusiva responsabilidade do Contratante.");
-            
+
             Adicionar_Secao("GERAIS", Clausulas_Gerais);
 
             // FORO
             List<String> Clausulas_Foro = new List<string>(12);
 
             Clausulas_Foro.Add("Para dirimir quaisquer controvérsias oriundas do presente contrato, as partes elegem o foro da comarca de Recife/PE. ");
-            
+
             Adicionar_Secao("FORO", Clausulas_Foro);
 
         }
-        public Modelo Clone()
+        
+
+
+
+
+
+        public static Dictionary<string, List<String>> Build(SQLiteDataReader reader)
         {
-            return (Modelo) this.MemberwiseClone();
+            Dictionary<string, List<String>> clausulas = new Dictionary<string, List<string>>();
+            if (reader != null && reader.HasRows)
+                while (reader.Read())
+                {
+                    string secao = Database.ObjToString(reader["Secao"]);
+                    if (!clausulas.ContainsKey(secao))
+                        clausulas[secao] = new List<string>();
+                    clausulas[secao].Add(Database.ObjToString(reader["Texto"]));
+                }
+            return clausulas;
         }
+
+        public static Modelo Get(string nome)
+        {
+            string sql = $"SELECT * FROM Modelo JOIN Clausula ON Modelo_ID = Modelo_FK WHERE Nome = @nome ORDER BY Numero ASC";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@nome", nome);
+
+            SQLiteDataReader reader = Database.DoReader(sql, parameters);
+
+            Dictionary<string, List<String>> result = Build(reader);
+            if (result == null)
+                return null;
+
+            return new Modelo(nome, result);
+        }
+
+        public static List<string> GetNames()
+        {
+            string sql = "SELECT Nome FROM Modelo";
+            List<string> modelos = new List<string>();
+
+            SQLiteDataReader reader = Database.DoReader(sql);
+            if (reader != null && reader.HasRows)
+                while (reader.Read())
+                    modelos.Add(Database.ObjToString(reader["Nome"]));
+            return modelos;
+        }
+
+        public static int Add(Modelo modelo, bool silent = false)
+        {
+            if (modelo == null)
+                return -604;
+            
+            string sql = "INSERT INTO Modelo (Nome) ";
+            sql += $"VALUES (@nome)";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@nome", modelo.Nome);
+
+            int result = Database.DoScalar(sql, parameters, silent);
+            if (result < 0)
+                return result;
+
+            int count = AddClausulaLoop(result, modelo.Clausulas);
+
+            Debug.Log($"{count} CLAUSULAS ADICIONADAS NO MODELO {modelo.Nome} COM ID {result}");
+            return result;
+        }
+
+        private static int AddClausulaLoop(int modelo, Dictionary<string, List<String>> clausulas)
+        {
+            int count = 0;
+            foreach (string secao in clausulas.Keys)
+            {
+                int numero = 1;
+                foreach (string texto in clausulas[secao])
+                {
+                    count += AddClausula(modelo, secao, numero, texto);
+                    numero++;
+                }
+            }
+            return count;
+        }
+
+        public static int AddClausula(int modelo, string secao, int numero, string texto)
+        {
+            string sql = "INSERT INTO Clausula (Modelo_FK, Secao, Numero, Texto) ";
+            sql += $"VALUES (@modelo, @secao, @numero, @texto)";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@modelo", modelo);
+            parameters.Add("@secao", secao);
+            parameters.Add("@numero", numero);
+            parameters.Add("@texto", texto);
+            
+            //If there's an error, it will return 0, so the debug count works
+            return Database.DoNonQuery(sql, parameters, 0, true);
+        }
+
+        public static int Delete(int id)
+        {
+            string sql = $"DELETE FROM Modelo WHERE Modelo_ID = @id";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@id", id);
+
+            int result = Database.DoScalar(sql, parameters);
+            if (result == -101)
+                Debug.Log($"ERRO AO DELETAR MODELO {id}");
+            else
+                Debug.Log($"MODELO {id} DELETADO");
+            return result;
+        }
+
+        public static int Update(Modelo modelo)
+        {
+            if (modelo == null)
+                return -604;
+
+            string sql = "SELECT Modelo_ID FROM Modelo WHERE Nome = @nome";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@nome", modelo.Nome);
+
+            int id = -1;
+            SQLiteDataReader reader = Database.DoReader(sql, parameters);
+            if (reader != null && reader.HasRows)
+                while (reader.Read())
+                    id = Database.ObjToInt(reader["Modelo_ID"]);
+            if (id <= 0)
+                return id;
+
+
+            sql = "DELETE FROM Clausula WHERE Modelo_FK = @id";
+
+            parameters = new Dictionary<string, object>();
+            parameters.Add("@id", id);
+
+            int deleted = Database.DoScalar(sql, parameters);
+            if (deleted < 0)
+                return deleted;
+
+            int added = AddClausulaLoop(id, modelo.Clausulas);  
+
+            Debug.Log($"{deleted} CLAUSULAS DELETADAS E {added} ADICIONADAS NO MODELO {modelo.Nome} COM ID {id}");
+            return added;
+        }
+
     }
 }
