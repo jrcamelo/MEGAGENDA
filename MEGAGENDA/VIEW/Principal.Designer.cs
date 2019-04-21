@@ -40,6 +40,7 @@
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOMEGGENDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +126,8 @@
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sobreOMEGGENDAToolStripMenuItem});
+            this.sobreOMEGGENDAToolStripMenuItem,
+            this.ajudaToolStripMenuItem});
             this.sobreToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
             this.sobreToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
@@ -136,6 +138,14 @@
             this.sobreOMEGGENDAToolStripMenuItem.Name = "sobreOMEGGENDAToolStripMenuItem";
             this.sobreOMEGGENDAToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
             this.sobreOMEGGENDAToolStripMenuItem.Text = "Sobre o MEG@GENDA";
+            this.sobreOMEGGENDAToolStripMenuItem.Click += new System.EventHandler(this.sobreOMEGGENDAToolStripMenuItem_Click);
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -170,5 +180,6 @@
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreOMEGGENDAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
     }
 }

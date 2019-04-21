@@ -20,17 +20,18 @@ namespace MEGAGENDA.VIEW
     {
         public Modelo modelo;
         public string modelo_nome = "";
-        
+
         public Evento evento = null;
         public Pessoa cliente = null;
-        
-        public string secao_carregada;
-        
+
+        public string secao_carregada = "";
+        public Clausula[] clausulas = new Clausula[Modelo.MAXCLAUSULAS];
+
         public Contratos()
         {
             Inicializar();
         }
-        
+
         private void Inicializar()
         {
             InitializeComponent();
@@ -46,8 +47,8 @@ namespace MEGAGENDA.VIEW
             arquivoBox.Items.Add("Padrão");
             arquivoBox.SelectedItem = "Padrão";
 
-            foreach (KeyValuePair<string, string> word in Editor.Preparar_Keywords())
-                keywordsList.Items.Add(word.Key);
+            //foreach (KeyValuePair<string, string> word in Editor.Preparar_Keywords())
+            //    keywordsList.Items.Add(word.Key);
         }
 
         private void LerModelos()
@@ -73,15 +74,14 @@ namespace MEGAGENDA.VIEW
             {
                 modeloBox.SelectedIndex = 0;
             }
-            
+
             modelo = Modelo.Get(modeloBox.SelectedItem.ToString());
-            secaoComboBox.Text = "";
-            clausulaNumeric.Value = 1;
+            secaoBox.ResetText();
 
             salvarModeloButton.Enabled = true;
             novoModeloBox.Enabled = true;
         }
-        
+
         private void eidNumeric_ValueChanged(object sender, EventArgs e)
         {
             MudarEvento();
@@ -123,26 +123,25 @@ namespace MEGAGENDA.VIEW
             }
             SubstituirPreview();
         }
-        
-        
+
+
         private void criarContratoBox_Click(object sender, EventArgs e)
         {
-            SalvarClausula();
-
+            SalvarClausulas();
             try
             {
                 Editor.Fazer_Contrato(arquivoBox.Text, modelo, cliente, evento);
-
             }
             catch (IOException except)
             {
                 MessageBox.Show(except.Message);
             }
         }
-        
+
         private void novoModeloButton_Click(object sender, EventArgs e)
         {
-            SalvarClausula();
+            SalvarClausulas();
+
             Modelo novo_modelo = new Modelo(novoModeloBox.Text, modelo.Clausulas);
             int error = Modelo.Add(novo_modelo);
             Erro.Mensagem(error, true, "");
@@ -157,27 +156,25 @@ namespace MEGAGENDA.VIEW
         private void novoModeloBox_TextChanged(object sender, EventArgs e)
         {
             if (novoModeloBox.Text.Trim() == "" || modelo == null)
-            {
                 novoModeloButton.Enabled = false;
-            }
             else
-            {
                 novoModeloButton.Enabled = true;
-            }
         }
+
         private void modeloBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (modeloBox.SelectedItem != null)
             {
+                SalvarClausulas();
                 Carregar_Modelo();
-                MostrarClausula();
+                MostrarClausulas();
             }
         }
         private void salvarModeloButton_Click(object sender, EventArgs e)
         {
             if (modelo != null)
             {
-                SalvarClausula();
+                SalvarClausulas();
 
                 if (MessageBox.Show("Você tem certeza que deseja sobrescrever este modelo?", "Sobrescrever", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -187,58 +184,62 @@ namespace MEGAGENDA.VIEW
             }
         }
 
-        private void SalvarClausula()
+        private void MostrarClausulas()
         {
-            if (secaoComboBox.Text != "")
-                modelo.Clausulas[secaoComboBox.Text][(int)clausulaNumeric.Value - 1] = clausulaBox.Text; 
+            if (secao_carregada == "" || modelo == null) return;
+            secaoBox.Enabled = false;
+
+            flowPanel.Controls.Clear();
+            clausulas = new Clausula[10];
+
+            for (int i = 0; i < Modelo.MAXCLAUSULAS; i++)
+            {
+                string texto = modelo.Clausulas[secao_carregada][i];
+                clausulas[i] = new Clausula(this, secao_carregada, i + 1, texto);
+            }
+            
+            flowPanel.Controls.AddRange(clausulas);
+            secaoBox.Enabled = true;
         }
         
-        private void MostrarClausula()
+        private void SalvarClausulas()
         {
-            if (secaoComboBox.Text != "")
-                clausulaBox.Text = modelo.Clausulas[secaoComboBox.Text][(int)clausulaNumeric.Value - 1];
-            else
-                clausulaBox.Text = "";
-            SubstituirPreview();
+            Console.WriteLine($"SALVAR {secao_carregada}");
+            if (secaoBox.Text != "" && modelo != null)
+                foreach (Clausula c in clausulas)
+                    if (c != null)
+                        modelo.Clausulas[c.Secao][c.Numero - 1] = c.editBox.Text;
         }
+        
 
         private void SubstituirPreview()
         {
-            if (clausulaBox.Text == "")
-                previewBox.Text = "";
-            else
-            {
-                if (cliente != null && evento != null)
-                    previewBox.Text = Editor.Substituir_Clausula(clausulaBox.Text, cliente, evento);
-                else
-                    previewBox.Text = clausulaBox.Text;
-
-            }
+            foreach (Clausula clausula in clausulas)
+                if (clausula != null)
+                    clausula.SubstituirPreview();
         }
         
-        private void secaoComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void flowPanel_SizeChanged(object sender, EventArgs e)
         {
-            if (secaoComboBox.Text != "")
+            foreach (Clausula clausula in clausulas)
             {
-                clausulaNumeric.Value = 1;
-                MostrarClausula();
+                if (clausula != null)
+                    clausula.Width = flowPanel.Width - 30;
             }
         }
 
-        private void secaoComboBox_Click(object sender, EventArgs e)
+        private void secaoBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SalvarClausula();
-        }
+            if (secao_carregada == secaoBox.Text) return;
+            SalvarClausulas();
 
-        private void clausulaNumeric_ValueChanged(object sender, EventArgs e)
-        {
-            MostrarClausula();
-        }
-
-        private void clausulaBox_TextChanged(object sender, EventArgs e)
-        {
-            SalvarClausula();
-            SubstituirPreview();
+            secao_carregada = secaoBox.Text;
+            if (secaoBox.Text != "")
+            {
+                MostrarClausulas();
+            }
+            flowPanel.Select();
+            flowPanel.Focus();
         }
     }
 }

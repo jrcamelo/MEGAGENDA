@@ -118,6 +118,12 @@
     <Compile Include="VIEW\Contratos.Designer.cs">
       <DependentUpon>Contratos.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\Clausula.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VIEW\Clausula.Designer.cs">
+      <DependentUpon>Clausula.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\EditarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="VIEW\Contratos.resx">
       <DependentUpon>Contratos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Clausula.resx">
+      <DependentUpon>Clausula.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\EditarEvento.resx">
       <DependentUpon>EditarEvento.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,7 +188,7 @@
       <DependentUpon>Listas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>

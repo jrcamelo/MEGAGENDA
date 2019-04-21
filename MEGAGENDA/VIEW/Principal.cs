@@ -145,5 +145,15 @@ namespace MEGAGENDA.VIEW
         {
             Telas.TrocarTela("Resumo");
         }
+
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sobreOMEGGENDAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
