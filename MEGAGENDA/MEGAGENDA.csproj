@@ -93,6 +93,12 @@
     <Compile Include="MODEL\Equipe.cs" />
     <Compile Include="MODEL\Funcionario.cs" />
     <Compile Include="MODEL\Modelo.cs" />
+    <Compile Include="VIEW\Ajuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Ajuda.Designer.cs">
+      <DependentUpon>Ajuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\CheckComboBox.cs" />
     <Compile Include="MODEL\Database.cs" />
     <Compile Include="MODEL\Pessoa.cs" />
@@ -165,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="VIEW\Agenda.resx">
       <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Ajuda.resx">
+      <DependentUpon>Ajuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Configuracoes.resx">
       <DependentUpon>Configuracoes.cs</DependentUpon>

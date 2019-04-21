@@ -146,9 +146,11 @@ namespace MEGAGENDA.VIEW
             Telas.TrocarTela("Resumo");
         }
 
+        Ajuda ajuda;
         private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ajuda = new Ajuda();
+            ajuda.Show();
         }
 
         private void sobreOMEGGENDAToolStripMenuItem_Click(object sender, EventArgs e)
