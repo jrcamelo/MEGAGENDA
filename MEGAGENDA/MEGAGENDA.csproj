@@ -124,6 +124,7 @@
     <Compile Include="VIEW\EditarEvento.Designer.cs">
       <DependentUpon>EditarEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="MODEL\Erro.cs" />
     <Compile Include="VIEW\Principal.cs">
       <SubType>Form</SubType>
     </Compile>

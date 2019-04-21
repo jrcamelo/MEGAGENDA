@@ -93,7 +93,7 @@ namespace MEGAGENDA.MODEL
                 parameters.Add("@data", p.data.ToString("yyyy-MM-dd"));
                 parameters.Add("@pago", p.pago);
 
-                contagem += Database.DoNonQuery(sql, parameters, 0);
+                contagem += Database.DoNonQuery(sql, parameters, Erro.SEM_ALTERACOES);
             }
 
             Debug.Log($"{contagem} PAGAMENTOS ADICIONADOS DO EVENTO {eid}");
@@ -108,7 +108,7 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@eid", EID);
 
             int result = Database.DoScalar(sql, parameters);
-            if (result == -101)
+            if (result == Erro.ERRO_SCALAR)
                 result = 0;
             Debug.Log($"{result} PAGAMENTOS DELETADOS DO EVENTO {EID}");
             return result;

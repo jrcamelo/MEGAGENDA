@@ -192,7 +192,7 @@ namespace MEGAGENDA.CONTROLLER
         public static int DoScalar(string sql, Dictionary<string, object> parameters = null, bool silent = false)
         {
             if (DoNonQuery(sql, parameters, -111, true) == -111)
-                return -111;
+                return Erro.DADOS_INVALIDOS;
 
             try
             {
@@ -212,7 +212,7 @@ namespace MEGAGENDA.CONTROLLER
                     Debug.Log(ex.Message);
             }
 
-            return -21;
+            return Erro.ERRO_SCALAR;
         }
 
         public static SQLiteDataReader DoReader(string sql, Dictionary<string, object> parameters = null, bool silent = false)
@@ -242,8 +242,10 @@ namespace MEGAGENDA.CONTROLLER
             return null;
         }
 
-        public static int DoNonQuery(string sql, Dictionary<string, object> parameters = null, int code = -101, bool silent = false)
+        public static int DoNonQuery(string sql, Dictionary<string, object> parameters = null, int code = -1001, bool silent = false)
         {
+            if (code == -1001) code = Erro.ERRO_NONQUERY;
+
             if (parameters == null)
                 parameters = new Dictionary<string, object>();
 
@@ -282,70 +284,17 @@ namespace MEGAGENDA.CONTROLLER
             }
             return code;
         }
-
-
-        #region Equipe
-        public static List<Funcionario> GetEquipe(int evento)
-        {
-            List<Funcionario> funcs = new List<Funcionario>();
-
-            return funcs;
-        }
-        public static string GetEquipeString(int evento)
-        {
-
-
-
-
-            return "";
-        }
-
-        public static int AddEquipe(string equipe)
-        {
-
-            return 0;
-        }
-
-        public static int DeleteEquipeEvento(int EID)
-        {
-
-            return 0;
-        }
-
-        public static Funcionario GetFuncionario(string nome)
-        {
-            Funcionario func = null;
-
-            return func;
-        }
-
-        public static int AddFuncionario(Funcionario func)
-        {
-
-            return 0;
-        }
-
-        public static List<Funcionario> GetAllFuncionarios()
-        {
-            List<Funcionario> funcs = new List<Funcionario>();
-
-            return funcs;
-        }
-
-        #endregion
         
-
-
 
         public static int ObjToInt(object obj)
         {
-            int result = -2;
+            int result = Erro.ERRO_INT;
             int.TryParse(obj.ToString(), out result);
             return result;
         }
         public static double ObjToDouble(object obj)
         {
-            double result = -3;
+            double result = Erro.ERRO_DOUBLE;
             double.TryParse(obj.ToString(), out result);
             return result;
         }

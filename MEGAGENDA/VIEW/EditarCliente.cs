@@ -240,15 +240,11 @@ namespace MEGAGENDA.VIEW
 
             int result;
             if (editando)
-            {
                 result = Pessoa.Edit(cliente);
-            }
             else
-            {
                 result = Pessoa.Add(cliente);
-            }
 
-            MessageBox.Show(result.ToString());
+            Erro.Mensagem(result);
             if (result > 0)
             {
                 Telas.getListas().PreencherCliente();
@@ -264,11 +260,9 @@ namespace MEGAGENDA.VIEW
             if (MessageBox.Show("Você tem certeza que vai DELETAR para SEMPRE este Cliente e SEUS EVENTOS?", "Deletar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int erro = Pessoa.Delete(ID);
-                if (erro < 0)
-                {
-                    MessageBox.Show(erro.ToString());
-                }
-                else
+                Erro.Mensagem(erro, false);
+
+                if (erro > 0)
                 {
                     AntesDispose();
                     this.Dispose();

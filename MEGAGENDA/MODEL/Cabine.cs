@@ -57,7 +57,7 @@ namespace MEGAGENDA.MODEL
             if (existente != null)
             {
                 Debug.Log("CABINE EXISTENTE: " + cabine.nome);
-                return -1;
+                return Erro.SEM_ALTERACOES;
             }
 
             string sql = "INSERT INTO Cabine (Cabine_Nome) ";
@@ -81,7 +81,7 @@ namespace MEGAGENDA.MODEL
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@nome", nome);
 
-            return Database.DoNonQuery(sql, parameters, -606);
+            return Database.DoNonQuery(sql, parameters, Erro.CABINE_NAO_DELETADA);
         }
     }
 }

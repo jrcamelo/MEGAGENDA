@@ -169,8 +169,8 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@ident", func.identificador);
             parameters.Add("@id", func.ID);
 
-            int result = Database.DoNonQuery(sql, parameters, -403);
-            if (result == -803)
+            int result = Database.DoNonQuery(sql, parameters, Erro.FUNCIONARIO_NAO_EDITADO);
+            if (result == Erro.FUNCIONARIO_NAO_EDITADO)
                 Debug.Log("FUNCIONÁRIO NÃO FOI EDITADO");
             else
                 Debug.Log("FUNCIONÁRIO FOI EDITADO");
@@ -181,18 +181,15 @@ namespace MEGAGENDA.MODEL
         {
             Funcionario func = Get(id);
             if (func == null)
-                return -1;
+                return Erro.SEM_ALTERACOES;
 
             int result = Pessoa.Delete(func.PID);
-
-            //string sql = $"DELETE FROM Funcionario WHERE Funcionario_ID = @id";
-
-            //Dictionary<string, object> parameters = new Dictionary<string, object>();
-            //parameters.Add("@id", id);
-
-            //int result = Database.DoNonQuery(sql, parameters, -206);
-            if (result == -206)
+            
+            if (result == Erro.PESSOA_NAO_DELETADA)
+            {
+                result = Erro.FUNCIONARIO_NAO_DELETADO;
                 Debug.Log("FUNCIONARIO NÃO DELETADO");
+            }
             else
                 Debug.Log("FUNCIONARIO DELETADO");
             return result;
@@ -201,11 +198,14 @@ namespace MEGAGENDA.MODEL
         {
             Funcionario func = Get(identificador);
             if (func == null)
-                return -1;
+                return Erro.SEM_ALTERACOES;
 
             int result = Pessoa.Delete(func.PID);
-            if (result == -206)
+            if (result == Erro.PESSOA_NAO_DELETADA)
+            {
+                result = Erro.FUNCIONARIO_NAO_DELETADO;
                 Debug.Log("FUNCIONARIO NÃO DELETADO");
+            }
             else
                 Debug.Log("FUNCIONARIO DELETADO");
             return result;

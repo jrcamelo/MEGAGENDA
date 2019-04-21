@@ -37,6 +37,7 @@ namespace MEGAGENDA.VIEW
             editando = false;
 
             contratanteLabel.Text = "SELECIONE UM CLIENTE!";
+            deletarButton.Visible = false;
 
             Inicializar();
             MudarID();
@@ -50,9 +51,12 @@ namespace MEGAGENDA.VIEW
 
             Inicializar();
             MudarID();
+            MudarCliente(pid);
+            CarregarCliente();
 
             pidLabel.Text = "ID: " + pid;
             contratanteLabel.Text = nome;
+            deletarButton.Visible = false;
         }
 
         public EditarEvento(Evento evento)
@@ -144,6 +148,13 @@ namespace MEGAGENDA.VIEW
             idLabel.Text = "ID: " + id.ToString();
         }
 
+        private void CarregarCliente()
+        {
+            Pessoa cliente = Pessoa.GetwEndereco(pid);
+            protagonistaBox.Text = cliente.nome;
+            eid = cliente.endereco.id;
+            MudarEndereco(eid);
+        }
 
         private void MudarCliente(int PID)
         {
@@ -384,16 +395,11 @@ namespace MEGAGENDA.VIEW
 
             int result;
             if (editando)
-            {
                 result = Evento.Edit(evento);
-            }
             else
-            {
                 result = Evento.Add(evento);
-            }
 
-            MessageBox.Show(result.ToString());
-
+            Erro.Mensagem(result);
             if (result > 0)
             {
                 Telas.getListas().PreencherEvento();
@@ -409,12 +415,9 @@ namespace MEGAGENDA.VIEW
             if (MessageBox.Show("Você tem certeza que vai DELETAR para SEMPRE este evento?", "Deletar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 int erro = Evento.Delete(id);
-                if (erro < 0)
-                {
-                    MessageBox.Show(erro.ToString());
-                }
-                else
-                {
+                Erro.Mensagem(erro, false);
+                if (erro > 0)
+                { 
                     AntesDispose();
                     this.Dispose();
                 }

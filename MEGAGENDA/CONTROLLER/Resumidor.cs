@@ -11,7 +11,7 @@ namespace MEGAGENDA.CONTROLLER
     {
 
         public static string WhereEvento()
-        { 
+        {
             return " WHERE Situacao = 1 AND Data BETWEEN @datade AND @dataa ";
         }
 
@@ -28,13 +28,20 @@ namespace MEGAGENDA.CONTROLLER
 
             return result;
         }
-               
+
 
         public static string ResumirEvento(Evento e, Pessoa p)
         {
             string line = "";
 
-            line += $"{e.data.ToShortDateString()} às {e.horaCabine.ToShortTimeString()} - ID: {e.ID}, {e.tipo} de {e.protagonista}\r\n";
+            line += $"{e.data.ToShortDateString()} às {e.horaCabine.ToShortTimeString()}\r\n";
+
+            line += $"ID do evento: {e.ID} - {e.tipo} de ";
+            if (e.protagonista != "")
+                line += $"{e.protagonista}\r\n";
+            else
+                line += $"{e.cliente.nome}\r\n";
+
             line += $"{string.Join(",", e.equipe)} na Cabine {e.cabine} - Valor: R${e.valor} - ";
             if (e.guestbook)
                 line += "(Guestbook) ";
@@ -42,9 +49,10 @@ namespace MEGAGENDA.CONTROLLER
                 line += $"- Fone: {p.telefone} ";
             if (p.celular != null && p.celular != "")
                 line += $"- Cel: {p.celular} ";
+
             return line + "\r\n\r\n";
         }
-        
+
 
 
         public static string WherePagamento()

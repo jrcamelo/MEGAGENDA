@@ -289,8 +289,8 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@material", ev.material);
             parameters.Add("@observacoes", ev.observacoes);
                                     
-            result = Database.DoNonQuery(sql, parameters, -304);
-            if (result == -304)
+            result = Database.DoNonQuery(sql, parameters, Erro.EVENTO_NAO_EDITADO);
+            if (result == Erro.EVENTO_NAO_EDITADO)
                 Debug.Log("EVENTO NÃO FOI EDITADO");
             else
                 Debug.Log("EVENTO FOI EDITADO");
@@ -317,8 +317,8 @@ namespace MEGAGENDA.MODEL
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@id", id);
 
-            int result = Database.DoNonQuery(sql, parameters, -306);
-            if (result == -306)
+            int result = Database.DoNonQuery(sql, parameters, Erro.EVENTO_NAO_DELETADO);
+            if (result == Erro.EVENTO_NAO_DELETADO)
                 Debug.Log($"EVENTO {id} NÃO DELETADO");
             else
                 Debug.Log($"EVENTO {id} DELETADO");

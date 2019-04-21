@@ -145,14 +145,9 @@ namespace MEGAGENDA.VIEW
             SalvarClausula();
             Modelo novo_modelo = new Modelo(novoModeloBox.Text, modelo.Clausulas);
             int error = Modelo.Add(novo_modelo);
-            if (error < 0)
+            Erro.Mensagem(error, true, "");
+            if (error >= 0)
             {
-                MessageBox.Show(error.ToString());
-            }
-            else
-            {
-                MessageBox.Show(novoModeloBox.Text + " criado com sucesso!");
-
                 LerModelos();
                 modeloBox.SelectedItem = novoModeloBox.Text;
                 Carregar_Modelo();
@@ -187,10 +182,7 @@ namespace MEGAGENDA.VIEW
                 if (MessageBox.Show("Você tem certeza que deseja sobrescrever este modelo?", "Sobrescrever", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     int erro = Modelo.Update(modelo);
-                    if (erro < 0)
-                        MessageBox.Show(erro.ToString());
-                    else
-                        MessageBox.Show("Modelo atualizado com sucesso");
+                    Erro.Mensagem(erro, true, "");
                 }
             }
         }

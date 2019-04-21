@@ -166,7 +166,7 @@ namespace MEGAGENDA.MODEL
         public static int Add(Modelo modelo, bool silent = false)
         {
             if (modelo == null)
-                return -604;
+                return -404;
             
             string sql = "INSERT INTO Modelo (Nome) ";
             sql += $"VALUES (@nome)";
@@ -222,8 +222,11 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@id", id);
 
             int result = Database.DoScalar(sql, parameters);
-            if (result == -101)
+            if (result == Erro.ERRO_SCALAR)
+            {
+                result = Erro.MODELO_NAO_DELETADO;
                 Debug.Log($"ERRO AO DELETAR MODELO {id}");
+            }
             else
                 Debug.Log($"MODELO {id} DELETADO");
             return result;
@@ -232,14 +235,14 @@ namespace MEGAGENDA.MODEL
         public static int Update(Modelo modelo)
         {
             if (modelo == null)
-                return -604;
+                return Erro.DADOS_INVALIDOS;
 
             string sql = "SELECT Modelo_ID FROM Modelo WHERE Nome = @nome";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@nome", modelo.Nome);
 
-            int id = -1;
+            int id = Erro.SEM_RESULTADO;
             SQLiteDataReader reader = Database.DoReader(sql, parameters);
             if (reader != null && reader.HasRows)
                 while (reader.Read())
@@ -255,11 +258,11 @@ namespace MEGAGENDA.MODEL
 
             int deleted = Database.DoScalar(sql, parameters);
             if (deleted < 0)
-                return deleted;
+                return Erro.MODELO_NAO_DELETADO;
 
             int added = AddClausulaLoop(id, modelo.Clausulas);  
 
-            Debug.Log($"{deleted} CLAUSULAS DELETADAS E {added} ADICIONADAS NO MODELO {modelo.Nome} COM ID {id}");
+            Debug.Log($"{deleted} CLAUSULAS DELETADAS E {added} CLAUSULAS ADICIONADAS NO MODELO {modelo.Nome} COM ID {id}");
             return added;
         }
 

@@ -115,19 +115,13 @@ namespace MEGAGENDA.VIEW
                 funcionario.pessoa.celular = celularfBox.Text;
 
                 int result = Funcionario.Edit(funcionario);
+                Erro.Mensagem(result, true, "");
                 if (result > 0)
                 {
                     result = Pessoa.Edit(funcionario.pessoa);
                     if (result > 0)
-                    {
-                        MessageBox.Show("Editado com sucesso");
                         CancelEdit();
-                    }
-                    else
-                        MessageBox.Show(result.ToString());
                 }
-                else
-                    MessageBox.Show(result.ToString());
             }
         }
 
@@ -164,15 +158,9 @@ namespace MEGAGENDA.VIEW
                 Funcionario func = new Funcionario(identBox.Text, pessoa);
 
                 int result = Funcionario.Add(func);
+                Erro.Mensagem(result, true, "");
                 if (result > 0)
-                {
-                    MessageBox.Show("Adicionado com sucesso");
                     CancelEdit();
-                }
-                else
-                {
-                    MessageBox.Show(result.ToString());
-                }
             }
         }
 
@@ -204,10 +192,7 @@ namespace MEGAGENDA.VIEW
             Configs.Empresa.facebook = faceeBox.Text;
 
             int result = Pessoa.Edit(Configs.Empresa);
-            if (result > 0)
-                MessageBox.Show("Editado com sucesso");
-            else
-                MessageBox.Show(result.ToString());
+            Erro.Mensagem(result, true, "");
             
         }
     }

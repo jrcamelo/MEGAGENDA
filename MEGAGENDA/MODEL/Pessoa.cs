@@ -205,7 +205,7 @@ namespace MEGAGENDA.MODEL
             // Faz insert no Endereço caso não exista
             // Retorna erro do Endereço se precisar
             if (clt.endereco == null)
-                return -404;
+                return Erro.DADOS_INVALIDOS;
             if (clt.endereco.id < 1)
                 clt.endereco.id = Endereco.Add(clt.endereco);
             if (clt.endereco.id < 1)
@@ -269,8 +269,8 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@anotacoes", clt.anotacoes);
             parameters.Add("@id", clt.ID);
 
-            result = Database.DoNonQuery(sql, parameters, -203);
-            if (result == -203)
+            result = Database.DoNonQuery(sql, parameters, Erro.PESSOA_NAO_EDITADA);
+            if (result == Erro.PESSOA_NAO_EDITADA)
                 Debug.Log("CLIENTE NÃO EDITADO");
             else
                 Debug.Log("CLIENTE EDITADO");
@@ -285,8 +285,8 @@ namespace MEGAGENDA.MODEL
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@id", id);
 
-            int result = Database.DoNonQuery(sql, parameters, -206);
-            if (result == -206)
+            int result = Database.DoNonQuery(sql, parameters, Erro.PESSOA_NAO_DELETADA);
+            if (result == Erro.PESSOA_NAO_DELETADA)
                 Debug.Log("CLIENTE NÃO DELETADO");
             else
                 Debug.Log("CLIENTE DELETADO");
