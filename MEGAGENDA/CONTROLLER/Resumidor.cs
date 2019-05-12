@@ -49,8 +49,12 @@ namespace MEGAGENDA.CONTROLLER
                 line += $"- Fone: {p.telefone} ";
             if (p.celular != null && p.celular != "")
                 line += $"- Cel: {p.celular} ";
+            if (p.email != null && p.email != "")
+                line += $"- Email: {p.email} ";
+            if (p.endereco != null && p.endereco.ToTexto() != "")
+                line += $"\r\nLocal: {p.endereco.ToTexto()} ";
 
-            return line + "\r\n\r\n";
+            return line + "\r\n";
         }
 
 

@@ -57,8 +57,10 @@ namespace MEGAGENDA.VIEW
             Empresa.rg = "030.099.874 - 04";
             Empresa.endereco.rua = "Rua São Mateus, 1060, Condomínio Jardim Renascença, Bl. D, Apto. 302, Iputinga, Recife/PE";
 
-            Pessoa.Add(Empresa, false); 
-            Configs.Empresa = Pessoa.Get(1, false);
+            if (Pessoa.Get("25.425.706/0001-26", false) == null)
+                Pessoa.Add(Empresa, false); 
+
+            Configs.Empresa = Pessoa.Get("25.425.706/0001-26", false);
 
             Pessoa nido = new Pessoa("Ivanildo Fernandes da Silva", "030.099.874 - 04", "4985734", "M", "4100.1566", "98806.7578", "ivanildo@megaselfie.net.br", "", new Endereco("Rua São Mateus, 1060, Condomínio Jardim Renascença, Bl. D, Apto. 302, Iputinga, Recife/PE"), "");
             nido.tipo = "FUNCIONARIO";
