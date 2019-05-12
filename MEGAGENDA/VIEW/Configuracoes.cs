@@ -32,31 +32,9 @@ namespace MEGAGENDA.VIEW
         private void Inicializar()
         {
             AtualizarFuncionarios();
-            AtualizarCabines();
             AtualizarEmpresa();
         }
-
-        private void AtualizarCabines()
-        {
-            cabinesBox.Items.Clear();
-            foreach (string c in Cabine.GetAll())
-                cabinesBox.Items.Add(c);
-        }
-
-        private void cabineDeleteButton_Click(object sender, EventArgs e)
-        {
-            if (cabinesBox.Text != "")
-                Cabine.Delete(cabinesBox.Text);
-            AtualizarCabines();
-        }
-
-        private void CabineAddButton_Click(object sender, EventArgs e)
-        {
-            if (novaCabineBox.Text != "")
-                if (Cabine.Add(new Cabine(novaCabineBox.Text)) > 0)
-                    novaCabineBox.Text = "";
-            AtualizarCabines();
-        }
+        
         private void AtualizarFuncionarios()
         {
             funcionariosBox.Items.Clear();

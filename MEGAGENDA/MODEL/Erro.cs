@@ -24,7 +24,6 @@ namespace MEGAGENDA.MODEL
         public static readonly int ENDERECO_NAO_EDITADO =        -403;
         public static readonly int MODELO_NAO_EDITADO =          -604;
         public static readonly int MODELO_NAO_DELETADO =         -606;
-        public static readonly int CABINE_NAO_DELETADA =         -706;
         public static readonly int FUNCIONARIO_NAO_EDITADO =     -803;
         public static readonly int FUNCIONARIO_NAO_DELETADO =    -806;
 
@@ -43,8 +42,6 @@ namespace MEGAGENDA.MODEL
                 { EVENTO_NAO_DELETADO,        "Evento não foi deletado" },
                 { ENDERECO_NAO_EDITADO,       "Endereço não foi editado" },
                 { MODELO_NAO_EDITADO,         "Modelo não foi editado" },
-                { MODELO_NAO_DELETADO,        "Modelo não foi deletado" },
-                { CABINE_NAO_DELETADA,        "Cabine não foi deletada" },
                 { FUNCIONARIO_NAO_EDITADO,    "Funcionário não foi editado" },
                 { FUNCIONARIO_NAO_DELETADO,   "Funcionário não foi deletado" }
             };

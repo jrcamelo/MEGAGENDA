@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cabinesBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CabineAddButton = new System.Windows.Forms.Button();
-            this.novaCabineBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cabineDeleteButton = new System.Windows.Forms.Button();
             this.funcionariosDeleteButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.funcionariosBox = new System.Windows.Forms.ComboBox();
@@ -86,78 +80,8 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cabinesBox
-            // 
-            this.cabinesBox.BackColor = System.Drawing.Color.White;
-            this.cabinesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cabinesBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cabinesBox.FormattingEnabled = true;
-            this.cabinesBox.Location = new System.Drawing.Point(22, 39);
-            this.cabinesBox.Name = "cabinesBox";
-            this.cabinesBox.Size = new System.Drawing.Size(210, 24);
-            this.cabinesBox.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 17);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Cabines no sistema";
-            // 
-            // CabineAddButton
-            // 
-            this.CabineAddButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
-            this.CabineAddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CabineAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CabineAddButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CabineAddButton.Location = new System.Drawing.Point(22, 165);
-            this.CabineAddButton.Name = "CabineAddButton";
-            this.CabineAddButton.Size = new System.Drawing.Size(210, 27);
-            this.CabineAddButton.TabIndex = 13;
-            this.CabineAddButton.Text = "Adicionar";
-            this.CabineAddButton.UseVisualStyleBackColor = true;
-            this.CabineAddButton.Click += new System.EventHandler(this.CabineAddButton_Click);
-            // 
-            // novaCabineBox
-            // 
-            this.novaCabineBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
-            this.novaCabineBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.novaCabineBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.novaCabineBox.Location = new System.Drawing.Point(22, 138);
-            this.novaCabineBox.Name = "novaCabineBox";
-            this.novaCabineBox.Size = new System.Drawing.Size(210, 23);
-            this.novaCabineBox.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 17);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Adicionar nova cabine";
-            // 
-            // cabineDeleteButton
-            // 
-            this.cabineDeleteButton.BackgroundImage = global::MEGAGENDA.Properties.Resources.Border;
-            this.cabineDeleteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cabineDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cabineDeleteButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cabineDeleteButton.Location = new System.Drawing.Point(22, 68);
-            this.cabineDeleteButton.Name = "cabineDeleteButton";
-            this.cabineDeleteButton.Size = new System.Drawing.Size(210, 27);
-            this.cabineDeleteButton.TabIndex = 16;
-            this.cabineDeleteButton.Text = "Remover";
-            this.cabineDeleteButton.UseVisualStyleBackColor = true;
-            this.cabineDeleteButton.Click += new System.EventHandler(this.cabineDeleteButton_Click);
             // 
             // funcionariosDeleteButton
             // 
@@ -490,15 +414,6 @@
             this.splitContainer2.Panel1.Controls.Add(this.label8);
             this.splitContainer2.Panel1.Controls.Add(this.label27);
             this.splitContainer2.Panel1.Controls.Add(this.identBox);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.cabinesBox);
-            this.splitContainer2.Panel2.Controls.Add(this.label1);
-            this.splitContainer2.Panel2.Controls.Add(this.cabineDeleteButton);
-            this.splitContainer2.Panel2.Controls.Add(this.label2);
-            this.splitContainer2.Panel2.Controls.Add(this.novaCabineBox);
-            this.splitContainer2.Panel2.Controls.Add(this.CabineAddButton);
             this.splitContainer2.Size = new System.Drawing.Size(1161, 560);
             this.splitContainer2.SplitterDistance = 264;
             this.splitContainer2.TabIndex = 217;
@@ -746,8 +661,6 @@
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -755,13 +668,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cabinesBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button CabineAddButton;
-        private System.Windows.Forms.TextBox novaCabineBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button cabineDeleteButton;
         private System.Windows.Forms.Button funcionariosDeleteButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox funcionariosBox;

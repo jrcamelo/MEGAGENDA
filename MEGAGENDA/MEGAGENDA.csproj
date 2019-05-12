@@ -86,7 +86,6 @@
     <Compile Include="CONTROLLER\ObjectExtension.cs" />
     <Compile Include="CONTROLLER\Resumidor.cs" />
     <Compile Include="CONTROLLER\Telas.cs" />
-    <Compile Include="MODEL\Cabine.cs" />
     <Compile Include="CONTROLLER\Calendario.cs" />
     <Compile Include="CONTROLLER\Debug.cs" />
     <Compile Include="MODEL\Dia.cs" />

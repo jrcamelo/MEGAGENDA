@@ -75,10 +75,7 @@ namespace MEGAGENDA.VIEW
         {
             foreach (string tipo in Evento.GetAllTipos())
                 tipoBox.Items.Add(tipo);
-
-            foreach (string cab in Cabine.GetAll())
-                cabineBox.Items.Add(cab);
-
+            
             foreach (var funci in Funcionario.GetAllIdentificadores())
                 equipeComboBox.Items.Add(new CheckComboBoxItem(funci, false));
 
@@ -134,8 +131,6 @@ namespace MEGAGENDA.VIEW
             cidadeBox.Text = evento.local.cidade;
             ufBox.Text = evento.local.estado;
             compBox.Text = evento.local.complemento;
-
-            cabineBox.Text = evento.cabine;
         }
 
         public void MudarID(int ID = 0)
@@ -374,7 +369,7 @@ namespace MEGAGENDA.VIEW
             Endereco local = FazerLocal();
 
             return new Evento(pid, tipoBox.Text, protagonistaBox.Text, (double)valorBox.Value,
-                FazerEquipe(), cabineBox.Text, local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (int)numericDuracao.Value, guestbook, materialBox.Checked,
+                FazerEquipe(), local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (int)numericDuracao.Value, guestbook, materialBox.Checked,
                 situacao, obserBox.Text, pagamentos, id);
         }
 

@@ -42,7 +42,7 @@ namespace MEGAGENDA.CONTROLLER
             else
                 line += $"{e.cliente.nome}\r\n";
 
-            line += $"{string.Join(",", e.equipe)} na Cabine {e.cabine} - Valor: R${e.valor} - ";
+            line += $"{string.Join(",", e.equipe)} - ";
             if (e.guestbook)
                 line += "(Guestbook) ";
             if (p.telefone != null && p.telefone != "")

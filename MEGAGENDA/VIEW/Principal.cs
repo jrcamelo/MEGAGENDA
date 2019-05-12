@@ -64,9 +64,7 @@ namespace MEGAGENDA.VIEW
             nido.tipo = "FUNCIONARIO";
             Funcionario dono = new Funcionario("Nido", nido);
             Funcionario.Add(dono);
-
-            Cabine.Add(new Cabine("Padrão"));
-
+            
             Modelo modelo = new Modelo("Padrão", new Dictionary<string, List<string>>());
             modelo.padrao_teste();
             Modelo.Add(modelo, true);
@@ -75,18 +73,14 @@ namespace MEGAGENDA.VIEW
 
         public void Test()
         {
-            //
-            Cabine.Add(new Cabine("Padrão"));
-            //
         }
 
         public void Test2()
         {
-            Cabine.Add(new Cabine("Primeira"));
 
             int pid = Pessoa.Add(new Pessoa("João", "9084461", "10846444445", "M", "3241-5803", "995363055", "joaorafaelx@gmail.com", "", new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), "Observ"));
 
-            Evento.Add(new Evento(pid, "Formatura", "João Rafael", 1200, new List<string> { "Nido" }, "Primeira", new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, 0, "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1), new Pagamento(1, 0, DateTime.Today, false, 2) }));
+            Evento.Add(new Evento(pid, "Formatura", "João Rafael", 1200, new List<string> { "Nido" }, new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, 0, "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1), new Pagamento(1, 0, DateTime.Today, false, 2) }));
 
             Modelo modelo = new Modelo("Padrão", new Dictionary<string, List<string>>());
             modelo.padrao_teste();

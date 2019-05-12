@@ -24,7 +24,7 @@ namespace MEGAGENDA.CONTROLLER
             {
                 Endereco e = new Endereco("", "", "", "", "", "");
                 cliente = new Pessoa(0, false, "", "", "", "", "M", "", "", "", "", e, "");
-                evento = new Evento(0, "", "", 0, new List<string>(), "", e, DateTime.Today, DateTime.Today, DateTime.Today, 0, false, false, 0, "", new List<Pagamento>());
+                evento = new Evento(0, "", "", 0, new List<string>(), e, DateTime.Today, DateTime.Today, DateTime.Today, 0, false, false, 0, "", new List<Pagamento>());
             }
 
             return new Dictionary<string, string>

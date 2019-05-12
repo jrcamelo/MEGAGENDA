@@ -70,8 +70,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.situacaoLabel = new System.Windows.Forms.Label();
             this.deletarButton = new System.Windows.Forms.Button();
-            this.cabineBox = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.equipeTextBox = new System.Windows.Forms.TextBox();
             this.materialBox = new System.Windows.Forms.CheckBox();
@@ -105,12 +103,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.equipeComboBox = new MEGAGENDA.VIEW.CheckComboBox();
             this.mapsButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.equipeComboBox = new MEGAGENDA.VIEW.CheckComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.valorBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.parcelaQtdBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pagamentosGrid)).BeginInit();
@@ -597,29 +595,6 @@
             this.deletarButton.UseVisualStyleBackColor = false;
             this.deletarButton.Click += new System.EventHandler(this.deletarButton_Click);
             // 
-            // cabineBox
-            // 
-            this.cabineBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.cabineBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cabineBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cabineBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cabineBox.FormattingEnabled = true;
-            this.cabineBox.Location = new System.Drawing.Point(362, 454);
-            this.cabineBox.Name = "cabineBox";
-            this.cabineBox.Size = new System.Drawing.Size(186, 25);
-            this.cabineBox.TabIndex = 22;
-            this.cabineBox.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(308, 457);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 17);
-            this.label6.TabIndex = 88;
-            this.label6.Text = "Cabine";
-            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -1097,18 +1072,6 @@
             this.label7.TabIndex = 113;
             this.label7.Text = "Horários";
             // 
-            // equipeComboBox
-            // 
-            this.equipeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
-            this.equipeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.equipeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.equipeComboBox.FormattingEnabled = true;
-            this.equipeComboBox.Location = new System.Drawing.Point(363, 493);
-            this.equipeComboBox.Name = "equipeComboBox";
-            this.equipeComboBox.Size = new System.Drawing.Size(185, 21);
-            this.equipeComboBox.TabIndex = 23;
-            this.equipeComboBox.CheckStateChanged += new System.EventHandler(this.equipeComboBox_CheckStateChanged);
-            // 
             // mapsButton
             // 
             this.mapsButton.AutoEllipsis = true;
@@ -1192,6 +1155,18 @@
             this.panel4.Size = new System.Drawing.Size(254, 307);
             this.panel4.TabIndex = 129;
             // 
+            // equipeComboBox
+            // 
+            this.equipeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.equipeComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.equipeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.equipeComboBox.FormattingEnabled = true;
+            this.equipeComboBox.Location = new System.Drawing.Point(363, 493);
+            this.equipeComboBox.Name = "equipeComboBox";
+            this.equipeComboBox.Size = new System.Drawing.Size(185, 21);
+            this.equipeComboBox.TabIndex = 23;
+            this.equipeComboBox.CheckStateChanged += new System.EventHandler(this.equipeComboBox_CheckStateChanged);
+            // 
             // EditarEvento
             // 
             this.AcceptButton = this.salvarButton;
@@ -1224,8 +1199,6 @@
             this.Controls.Add(this.equipeTextBox);
             this.Controls.Add(this.equipeComboBox);
             this.Controls.Add(this.label26);
-            this.Controls.Add(this.cabineBox);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox15);
             this.Controls.Add(this.deletarButton);
             this.Controls.Add(this.salvarButton);
@@ -1333,8 +1306,6 @@
         private System.Windows.Forms.Label situacaoLabel;
         private System.Windows.Forms.Button deletarButton;
         private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.ComboBox cabineBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label26;
         private CheckComboBox equipeComboBox;
         private System.Windows.Forms.TextBox equipeTextBox;

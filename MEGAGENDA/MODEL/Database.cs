@@ -71,10 +71,7 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Email VARCHAR(36), "
                 + "    Facebook VARCHAR(36), "
                 + "    Anotacoes TEXT);",
-
-                "CREATE TABLE IF NOT EXISTS Cabine("
-                + "    Cabine_Nome VARCHAR (24) PRIMARY KEY);",
-
+                
                 "CREATE TABLE IF NOT EXISTS Evento("
                 + "    Evento_ID INTEGER  PRIMARY KEY AUTOINCREMENT, "
                 + "    Pessoa_FK INTEGER  NOT NULL REFERENCES Pessoa (Pessoa_ID) ON DELETE CASCADE, "
