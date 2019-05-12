@@ -22,7 +22,7 @@ namespace MEGAGENDA.VIEW
         int peid = -1;
 
         bool guestbook = true;
-        int situacao = 2;
+        int situacao = 1;
 
         bool editando = false;
 
@@ -86,6 +86,8 @@ namespace MEGAGENDA.VIEW
             oDateTimePicker.Visible = false;
             oDateTimePicker.Format = DateTimePickerFormat.Custom;
             oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+            AtualizarSituacao();
         }
 
         public void InicializarEditar(Evento evento)
@@ -234,6 +236,7 @@ namespace MEGAGENDA.VIEW
         {
             foreach (Pagamento pag in pagamentos)
                 pagamentosGrid.Rows.Add(pag.data.ToShortDateString(), pag.valor, pag.pago);
+            ChecarParcelas();
         }
 
         private void AtualizarSituacao()
@@ -294,6 +297,7 @@ namespace MEGAGENDA.VIEW
                 }
             }
 
+            pagamentosGrid.Sort(pagamentosGrid.Columns[0], ListSortDirection.Ascending);
             ChecarParcelas();
         }
 
@@ -306,10 +310,11 @@ namespace MEGAGENDA.VIEW
                 double result = 0;
                 for (int i = 0; i < pagamentosGrid.Rows.Count; i++)
                 {
-                    object v = pagamentosGrid.Rows[i].Cells[1].Value;
-                    if (v != null)
+                    DataGridViewRow row = pagamentosGrid.Rows[i];
+                    object rowvalor = row.Cells[1].Value;
+                    if (rowvalor != null)
                     {
-                        double.TryParse(pagamentosGrid.Rows[i].Cells[1].Value.ToString(), out result);
+                        double.TryParse(rowvalor.ToString(), out result);
                         total += result;
 
                         if (result == 0)
@@ -320,6 +325,25 @@ namespace MEGAGENDA.VIEW
                             break;
                         }
                     }
+
+                    object rowdata = row.Cells[0].Value;
+                                       
+                    object rowpaga = row.Cells[2].Value;
+                    bool paga = false;
+                    if (rowpaga != null)
+                        bool.TryParse(rowpaga.ToString(), out paga);
+
+                    if (rowdata != null)
+                    {
+                        if (!paga && DateTime.Parse(rowdata.ToString()).CompareTo(DateTime.Today) < 0)
+                        {
+                            row.Cells[0].Style.BackColor = Color.PaleVioletRed;
+                        }
+                        else
+                            row.Cells[0].Style.BackColor = Color.White;
+                    }
+
+                    
                 }
                 pagamentosLabel.Text = "Pagamentos";
                 pagamentosLabel.ForeColor = Color.Black;
