@@ -981,13 +981,13 @@
             // numericDuracao
             // 
             this.numericDuracao.Increment = new decimal(new int[] {
-            30,
+            5,
             0,
             0,
-            0});
+            65536});
             this.numericDuracao.Location = new System.Drawing.Point(490, 167);
             this.numericDuracao.Maximum = new decimal(new int[] {
-            1200,
+            24,
             0,
             0,
             0});
@@ -1036,11 +1036,11 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(479, 148);
+            this.label10.Location = new System.Drawing.Point(487, 148);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 16);
+            this.label10.Size = new System.Drawing.Size(70, 16);
             this.label10.TabIndex = 116;
-            this.label10.Text = "Duração (min)";
+            this.label10.Text = "Duração (h)";
             // 
             // label9
             // 

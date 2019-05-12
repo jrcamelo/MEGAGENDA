@@ -27,7 +27,7 @@ namespace MEGAGENDA.MODEL
         public DateTime data;
         public DateTime horaCabine;
         public DateTime horaEvento;
-        public int duracao;
+        public double duracao;
 
         public bool guestbook;
         public bool material = false;
@@ -40,7 +40,7 @@ namespace MEGAGENDA.MODEL
         public Pessoa cliente;
 
         public Evento(int pid, string tipo, string protagonista, double valor, List<string> equipe,
-            Endereco local, DateTime data, DateTime horacabine, DateTime horaevento, int duracao, bool guestbook, bool material,
+            Endereco local, DateTime data, DateTime horacabine, DateTime horaevento, double duracao, bool guestbook, bool material,
             int situacao, string observacoes, List<Pagamento> pagamentos, int id = -1, Pessoa cliente = null)
         {
             this.ID = id;

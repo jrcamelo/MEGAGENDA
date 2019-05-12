@@ -57,7 +57,7 @@ namespace MEGAGENDA.CONTROLLER
                 {"[EVENTO DATA]", evento.data.ToShortDateString()},
                 {"[EVENTO HORA_INICIO]", evento.horaEvento.ToShortTimeString()},
                 {"[EVENTO HORA_CABINE]", evento.horaCabine.ToShortTimeString()},
-                {"[EVENTO DURACAO_MINUTOS]", evento.duracao.ToString() + " minutos"},
+                {"[EVENTO DURACAO_HORAS]", evento.duracao.ToString() + " hora(s)"},
 
                 {"[CONTRATO DATA]", DateTime.Today.ToShortDateString()}
             };

@@ -369,7 +369,7 @@ namespace MEGAGENDA.VIEW
             Endereco local = FazerLocal();
 
             return new Evento(pid, tipoBox.Text, protagonistaBox.Text, (double)valorBox.Value,
-                FazerEquipe(), local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (int)numericDuracao.Value, guestbook, materialBox.Checked,
+                FazerEquipe(), local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (double)numericDuracao.Value, guestbook, materialBox.Checked,
                 situacao, obserBox.Text, pagamentos, id);
         }
 
