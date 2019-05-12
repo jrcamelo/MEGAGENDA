@@ -93,7 +93,7 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Evento_FK INTEGER REFERENCES Evento (Evento_ID) ON DELETE CASCADE, "
                 + "    Parcela INTEGER NOT NULL, "
                 + "    Valor DOUBLE  NOT NULL, "
-                + "    Vencimento DATE, "
+                + "    Vencimento DATE NOT NULL, "
                 + "    Pago BOOLEAN DEFAULT (0), "
                 + "    PRIMARY KEY(Evento_FK, Parcela));",
 

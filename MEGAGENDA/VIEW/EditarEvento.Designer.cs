@@ -149,6 +149,7 @@
             // 
             // contratanteLabel
             // 
+            this.contratanteLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.contratanteLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contratanteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
             this.contratanteLabel.Location = new System.Drawing.Point(22, 38);
@@ -161,7 +162,7 @@
             this.pidLabel.AutoEllipsis = true;
             this.pidLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pidLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
-            this.pidLabel.Location = new System.Drawing.Point(126, 17);
+            this.pidLabel.Location = new System.Drawing.Point(123, 17);
             this.pidLabel.Name = "pidLabel";
             this.pidLabel.Size = new System.Drawing.Size(132, 17);
             this.pidLabel.TabIndex = 0;
@@ -210,10 +211,10 @@
             this.dataPicker.CalendarTitleBackColor = System.Drawing.Color.Purple;
             this.dataPicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.dataPicker.CustomFormat = "hh:mm";
-            this.dataPicker.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataPicker.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataPicker.Location = new System.Drawing.Point(23, 171);
             this.dataPicker.Name = "dataPicker";
-            this.dataPicker.Size = new System.Drawing.Size(228, 22);
+            this.dataPicker.Size = new System.Drawing.Size(228, 23);
             this.dataPicker.TabIndex = 2;
             // 
             // label5
@@ -654,7 +655,7 @@
             0,
             0});
             this.pidBox.Name = "pidBox";
-            this.pidBox.Size = new System.Drawing.Size(57, 19);
+            this.pidBox.Size = new System.Drawing.Size(55, 19);
             this.pidBox.TabIndex = 0;
             this.pidBox.Visible = false;
             this.pidBox.ValueChanged += new System.EventHandler(this.pidBox_ValueChanged);
@@ -980,12 +981,13 @@
             // 
             // numericDuracao
             // 
+            this.numericDuracao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericDuracao.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            this.numericDuracao.Location = new System.Drawing.Point(490, 167);
+            this.numericDuracao.Location = new System.Drawing.Point(480, 167);
             this.numericDuracao.Maximum = new decimal(new int[] {
             24,
             0,
@@ -993,7 +995,7 @@
             0});
             this.numericDuracao.Name = "numericDuracao";
             this.numericDuracao.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.numericDuracao.Size = new System.Drawing.Size(59, 20);
+            this.numericDuracao.Size = new System.Drawing.Size(78, 24);
             this.numericDuracao.TabIndex = 8;
             // 
             // horaEvento
@@ -1003,14 +1005,14 @@
             this.horaEvento.CalendarTitleBackColor = System.Drawing.Color.Purple;
             this.horaEvento.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.horaEvento.CustomFormat = "HH:mm";
-            this.horaEvento.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.horaEvento.Font = new System.Drawing.Font("Microsoft NeoGothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaEvento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.horaEvento.Location = new System.Drawing.Point(489, 66);
+            this.horaEvento.Location = new System.Drawing.Point(479, 66);
             this.horaEvento.Name = "horaEvento";
             this.horaEvento.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.horaEvento.RightToLeftLayout = true;
             this.horaEvento.ShowUpDown = true;
-            this.horaEvento.Size = new System.Drawing.Size(59, 23);
+            this.horaEvento.Size = new System.Drawing.Size(78, 27);
             this.horaEvento.TabIndex = 6;
             this.horaEvento.Value = new System.DateTime(2018, 8, 12, 0, 0, 0, 0);
             // 
@@ -1021,14 +1023,14 @@
             this.horaCabine.CalendarTitleBackColor = System.Drawing.Color.Purple;
             this.horaCabine.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.horaCabine.CustomFormat = "HH:mm";
-            this.horaCabine.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.horaCabine.Font = new System.Drawing.Font("Microsoft NeoGothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaCabine.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.horaCabine.Location = new System.Drawing.Point(490, 116);
+            this.horaCabine.Location = new System.Drawing.Point(480, 116);
             this.horaCabine.Name = "horaCabine";
             this.horaCabine.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.horaCabine.RightToLeftLayout = true;
             this.horaCabine.ShowUpDown = true;
-            this.horaCabine.Size = new System.Drawing.Size(59, 23);
+            this.horaCabine.Size = new System.Drawing.Size(78, 27);
             this.horaCabine.TabIndex = 7;
             this.horaCabine.Value = new System.DateTime(2018, 8, 12, 0, 0, 0, 0);
             // 
@@ -1169,13 +1171,11 @@
             // 
             // EditarEvento
             // 
-            this.AcceptButton = this.salvarButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.cancelarButton;
             this.ClientSize = new System.Drawing.Size(898, 601);
-            this.ControlBox = false;
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);

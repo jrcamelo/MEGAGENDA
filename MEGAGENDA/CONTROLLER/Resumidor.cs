@@ -8,13 +8,7 @@ using System.Threading.Tasks;
 namespace MEGAGENDA.CONTROLLER
 {
     public static class Resumidor
-    {
-
-        public static string WhereEvento()
-        {
-            return " WHERE Situacao = 1 AND Data BETWEEN @datade AND @dataa ";
-        }
-
+    {        
         public static string ListarEventos(DateTime datade, DateTime dataa)
         {
             List<Tuple<Evento, Pessoa>> eventos = Evento.GetAgendadosData(datade, dataa);
@@ -34,13 +28,13 @@ namespace MEGAGENDA.CONTROLLER
         {
             string line = "";
 
-            line += $"{e.data.ToShortDateString()} às {e.horaCabine.ToShortTimeString()}\r\n";
+            line += $"{e.data.ToShortDateString()} às {e.horaCabine.ToShortTimeString()} - ";
 
             line += $"ID do evento: {e.ID} - {e.tipo} de ";
             if (e.protagonista != "")
-                line += $"{e.protagonista}\r\n";
+                line += $"{e.protagonista}  |  ";
             else
-                line += $"{e.cliente.nome}\r\n";
+                line += $"{e.cliente.nome}  |  ";
 
             line += $"{string.Join(",", e.equipe)} - ";
             if (e.guestbook)
@@ -52,16 +46,31 @@ namespace MEGAGENDA.CONTROLLER
             if (p.email != null && p.email != "")
                 line += $"- Email: {p.email} ";
             if (p.endereco != null && p.endereco.ToTexto() != "")
-                line += $"\r\nLocal: {p.endereco.ToTexto()} ";
+                line += $"  |  Local: {p.endereco.ToTexto()}\r\n";
 
             return line + "\r\n";
         }
 
-
-
-        public static string WherePagamento()
+        public static string ListarParcelasVencidas(DateTime tomorrow)
         {
-            return " WHERE Vencimento = @vencimento AND Pago = 0 ";
+            List<Pagamento> pagamentos = Pagamento.GetAtrasadas(tomorrow);
+            string result = "";
+
+            foreach (Pagamento p in pagamentos)
+            {
+                result += ResumirParcela(p);
+            }
+
+            return result;
+        }
+
+        public static string ResumirParcela(Pagamento p)
+        {
+            string line = "";
+            line += $"{p.data.ToShortDateString()} - {p.parcela}ª parcela do evento com ID {p.EID}";
+            line += "\r\n";
+            return line;
+
         }
 
 

@@ -26,35 +26,32 @@ namespace MEGAGENDA.VIEW
 
         public void Atualizar()
         {
-            AtualizarMes();
+            AtualizarMeses();
             AtualizarSemana();
-            AtualizarHoje();
-            //AtualizarParcelas();
-            //AtualizarNaoPagos();
-
+            AtualizarVencidas();
         }
 
-        public void AtualizarMes()
+        public void AtualizarMeses()
         {
             DateTime now = DateTime.Now;
             DateTime datade = new DateTime(now.Year, now.Month, 1);
-            DateTime dataa = datade.AddMonths(1).AddTicks(-1);
+            DateTime dataa = datade.AddMonths(12).AddTicks(-1);
 
             mesBox.Text = Resumidor.ListarEventos(datade, dataa);
         }
-
         public void AtualizarSemana()
         {
             DateTime now = DateTime.Now;
             semanaBox.Text = Resumidor.ListarEventos(now.Date, now.Date.AddDays(7));
         }
 
-        public void AtualizarHoje()
+        public void AtualizarVencidas()
         {
-            DateTime now = DateTime.Now;
-            hojeBox.Text = Resumidor.ListarEventos(now.Date, now.Date.AddDays(1).AddTicks(-1));
-        }
+            DateTime tomorrow = DateTime.Today.AddDays(1);
+            vencidasBox.Text = Resumidor.ListarParcelasVencidas(tomorrow.Date);
 
+        }
+        
         private void copiar_Click(object sender, EventArgs e)
         {
             if (sender != null)

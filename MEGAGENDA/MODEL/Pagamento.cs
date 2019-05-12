@@ -74,6 +74,18 @@ namespace MEGAGENDA.MODEL
             List<Pagamento> result = Build(reader);
             return result;
         }
+        public static List<Pagamento> GetAtrasadas(DateTime dia)
+        {
+            string sql = $"SELECT * FROM Pagamento WHERE Pago = 0 AND Vencimento < @dia ORDER BY Vencimento ASC";
+                        
+            Dictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add("@dia", dia);
+
+            SQLiteDataReader reader = Database.DoReader(sql, parameters);
+
+            List<Pagamento> result = Build(reader);
+            return result;
+        }
 
         public static int Add(List<Pagamento> pagamentos, int eid)
         {

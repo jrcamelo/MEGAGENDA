@@ -617,5 +617,6 @@ namespace MEGAGENDA.VIEW
             Endereco local = FazerLocal();
             System.Diagnostics.Process.Start("https://maps.google.com/?q=" + local.ToTexto());
         }
+        
     }
 }

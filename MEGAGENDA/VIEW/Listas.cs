@@ -104,6 +104,12 @@ namespace MEGAGENDA.VIEW
             dataEventos.Refresh();
         }
 
+        public void editarCliente(int id)
+        {
+            editCliente = new EditarCliente(Pessoa.GetwEndereco(id));
+            editCliente.Show();
+        }
+
         private void editarClienteSelecionado(int index)
         {
             if (editCliente != null)
