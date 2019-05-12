@@ -84,8 +84,6 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Situacao   INTEGER DEFAULT 0, "
                 + "    Protagonista   VARCHAR(64), "
                 + "    Valor DOUBLE   NOT NULL, "
-                + "    Entrada DOUBLE, "
-                + "    EntradaQuitada BOOLEAN  DEFAULT(0), "
                 + "    Data DATE NOT NULL, "
                 + "    Duracao INTEGER NOT NULL, "
                 + "    horaCabine TIME NOT NULL, "

@@ -211,12 +211,12 @@ namespace MEGAGENDA.MODEL
             if (clt.endereco.id < 1)
                 return clt.endereco.id;
 
-            Pessoa cliente_existente = Get(clt.cpfcnpj(), notcliente);
-            if (cliente_existente != null)
-            {
-                Debug.Log($"CLIENTE JÁ EXISTENTE: {cliente_existente.ID}");
-                return cliente_existente.ID;
-            }
+            //Pessoa cliente_existente = Get(clt.cpfcnpj(), notcliente);
+            //if (cliente_existente != null)
+            //{
+                //Debug.Log($"CLIENTE JÁ EXISTENTE: {cliente_existente.ID}");
+                //return cliente_existente.ID;
+            //}
 
             string sql = "INSERT INTO Pessoa (Endereco_FK, Nome, isJuridica, Tipo, RG, CPFCNPJ, Representante, Genero, Telefone, Celular, Email, Facebook, Anotacoes)";
             sql += $"VALUES (@endereco, @nome, @juridica, @tipo, @rg, @cpfcnpj, @repr, @genero, @telefone, @celular, @email, @facebook, @anotacoes)";

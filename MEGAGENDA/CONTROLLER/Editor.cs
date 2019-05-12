@@ -24,7 +24,7 @@ namespace MEGAGENDA.CONTROLLER
             {
                 Endereco e = new Endereco("", "", "", "", "", "");
                 cliente = new Pessoa(0, false, "", "", "", "", "M", "", "", "", "", e, "");
-                evento = new Evento(0, "", "", 0, 0, false, new List<string>(), "", e, DateTime.Today, DateTime.Today, DateTime.Today, 0, false, false, 0, "", new List<Pagamento>());
+                evento = new Evento(0, "", "", 0, new List<string>(), "", e, DateTime.Today, DateTime.Today, DateTime.Today, 0, false, false, 0, "", new List<Pagamento>());
             }
 
             return new Dictionary<string, string>
@@ -52,7 +52,7 @@ namespace MEGAGENDA.CONTROLLER
                 {"[EVENTO TIPO]", evento.tipo},
                 {"[EVENTO ENDERECO]", evento.local.ToTexto()},
                 {"[EVENTO VALOR]", Conversor.EscreverExtenso((decimal) evento.valor)},
-                {"[EVENTO VALOR_ENTRADA]", Conversor.EscreverExtenso((decimal) evento.entrada)},
+                {"[EVENTO VALOR_ENTRADA]", Conversor.EscreverExtenso((decimal) evento.getEntrada())},
                 {"[EVENTO DATA_LIMITE_PAGAMENTO]", DateTime.Today.AddDays(3).ToShortDateString()},
                 {"[EVENTO DATA]", evento.data.ToShortDateString()},
                 {"[EVENTO HORA_INICIO]", evento.horaEvento.ToShortTimeString()},

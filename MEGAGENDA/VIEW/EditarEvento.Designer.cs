@@ -98,7 +98,6 @@
             this.label28 = new System.Windows.Forms.Label();
             this.entradaBox = new System.Windows.Forms.NumericUpDown();
             this.label27 = new System.Windows.Forms.Label();
-            this.entradaCheck = new System.Windows.Forms.CheckBox();
             this.numericDuracao = new System.Windows.Forms.NumericUpDown();
             this.horaEvento = new System.Windows.Forms.DateTimePicker();
             this.horaCabine = new System.Windows.Forms.DateTimePicker();
@@ -264,7 +263,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(308, 298);
+            this.label13.Location = new System.Drawing.Point(306, 230);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(116, 17);
             this.label13.TabIndex = 44;
@@ -280,14 +279,14 @@
             0,
             0,
             0});
-            this.valorBox.Location = new System.Drawing.Point(333, 323);
+            this.valorBox.Location = new System.Drawing.Point(336, 254);
             this.valorBox.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.valorBox.Name = "valorBox";
-            this.valorBox.Size = new System.Drawing.Size(114, 21);
+            this.valorBox.Size = new System.Drawing.Size(109, 21);
             this.valorBox.TabIndex = 17;
             this.valorBox.ValueChanged += new System.EventHandler(this.valorBox_ValueChanged);
             // 
@@ -295,7 +294,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(308, 323);
+            this.label14.Location = new System.Drawing.Point(310, 254);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(23, 17);
             this.label14.TabIndex = 46;
@@ -471,16 +470,16 @@
             this.parcelaPrimeiraBox.CustomFormat = "dd/MM/yyyy";
             this.parcelaPrimeiraBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parcelaPrimeiraBox.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.parcelaPrimeiraBox.Location = new System.Drawing.Point(346, 385);
+            this.parcelaPrimeiraBox.Location = new System.Drawing.Point(347, 323);
             this.parcelaPrimeiraBox.Name = "parcelaPrimeiraBox";
-            this.parcelaPrimeiraBox.Size = new System.Drawing.Size(104, 22);
+            this.parcelaPrimeiraBox.Size = new System.Drawing.Size(98, 22);
             this.parcelaPrimeiraBox.TabIndex = 19;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(308, 389);
+            this.label24.Location = new System.Drawing.Point(309, 327);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(37, 16);
             this.label24.TabIndex = 72;
@@ -490,7 +489,7 @@
             // parcelaQtdBox
             // 
             this.parcelaQtdBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.parcelaQtdBox.Location = new System.Drawing.Point(511, 322);
+            this.parcelaQtdBox.Location = new System.Drawing.Point(506, 253);
             this.parcelaQtdBox.Minimum = new decimal(new int[] {
             1,
             0,
@@ -509,7 +508,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(455, 325);
+            this.label25.Location = new System.Drawing.Point(451, 255);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(51, 16);
             this.label25.TabIndex = 74;
@@ -571,11 +570,11 @@
             // 
             // situacaoLabel
             // 
-            this.situacaoLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.situacaoLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.situacaoLabel.ForeColor = System.Drawing.Color.DarkGreen;
-            this.situacaoLabel.Location = new System.Drawing.Point(61, 46);
+            this.situacaoLabel.Location = new System.Drawing.Point(16, 46);
             this.situacaoLabel.Name = "situacaoLabel";
-            this.situacaoLabel.Size = new System.Drawing.Size(203, 38);
+            this.situacaoLabel.Size = new System.Drawing.Size(256, 38);
             this.situacaoLabel.TabIndex = 83;
             this.situacaoLabel.Text = "AGENDADO";
             this.situacaoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -587,7 +586,7 @@
             this.deletarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deletarButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.deletarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deletarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletarButton.ForeColor = System.Drawing.Color.DarkRed;
             this.deletarButton.Location = new System.Drawing.Point(10, 553);
             this.deletarButton.Name = "deletarButton";
@@ -693,7 +692,7 @@
             this.materialButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.materialButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.materialButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.materialButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialButton.ForeColor = System.Drawing.Color.Black;
             this.materialButton.Location = new System.Drawing.Point(304, 161);
             this.materialButton.Name = "materialButton";
@@ -723,7 +722,7 @@
             this.salvarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.salvarButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.salvarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.salvarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salvarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salvarButton.ForeColor = System.Drawing.Color.Black;
             this.salvarButton.Location = new System.Drawing.Point(567, 553);
             this.salvarButton.Name = "salvarButton";
@@ -741,9 +740,9 @@
             this.parcelaAutoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.parcelaAutoButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.parcelaAutoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.parcelaAutoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parcelaAutoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parcelaAutoButton.ForeColor = System.Drawing.Color.Black;
-            this.parcelaAutoButton.Location = new System.Drawing.Point(458, 382);
+            this.parcelaAutoButton.Location = new System.Drawing.Point(452, 377);
             this.parcelaAutoButton.Name = "parcelaAutoButton";
             this.parcelaAutoButton.Size = new System.Drawing.Size(94, 26);
             this.parcelaAutoButton.TabIndex = 20;
@@ -876,7 +875,7 @@
             this.cancelarButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.cancelarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cancelarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelarButton.ForeColor = System.Drawing.Color.Black;
             this.cancelarButton.Location = new System.Drawing.Point(425, 553);
             this.cancelarButton.Name = "cancelarButton";
@@ -891,7 +890,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(362, 361);
+            this.label29.Location = new System.Drawing.Point(306, 298);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(134, 17);
             this.label29.TabIndex = 103;
@@ -968,7 +967,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(310, 236);
+            this.label28.Location = new System.Drawing.Point(306, 364);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(108, 17);
             this.label28.TabIndex = 98;
@@ -984,38 +983,25 @@
             0,
             0,
             0});
-            this.entradaBox.Location = new System.Drawing.Point(335, 256);
+            this.entradaBox.Location = new System.Drawing.Point(336, 384);
             this.entradaBox.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.entradaBox.Name = "entradaBox";
-            this.entradaBox.Size = new System.Drawing.Size(114, 21);
+            this.entradaBox.Size = new System.Drawing.Size(107, 21);
             this.entradaBox.TabIndex = 15;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(310, 258);
+            this.label27.Location = new System.Drawing.Point(307, 384);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(23, 17);
             this.label27.TabIndex = 99;
             this.label27.Text = "R$";
-            // 
-            // entradaCheck
-            // 
-            this.entradaCheck.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.entradaCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.entradaCheck.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.entradaCheck.Location = new System.Drawing.Point(481, 251);
-            this.entradaCheck.Name = "entradaCheck";
-            this.entradaCheck.Size = new System.Drawing.Size(81, 30);
-            this.entradaCheck.TabIndex = 16;
-            this.entradaCheck.Text = "Quitada";
-            this.entradaCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.entradaCheck.UseVisualStyleBackColor = true;
             // 
             // numericDuracao
             // 
@@ -1131,7 +1117,7 @@
             this.mapsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mapsButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.mapsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.mapsButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapsButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mapsButton.ForeColor = System.Drawing.Color.Black;
             this.mapsButton.Location = new System.Drawing.Point(210, 3);
             this.mapsButton.Name = "mapsButton";
@@ -1228,7 +1214,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.cancelarButton);
-            this.Controls.Add(this.entradaCheck);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.entradaBox);
             this.Controls.Add(this.label28);
@@ -1367,7 +1352,6 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.NumericUpDown entradaBox;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.CheckBox entradaCheck;
         private System.Windows.Forms.NumericUpDown numericDuracao;
         private System.Windows.Forms.DateTimePicker horaEvento;
         private System.Windows.Forms.DateTimePicker horaCabine;

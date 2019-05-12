@@ -249,10 +249,9 @@ namespace MEGAGENDA.VIEW
             {
                 Telas.getListas().PreencherCliente();
                 Telas.getListas().SelectRowCliente(result);
+                AntesDispose();
+                this.Dispose();
             }
-
-            AntesDispose();
-            this.Dispose();
         }
 
         private void deletarButton_Click(object sender, EventArgs e)

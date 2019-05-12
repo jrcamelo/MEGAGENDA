@@ -123,8 +123,6 @@ namespace MEGAGENDA.VIEW
 
             protagonistaBox.Text = evento.protagonista;
             valorBox.Value = (decimal)evento.valor;
-            entradaBox.Value = (decimal)evento.entrada;
-            entradaCheck.Checked = evento.entradaQuitada;
             obserBox.Text = evento.observacoes;
             materialBox.Checked = evento.material;
 
@@ -275,13 +273,27 @@ namespace MEGAGENDA.VIEW
             DateTime parcela = parcelaPrimeiraBox.Value.Date;
             int qtd = (int)parcelaQtdBox.Value;
 
-            decimal valorParcela = valor / qtd;
-
-            for (int i = 0; i < qtd; i++)
+            decimal entrada = entradaBox.Value;
+            if (entrada > 0)
             {
-                pagamentosGrid.Rows.Add(parcela.ToShortDateString(), valorParcela.ToString("0.00"), false);
+                pagamentosGrid.Rows.Add(parcela.ToShortDateString(), entrada.ToString("0.00"), false);
+                valor -= entradaBox.Value;
                 parcela = parcela.AddMonths(1);
+                qtd--;
             }
+
+            if (qtd > 0)
+            {
+                decimal valorParcela = valor / qtd;
+                for (int i = 0; i < qtd; i++)
+                {
+                    if (valorParcela < 0)
+                        valorParcela = 0;
+                    pagamentosGrid.Rows.Add(parcela.ToShortDateString(), valorParcela.ToString("0.00"), false);
+                    parcela = parcela.AddMonths(1);
+                }
+            }
+
             ChecarParcelas();
         }
 
@@ -337,7 +349,7 @@ namespace MEGAGENDA.VIEW
 
             Endereco local = FazerLocal();
 
-            return new Evento(pid, tipoBox.Text, protagonistaBox.Text, (double)valorBox.Value, (double)entradaBox.Value, entradaCheck.Checked,
+            return new Evento(pid, tipoBox.Text, protagonistaBox.Text, (double)valorBox.Value,
                 FazerEquipe(), cabineBox.Text, local, dataPicker.Value, horaCabine.Value, horaEvento.Value, (int)numericDuracao.Value, guestbook, materialBox.Checked,
                 situacao, obserBox.Text, pagamentos, id);
         }
@@ -404,10 +416,9 @@ namespace MEGAGENDA.VIEW
             {
                 Telas.getListas().PreencherEvento();
                 Telas.getListas().SelectRowEvento(result);
+                AntesDispose();
+                this.Dispose();
             }
-            AntesDispose();
-            this.Dispose();
-
         }
 
         private void deletarButton_Click(object sender, EventArgs e)
