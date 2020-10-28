@@ -28,27 +28,31 @@ namespace MEGAGENDA.CONTROLLER
         {
             string line = "";
 
-            line += $"{e.data.ToShortDateString()} às {e.horaCabine.ToShortTimeString()} - ";
+            line += $"Data: {e.data.ToShortDateString()} às {e.horaCabine.ToShortTimeString()}";
 
-            line += $"ID do evento: {e.ID} - {e.tipo} de ";
+            line += $"\r\nID do evento: {e.ID} - {e.tipo} de ";
             if (e.protagonista != "")
                 line += $"{e.protagonista}  |  ";
             else
                 line += $"{e.cliente.nome}  |  ";
 
-            line += $"{string.Join(",", e.equipe)} - ";
+            line += $"\r\nEquipe: {string.Join(",", e.equipe)}";
             if (e.guestbook)
-                line += "(Guestbook) ";
+                line += " - (Guestbook) ";
             if (p.telefone != null && p.telefone != "")
-                line += $"- Fone: {p.telefone} ";
+                line += $"\r\nFone: {p.telefone} ";
             if (p.celular != null && p.celular != "")
-                line += $"- Cel: {p.celular} ";
+                line += $"Cel: {p.celular} ";
             if (p.email != null && p.email != "")
-                line += $"- Email: {p.email} ";
+                line += $"Email: {p.email} ";
             if (p.endereco != null && p.endereco.ToTexto() != "")
-                line += $"  |  Local: {p.endereco.ToTexto()}\r\n";
+                line += $"\r\nLocal: {p.endereco.ToTexto()}";
+            if (e.observacoes != null && e.observacoes != "")
+            {
+                line += $"\r\nObservacoes: " + e.observacoes;
+            }
 
-            return line + "\r\n";
+            return line + "\r\n\r\n";
         }
 
         public static string ListarParcelasVencidas(DateTime tomorrow)

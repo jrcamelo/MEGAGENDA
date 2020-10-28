@@ -76,7 +76,6 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Evento_ID INTEGER  PRIMARY KEY AUTOINCREMENT, "
                 + "    Pessoa_FK INTEGER  NOT NULL REFERENCES Pessoa (Pessoa_ID) ON DELETE CASCADE, "
                 + "    Endereco_FK INTEGER  REFERENCES Endereco(Endereco_ID) NOT NULL, "
-                + "    Cabine_FK  VARCHAR(24) REFERENCES Cabine(Cabine_Nome), "
                 + "    Tipo VARCHAR(32) NOT NULL, "
                 + "    Situacao   INTEGER DEFAULT 0, "
                 + "    Protagonista   VARCHAR(64), "

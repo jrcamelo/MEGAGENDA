@@ -147,8 +147,8 @@ namespace MEGAGENDA.VIEW
         {
             Pessoa cliente = Pessoa.GetwEndereco(pid);
             protagonistaBox.Text = cliente.nome;
-            eid = cliente.endereco.id;
-            MudarEndereco(eid);
+            //eid = cliente.endereco.id;
+            //MudarEndereco(eid);
         }
 
         private void MudarCliente(int PID)
@@ -188,6 +188,7 @@ namespace MEGAGENDA.VIEW
 
         private void ChecarEnderecoCliente(bool mudar = false)
         {
+            mudar = true;
             if (pid > 0 && peid > 0)
             {
                 if (eid == peid)
@@ -375,7 +376,7 @@ namespace MEGAGENDA.VIEW
 
         private Endereco FazerLocal()
         {
-            return new Endereco(ruaBox.Text, numeroBox.Text, compBox.Text, bairroBox.Text, cidadeBox.Text, ufBox.Text, eid);
+            return new Endereco(ruaBox.Text, numeroBox.Text, compBox.Text, bairroBox.Text, cidadeBox.Text, ufBox.Text);
         }
 
         private List<Pagamento> FazerPagamentos()
@@ -617,6 +618,14 @@ namespace MEGAGENDA.VIEW
             Endereco local = FazerLocal();
             System.Diagnostics.Process.Start("https://maps.google.com/?q=" + local.ToTexto());
         }
-        
+
+        private void dataPicker_ValueChanged(object sender, EventArgs e)
+        {
+            // List<Evento> x = Evento.GetAllDatas("WHERE (Data = '" + dataPicker.Value.Date.ToString("s") + "')");
+            // if (x.Count > 0)
+            // {
+            //     MessageBox.Show(x[0].data.ToString(), "Deletar", MessageBoxButtons.YesNo);
+            // }
+        }
     }
 }

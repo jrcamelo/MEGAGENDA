@@ -61,5 +61,10 @@ namespace MEGAGENDA.VIEW
                     Clipboard.SetText(s.Text);
             }
         }
+
+        private void mesBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

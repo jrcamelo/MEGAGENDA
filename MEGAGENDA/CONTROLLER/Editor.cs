@@ -82,8 +82,8 @@ namespace MEGAGENDA.CONTROLLER
                 doc.Replace(words.Key, words.Value, false, true);
             }
 
-            doc.SaveToFile(Configs.CONTRATO_PATH + $"Contrato N{evento.ID} - {cliente.nome}.docx", FileFormat.Docx);
-            System.Diagnostics.Process.Start(Configs.CONTRATO_PATH + $"Contrato N{evento.ID} - {cliente.nome}.docx");
+            doc.SaveToFile(Configs.CONTRATO_PATH + $"Contrato N{evento.ID} - {cliente.nome} - {evento.data.ToString("dd-MM-yyyy")}.docx", FileFormat.Docx);
+            System.Diagnostics.Process.Start(Configs.CONTRATO_PATH + $"Contrato N{evento.ID} - {cliente.nome} - {evento.data.ToString("dd-MM-yyyy")}.docx");
         }
 
         public static int count = 1;

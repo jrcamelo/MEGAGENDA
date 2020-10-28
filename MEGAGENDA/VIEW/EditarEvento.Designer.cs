@@ -129,28 +129,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(22, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 17);
+            this.label1.Size = new System.Drawing.Size(114, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Tipo do Evento";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
             this.label2.Location = new System.Drawing.Point(22, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 17);
+            this.label2.Size = new System.Drawing.Size(87, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Contratante";
             // 
             // contratanteLabel
             // 
             this.contratanteLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.contratanteLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contratanteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contratanteLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
             this.contratanteLabel.Location = new System.Drawing.Point(22, 38);
             this.contratanteLabel.Name = "contratanteLabel";
@@ -160,7 +160,7 @@
             // pidLabel
             // 
             this.pidLabel.AutoEllipsis = true;
-            this.pidLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pidLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pidLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
             this.pidLabel.Location = new System.Drawing.Point(123, 17);
             this.pidLabel.Name = "pidLabel";
@@ -172,10 +172,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(303, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(148, 17);
+            this.label3.Size = new System.Drawing.Size(170, 16);
             this.label3.TabIndex = 11;
             this.label3.Text = "Protagonista do Evento";
             // 
@@ -185,18 +185,18 @@
             this.tipoBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.tipoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.tipoBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tipoBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tipoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tipoBox.FormattingEnabled = true;
             this.tipoBox.Location = new System.Drawing.Point(23, 101);
             this.tipoBox.Name = "tipoBox";
-            this.tipoBox.Size = new System.Drawing.Size(230, 25);
+            this.tipoBox.Size = new System.Drawing.Size(230, 24);
             this.tipoBox.TabIndex = 1;
             this.tipoBox.TextChanged += new System.EventHandler(this.ComboBox_TextChanged);
             // 
             // idLabel
             // 
             this.idLabel.AutoEllipsis = true;
-            this.idLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(53)))), ((int)(((byte)(91)))));
             this.idLabel.Location = new System.Drawing.Point(188, 12);
             this.idLabel.Name = "idLabel";
@@ -211,29 +211,30 @@
             this.dataPicker.CalendarTitleBackColor = System.Drawing.Color.Purple;
             this.dataPicker.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.dataPicker.CustomFormat = "hh:mm";
-            this.dataPicker.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataPicker.Location = new System.Drawing.Point(23, 171);
             this.dataPicker.Name = "dataPicker";
-            this.dataPicker.Size = new System.Drawing.Size(228, 23);
+            this.dataPicker.Size = new System.Drawing.Size(228, 20);
             this.dataPicker.TabIndex = 2;
+            this.dataPicker.ValueChanged += new System.EventHandler(this.dataPicker_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(22, 148);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 17);
+            this.label5.Size = new System.Drawing.Size(115, 16);
             this.label5.TabIndex = 18;
             this.label5.Text = "Data do Evento";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(37, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 17);
+            this.label11.Size = new System.Drawing.Size(120, 16);
             this.label11.TabIndex = 37;
             this.label11.Text = "Local do Evento";
             // 
@@ -241,30 +242,30 @@
             // 
             this.protagonistaBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.protagonistaBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.protagonistaBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.protagonistaBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.protagonistaBox.Location = new System.Drawing.Point(306, 41);
             this.protagonistaBox.Name = "protagonistaBox";
-            this.protagonistaBox.Size = new System.Drawing.Size(155, 18);
+            this.protagonistaBox.Size = new System.Drawing.Size(155, 15);
             this.protagonistaBox.TabIndex = 3;
             this.protagonistaBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(302, 76);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 17);
+            this.label12.Size = new System.Drawing.Size(83, 16);
             this.label12.TabIndex = 40;
             this.label12.Text = "Guestbook";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(306, 230);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(116, 17);
+            this.label13.Size = new System.Drawing.Size(129, 16);
             this.label13.TabIndex = 44;
             this.label13.Text = "Valor do Contrato";
             // 
@@ -272,7 +273,7 @@
             // 
             this.valorBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.valorBox.DecimalPlaces = 2;
-            this.valorBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.valorBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.valorBox.Increment = new decimal(new int[] {
             100,
             0,
@@ -285,27 +286,27 @@
             0,
             0});
             this.valorBox.Name = "valorBox";
-            this.valorBox.Size = new System.Drawing.Size(109, 21);
+            this.valorBox.Size = new System.Drawing.Size(109, 18);
             this.valorBox.TabIndex = 17;
             this.valorBox.ValueChanged += new System.EventHandler(this.valorBox_ValueChanged);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(310, 254);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(23, 17);
+            this.label14.Size = new System.Drawing.Size(27, 16);
             this.label14.TabIndex = 46;
             this.label14.Text = "R$";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(12, 30);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(28, 16);
+            this.label15.Size = new System.Drawing.Size(30, 15);
             this.label15.TabIndex = 50;
             this.label15.Text = "Rua";
             // 
@@ -313,21 +314,21 @@
             // 
             this.ruaBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ruaBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ruaBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ruaBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ruaBox.HideSelection = false;
             this.ruaBox.Location = new System.Drawing.Point(15, 48);
             this.ruaBox.Name = "ruaBox";
-            this.ruaBox.Size = new System.Drawing.Size(207, 18);
+            this.ruaBox.Size = new System.Drawing.Size(207, 15);
             this.ruaBox.TabIndex = 9;
             this.ruaBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(231, 30);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(22, 16);
+            this.label16.Size = new System.Drawing.Size(20, 15);
             this.label16.TabIndex = 52;
             this.label16.Text = "Nº";
             // 
@@ -335,11 +336,11 @@
             // 
             this.numeroBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.numeroBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numeroBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numeroBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numeroBox.HideSelection = false;
             this.numeroBox.Location = new System.Drawing.Point(228, 48);
             this.numeroBox.Name = "numeroBox";
-            this.numeroBox.Size = new System.Drawing.Size(44, 18);
+            this.numeroBox.Size = new System.Drawing.Size(44, 15);
             this.numeroBox.TabIndex = 10;
             this.numeroBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
@@ -347,21 +348,21 @@
             // 
             this.cidadeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.cidadeBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cidadeBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cidadeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cidadeBox.HideSelection = false;
             this.cidadeBox.Location = new System.Drawing.Point(145, 90);
             this.cidadeBox.Name = "cidadeBox";
-            this.cidadeBox.Size = new System.Drawing.Size(96, 18);
+            this.cidadeBox.Size = new System.Drawing.Size(96, 15);
             this.cidadeBox.TabIndex = 12;
             this.cidadeBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(142, 69);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 16);
+            this.label17.Size = new System.Drawing.Size(46, 15);
             this.label17.TabIndex = 54;
             this.label17.Text = "Cidade";
             // 
@@ -369,21 +370,21 @@
             // 
             this.bairroBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.bairroBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bairroBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bairroBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bairroBox.HideSelection = false;
             this.bairroBox.Location = new System.Drawing.Point(16, 90);
             this.bairroBox.Name = "bairroBox";
-            this.bairroBox.Size = new System.Drawing.Size(123, 18);
+            this.bairroBox.Size = new System.Drawing.Size(123, 15);
             this.bairroBox.TabIndex = 11;
             this.bairroBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(13, 69);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(39, 16);
+            this.label18.Size = new System.Drawing.Size(40, 15);
             this.label18.TabIndex = 56;
             this.label18.Text = "Bairro";
             // 
@@ -391,12 +392,12 @@
             // 
             this.ufBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
             this.ufBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ufBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ufBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ufBox.HideSelection = false;
             this.ufBox.Location = new System.Drawing.Point(249, 90);
             this.ufBox.MaxLength = 2;
             this.ufBox.Name = "ufBox";
-            this.ufBox.Size = new System.Drawing.Size(17, 18);
+            this.ufBox.Size = new System.Drawing.Size(17, 15);
             this.ufBox.TabIndex = 122;
             this.ufBox.Text = "PE";
             this.ufBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
@@ -404,10 +405,10 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(244, 69);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(22, 16);
+            this.label19.Size = new System.Drawing.Size(23, 15);
             this.label19.TabIndex = 58;
             this.label19.Text = "UF";
             // 
@@ -415,38 +416,38 @@
             // 
             this.compBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.compBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.compBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.compBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.compBox.HideSelection = false;
             this.compBox.Location = new System.Drawing.Point(16, 130);
             this.compBox.Name = "compBox";
-            this.compBox.Size = new System.Drawing.Size(251, 18);
+            this.compBox.Size = new System.Drawing.Size(251, 15);
             this.compBox.TabIndex = 13;
             this.compBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(12, 111);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(82, 16);
+            this.label21.Size = new System.Drawing.Size(85, 15);
             this.label21.TabIndex = 63;
             this.label21.Text = "Complemento";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(10, 5);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(84, 17);
+            this.label22.Size = new System.Drawing.Size(101, 16);
             this.label22.TabIndex = 66;
             this.label22.Text = "Observações";
             // 
             // pagamentosLabel
             // 
             this.pagamentosLabel.BackColor = System.Drawing.Color.White;
-            this.pagamentosLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pagamentosLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pagamentosLabel.Location = new System.Drawing.Point(8, 11);
             this.pagamentosLabel.Name = "pagamentosLabel";
             this.pagamentosLabel.Size = new System.Drawing.Size(236, 24);
@@ -457,7 +458,7 @@
             // 
             this.obserBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
             this.obserBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.obserBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.obserBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.obserBox.Location = new System.Drawing.Point(8, 26);
             this.obserBox.Multiline = true;
             this.obserBox.Name = "obserBox";
@@ -467,27 +468,27 @@
             // parcelaPrimeiraBox
             // 
             this.parcelaPrimeiraBox.CustomFormat = "dd/MM/yyyy";
-            this.parcelaPrimeiraBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parcelaPrimeiraBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parcelaPrimeiraBox.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.parcelaPrimeiraBox.Location = new System.Drawing.Point(347, 323);
             this.parcelaPrimeiraBox.Name = "parcelaPrimeiraBox";
-            this.parcelaPrimeiraBox.Size = new System.Drawing.Size(98, 22);
+            this.parcelaPrimeiraBox.Size = new System.Drawing.Size(98, 20);
             this.parcelaPrimeiraBox.TabIndex = 19;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(309, 327);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(37, 16);
+            this.label24.Size = new System.Drawing.Size(36, 15);
             this.label24.TabIndex = 72;
             this.label24.Text = "Início";
             this.label24.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // parcelaQtdBox
             // 
-            this.parcelaQtdBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parcelaQtdBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parcelaQtdBox.Location = new System.Drawing.Point(506, 253);
             this.parcelaQtdBox.Minimum = new decimal(new int[] {
             1,
@@ -495,7 +496,7 @@
             0,
             0});
             this.parcelaQtdBox.Name = "parcelaQtdBox";
-            this.parcelaQtdBox.Size = new System.Drawing.Size(40, 22);
+            this.parcelaQtdBox.Size = new System.Drawing.Size(40, 20);
             this.parcelaQtdBox.TabIndex = 18;
             this.parcelaQtdBox.Value = new decimal(new int[] {
             1,
@@ -506,10 +507,10 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(451, 255);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(51, 16);
+            this.label25.Size = new System.Drawing.Size(55, 15);
             this.label25.TabIndex = 74;
             this.label25.Text = "Parcelas";
             // 
@@ -560,16 +561,16 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(10, 12);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(122, 17);
+            this.label23.Size = new System.Drawing.Size(143, 16);
             this.label23.TabIndex = 80;
             this.label23.Text = "Situação do Evento";
             // 
             // situacaoLabel
             // 
-            this.situacaoLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.situacaoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.situacaoLabel.ForeColor = System.Drawing.Color.DarkGreen;
             this.situacaoLabel.Location = new System.Drawing.Point(16, 46);
             this.situacaoLabel.Name = "situacaoLabel";
@@ -585,11 +586,11 @@
             this.deletarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.deletarButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.deletarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.deletarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deletarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deletarButton.ForeColor = System.Drawing.Color.DarkRed;
             this.deletarButton.Location = new System.Drawing.Point(10, 553);
             this.deletarButton.Name = "deletarButton";
-            this.deletarButton.Size = new System.Drawing.Size(126, 36);
+            this.deletarButton.Size = new System.Drawing.Size(254, 36);
             this.deletarButton.TabIndex = 84;
             this.deletarButton.TabStop = false;
             this.deletarButton.Text = "Deletar Evento";
@@ -599,10 +600,10 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(308, 495);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(48, 17);
+            this.label26.Size = new System.Drawing.Size(57, 16);
             this.label26.TabIndex = 90;
             this.label26.Text = "Equipe";
             // 
@@ -611,11 +612,11 @@
             this.equipeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.equipeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.equipeTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.equipeTextBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equipeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.equipeTextBox.Location = new System.Drawing.Point(363, 494);
             this.equipeTextBox.Name = "equipeTextBox";
             this.equipeTextBox.ReadOnly = true;
-            this.equipeTextBox.Size = new System.Drawing.Size(183, 18);
+            this.equipeTextBox.Size = new System.Drawing.Size(183, 15);
             this.equipeTextBox.TabIndex = 23;
             this.equipeTextBox.TabStop = false;
             this.equipeTextBox.Click += new System.EventHandler(this.equipeTextBox_Click);
@@ -625,7 +626,7 @@
             // 
             this.materialBox.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.materialBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.materialBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialBox.Location = new System.Drawing.Point(401, 159);
             this.materialBox.Name = "materialBox";
             this.materialBox.Size = new System.Drawing.Size(65, 30);
@@ -636,17 +637,17 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(302, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 17);
+            this.label4.Size = new System.Drawing.Size(64, 16);
             this.label4.TabIndex = 93;
             this.label4.Text = "Material";
             // 
             // pidBox
             // 
             this.pidBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.pidBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pidBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pidBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.pidBox.Location = new System.Drawing.Point(196, 18);
             this.pidBox.Maximum = new decimal(new int[] {
@@ -655,7 +656,7 @@
             0,
             0});
             this.pidBox.Name = "pidBox";
-            this.pidBox.Size = new System.Drawing.Size(55, 19);
+            this.pidBox.Size = new System.Drawing.Size(55, 17);
             this.pidBox.TabIndex = 0;
             this.pidBox.Visible = false;
             this.pidBox.ValueChanged += new System.EventHandler(this.pidBox_ValueChanged);
@@ -668,7 +669,7 @@
             this.materialButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.materialButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.materialButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.materialButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.materialButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialButton.ForeColor = System.Drawing.Color.Black;
             this.materialButton.Location = new System.Drawing.Point(304, 161);
             this.materialButton.Name = "materialButton";
@@ -698,7 +699,7 @@
             this.salvarButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.salvarButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.salvarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.salvarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salvarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salvarButton.ForeColor = System.Drawing.Color.Black;
             this.salvarButton.Location = new System.Drawing.Point(567, 553);
             this.salvarButton.Name = "salvarButton";
@@ -716,7 +717,7 @@
             this.parcelaAutoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.parcelaAutoButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.parcelaAutoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.parcelaAutoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.parcelaAutoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.parcelaAutoButton.ForeColor = System.Drawing.Color.Black;
             this.parcelaAutoButton.Location = new System.Drawing.Point(452, 377);
             this.parcelaAutoButton.Name = "parcelaAutoButton";
@@ -734,7 +735,7 @@
             this.ligarEnderecoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ligarEnderecoButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.ligarEnderecoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ligarEnderecoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ligarEnderecoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ligarEnderecoButton.ForeColor = System.Drawing.Color.Black;
             this.ligarEnderecoButton.Location = new System.Drawing.Point(16, 155);
             this.ligarEnderecoButton.Name = "ligarEnderecoButton";
@@ -765,7 +766,7 @@
             this.guestNaoButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.guestNaoButton.FlatAppearance.BorderSize = 0;
             this.guestNaoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guestNaoButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guestNaoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guestNaoButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.guestNaoButton.Location = new System.Drawing.Point(304, 95);
             this.guestNaoButton.Name = "guestNaoButton";
@@ -786,7 +787,7 @@
             this.guestSimButton.FlatAppearance.BorderSize = 0;
             this.guestSimButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.guestSimButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guestSimButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guestSimButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guestSimButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.guestSimButton.Location = new System.Drawing.Point(390, 95);
             this.guestSimButton.Name = "guestSimButton";
@@ -833,12 +834,12 @@
             // eidLabel
             // 
             this.eidLabel.AutoSize = true;
-            this.eidLabel.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eidLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eidLabel.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.eidLabel.Location = new System.Drawing.Point(246, 162);
             this.eidLabel.Name = "eidLabel";
             this.eidLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.eidLabel.Size = new System.Drawing.Size(13, 15);
+            this.eidLabel.Size = new System.Drawing.Size(13, 13);
             this.eidLabel.TabIndex = 101;
             this.eidLabel.Text = "0";
             this.eidLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -851,11 +852,11 @@
             this.cancelarButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelarButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.cancelarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.cancelarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelarButton.ForeColor = System.Drawing.Color.Black;
-            this.cancelarButton.Location = new System.Drawing.Point(425, 553);
+            this.cancelarButton.Location = new System.Drawing.Point(294, 553);
             this.cancelarButton.Name = "cancelarButton";
-            this.cancelarButton.Size = new System.Drawing.Size(135, 36);
+            this.cancelarButton.Size = new System.Drawing.Size(266, 36);
             this.cancelarButton.TabIndex = 25;
             this.cancelarButton.TabStop = false;
             this.cancelarButton.Text = "Cancelar Mudanças";
@@ -865,22 +866,22 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(306, 298);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(134, 17);
+            this.label29.Size = new System.Drawing.Size(159, 16);
             this.label29.TabIndex = 103;
             this.label29.Text = "Parcelas Automáticas";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.label30.Location = new System.Drawing.Point(225, 162);
             this.label30.Name = "label30";
             this.label30.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label30.Size = new System.Drawing.Size(20, 15);
+            this.label30.Size = new System.Drawing.Size(21, 13);
             this.label30.TabIndex = 104;
             this.label30.Text = "ID:";
             this.label30.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -893,7 +894,7 @@
             this.situacaoPossivelButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.situacaoPossivelButton.FlatAppearance.BorderSize = 0;
             this.situacaoPossivelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.situacaoPossivelButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.situacaoPossivelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.situacaoPossivelButton.ForeColor = System.Drawing.Color.Black;
             this.situacaoPossivelButton.Location = new System.Drawing.Point(8, 85);
             this.situacaoPossivelButton.Name = "situacaoPossivelButton";
@@ -911,7 +912,7 @@
             this.situacaoAgendarButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.situacaoAgendarButton.FlatAppearance.BorderSize = 0;
             this.situacaoAgendarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.situacaoAgendarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.situacaoAgendarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.situacaoAgendarButton.ForeColor = System.Drawing.Color.Black;
             this.situacaoAgendarButton.Location = new System.Drawing.Point(103, 85);
             this.situacaoAgendarButton.Name = "situacaoAgendarButton";
@@ -929,7 +930,7 @@
             this.situacaoFinalizarButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.situacaoFinalizarButton.FlatAppearance.BorderSize = 0;
             this.situacaoFinalizarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.situacaoFinalizarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.situacaoFinalizarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.situacaoFinalizarButton.ForeColor = System.Drawing.Color.Black;
             this.situacaoFinalizarButton.Location = new System.Drawing.Point(199, 85);
             this.situacaoFinalizarButton.Name = "situacaoFinalizarButton";
@@ -942,10 +943,10 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(306, 364);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(108, 17);
+            this.label28.Size = new System.Drawing.Size(125, 16);
             this.label28.TabIndex = 98;
             this.label28.Text = "Valor da Entrada";
             // 
@@ -953,7 +954,7 @@
             // 
             this.entradaBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.entradaBox.DecimalPlaces = 2;
-            this.entradaBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.entradaBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.entradaBox.Increment = new decimal(new int[] {
             100,
             0,
@@ -966,16 +967,16 @@
             0,
             0});
             this.entradaBox.Name = "entradaBox";
-            this.entradaBox.Size = new System.Drawing.Size(107, 21);
+            this.entradaBox.Size = new System.Drawing.Size(107, 18);
             this.entradaBox.TabIndex = 15;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.Location = new System.Drawing.Point(307, 384);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(23, 17);
+            this.label27.Size = new System.Drawing.Size(27, 16);
             this.label27.TabIndex = 99;
             this.label27.Text = "R$";
             // 
@@ -1000,77 +1001,77 @@
             // 
             // horaEvento
             // 
-            this.horaEvento.CalendarFont = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.horaEvento.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaEvento.CalendarForeColor = System.Drawing.Color.Purple;
             this.horaEvento.CalendarTitleBackColor = System.Drawing.Color.Purple;
             this.horaEvento.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.horaEvento.CustomFormat = "HH:mm";
-            this.horaEvento.Font = new System.Drawing.Font("Microsoft NeoGothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.horaEvento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaEvento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.horaEvento.Location = new System.Drawing.Point(479, 66);
             this.horaEvento.Name = "horaEvento";
             this.horaEvento.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.horaEvento.RightToLeftLayout = true;
             this.horaEvento.ShowUpDown = true;
-            this.horaEvento.Size = new System.Drawing.Size(78, 27);
+            this.horaEvento.Size = new System.Drawing.Size(78, 24);
             this.horaEvento.TabIndex = 6;
             this.horaEvento.Value = new System.DateTime(2018, 8, 12, 0, 0, 0, 0);
             // 
             // horaCabine
             // 
-            this.horaCabine.CalendarFont = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.horaCabine.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaCabine.CalendarForeColor = System.Drawing.Color.Purple;
             this.horaCabine.CalendarTitleBackColor = System.Drawing.Color.Purple;
             this.horaCabine.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.horaCabine.CustomFormat = "HH:mm";
-            this.horaCabine.Font = new System.Drawing.Font("Microsoft NeoGothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.horaCabine.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.horaCabine.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.horaCabine.Location = new System.Drawing.Point(480, 116);
             this.horaCabine.Name = "horaCabine";
             this.horaCabine.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.horaCabine.RightToLeftLayout = true;
             this.horaCabine.ShowUpDown = true;
-            this.horaCabine.Size = new System.Drawing.Size(78, 27);
+            this.horaCabine.Size = new System.Drawing.Size(78, 24);
             this.horaCabine.TabIndex = 7;
             this.horaCabine.Value = new System.DateTime(2018, 8, 12, 0, 0, 0, 0);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(487, 148);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 16);
+            this.label10.Size = new System.Drawing.Size(72, 15);
             this.label10.TabIndex = 116;
             this.label10.Text = "Duração (h)";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(476, 47);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(88, 16);
+            this.label9.Size = new System.Drawing.Size(91, 15);
             this.label9.TabIndex = 115;
             this.label9.Text = "Evento começa";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(478, 98);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 16);
+            this.label8.Size = new System.Drawing.Size(84, 15);
             this.label8.TabIndex = 114;
             this.label8.Text = "Cabine pronta";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(490, 17);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 17);
+            this.label7.Size = new System.Drawing.Size(68, 16);
             this.label7.TabIndex = 113;
             this.label7.Text = "Horários";
             // 
@@ -1082,7 +1083,7 @@
             this.mapsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mapsButton.FlatAppearance.BorderColor = System.Drawing.Color.Purple;
             this.mapsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.mapsButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mapsButton.ForeColor = System.Drawing.Color.Black;
             this.mapsButton.Location = new System.Drawing.Point(210, 3);
             this.mapsButton.Name = "mapsButton";
