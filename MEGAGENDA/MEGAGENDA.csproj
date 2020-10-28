@@ -86,13 +86,18 @@
     <Compile Include="CONTROLLER\ObjectExtension.cs" />
     <Compile Include="CONTROLLER\Resumidor.cs" />
     <Compile Include="CONTROLLER\Telas.cs" />
-    <Compile Include="MODEL\Cabine.cs" />
     <Compile Include="CONTROLLER\Calendario.cs" />
     <Compile Include="CONTROLLER\Debug.cs" />
     <Compile Include="MODEL\Dia.cs" />
     <Compile Include="MODEL\Equipe.cs" />
     <Compile Include="MODEL\Funcionario.cs" />
     <Compile Include="MODEL\Modelo.cs" />
+    <Compile Include="VIEW\Ajuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\Ajuda.Designer.cs">
+      <DependentUpon>Ajuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\CheckComboBox.cs" />
     <Compile Include="MODEL\Database.cs" />
     <Compile Include="MODEL\Pessoa.cs" />
@@ -118,12 +123,19 @@
     <Compile Include="VIEW\Contratos.Designer.cs">
       <DependentUpon>Contratos.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\Clausula.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VIEW\Clausula.Designer.cs">
+      <DependentUpon>Clausula.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\EditarEvento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VIEW\EditarEvento.Designer.cs">
       <DependentUpon>EditarEvento.cs</DependentUpon>
     </Compile>
+    <Compile Include="MODEL\Erro.cs" />
     <Compile Include="VIEW\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,11 +171,17 @@
     <EmbeddedResource Include="VIEW\Agenda.resx">
       <DependentUpon>Agenda.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Ajuda.resx">
+      <DependentUpon>Ajuda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Configuracoes.resx">
       <DependentUpon>Configuracoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\Contratos.resx">
       <DependentUpon>Contratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\Clausula.resx">
+      <DependentUpon>Clausula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\EditarEvento.resx">
       <DependentUpon>EditarEvento.cs</DependentUpon>
@@ -178,7 +196,7 @@
       <DependentUpon>Listas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>

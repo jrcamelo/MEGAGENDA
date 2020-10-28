@@ -140,7 +140,7 @@ namespace MEGAGENDA.MODEL
             SQLiteDataReader reader = Database.DoReader(sql, parameters);
             if (reader != null && reader.HasRows)
                 return Database.ObjToInt(reader["Endereco_ID"]);
-            return -404;
+            return Erro.SEM_RESULTADO;
         }
 
         // Checa se existe, retornando o ID
@@ -190,8 +190,8 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@manual", end.manual);
             parameters.Add("@id", end.id);
 
-            int result = Database.DoNonQuery(sql, parameters, -403);
-            if (result == -403)
+            int result = Database.DoNonQuery(sql, parameters, Erro.ENDERECO_NAO_EDITADO);
+            if (result == Erro.ENDERECO_NAO_EDITADO)
                 Debug.Log("ENDEREÇO NÃO FOI EDITADO");
             else
                 Debug.Log("ENDEREÇO FOI EDITADO");

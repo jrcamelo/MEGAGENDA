@@ -7,3 +7,11 @@ D:\Downloads\MonthCalendar_src_vs2005\obj\Release\Pabo.Calendar.MonthCalendar.re
 D:\Downloads\MonthCalendar_src_vs2005\obj\Release\Pabo.Calendar.Resource1.resources
 D:\Downloads\MonthCalendar_src_vs2005\obj\Release\MonthCalendar1.csproj.GenerateResource.Cache
 D:\Downloads\MonthCalendar_src_vs2005\obj\Release\MonthCalendar.dll
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\bin\Release\MonthCalendar.dll
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Release\MonthCalendar1.csprojAssemblyReference.cache
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Release\Pabo.Calendar.AlignControl.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Release\Pabo.Calendar.ImageListPanel.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Release\Pabo.Calendar.MonthCalendar.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Release\Pabo.Calendar.Resource1.resources
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Release\MonthCalendar1.csproj.GenerateResource.cache
+E:\JRX\Documentos\Visual Studio 2015\Projects\MEGAGENDA\MonthCalendar_src_vs2005\obj\Release\MonthCalendar.dll

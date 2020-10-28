@@ -104,6 +104,12 @@ namespace MEGAGENDA.VIEW
             dataEventos.Refresh();
         }
 
+        public void editarCliente(int id)
+        {
+            editCliente = new EditarCliente(Pessoa.GetwEndereco(id));
+            editCliente.Show();
+        }
+
         private void editarClienteSelecionado(int index)
         {
             if (editCliente != null)
@@ -205,10 +211,23 @@ namespace MEGAGENDA.VIEW
             if (dataClientes.CurrentCell != null && dataClientes.CurrentCell.RowIndex >= 0)
             {
                 int pid = int.Parse(dataClientes.Rows[dataClientes.CurrentCell.RowIndex].Cells[0].Value.ToString());
-                eventoPesquisaTipo.SelectedIndex = 1;
-                idEventoBox.Value = pid;
-                PreencherEvento(eventoPesquisaTipo.Text);
+                ListarEventos(pid);
             }
+        }
+        private void dataClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataClientes.CurrentCell != null && dataClientes.CurrentCell.RowIndex >= 0)
+            {
+                int pid = int.Parse(dataClientes.Rows[dataClientes.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                ListarEventos(pid);
+            }
+        }
+
+        private void ListarEventos(int pid)
+        {
+            eventoPesquisaTipo.SelectedIndex = 1;
+            idEventoBox.Value = pid;
+            PreencherEvento(eventoPesquisaTipo.Text);
         }
 
         private void editEventoClienteButton_Click(object sender, EventArgs e)
@@ -236,6 +255,7 @@ namespace MEGAGENDA.VIEW
             if (dataEventos.CurrentCell != null && e.RowIndex >= 0)
                 editarEventoSelecionado(e.RowIndex);
         }
+
 
         private void editEventoButton_Click(object sender, EventArgs e)
         {

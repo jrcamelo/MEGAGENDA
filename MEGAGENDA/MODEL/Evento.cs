@@ -19,18 +19,15 @@ namespace MEGAGENDA.MODEL
         public string protagonista;
 
         public double valor;
-        public double entrada;
-        public bool entradaQuitada = false;
 
         public List<string> equipe;
-        public string cabine;
 
         public Endereco local;
 
         public DateTime data;
         public DateTime horaCabine;
         public DateTime horaEvento;
-        public int duracao;
+        public double duracao;
 
         public bool guestbook;
         public bool material = false;
@@ -42,8 +39,8 @@ namespace MEGAGENDA.MODEL
         public List<Pagamento> pagamentos = new List<Pagamento>();
         public Pessoa cliente;
 
-        public Evento(int pid, string tipo, string protagonista, double valor, double entrada, bool entradaquitada, List<string> equipe, string cabine,
-            Endereco local, DateTime data, DateTime horacabine, DateTime horaevento, int duracao, bool guestbook, bool material,
+        public Evento(int pid, string tipo, string protagonista, double valor, List<string> equipe,
+            Endereco local, DateTime data, DateTime horacabine, DateTime horaevento, double duracao, bool guestbook, bool material,
             int situacao, string observacoes, List<Pagamento> pagamentos, int id = -1, Pessoa cliente = null)
         {
             this.ID = id;
@@ -51,10 +48,7 @@ namespace MEGAGENDA.MODEL
             this.tipo = tipo;
             this.protagonista = protagonista;
             this.valor = valor;
-            this.entrada = entrada;
-            this.entradaQuitada = entradaquitada;
             this.equipe = equipe;
-            this.cabine = cabine;
             this.local = local;
             this.data = data;
             this.horaCabine = horacabine;
@@ -75,6 +69,13 @@ namespace MEGAGENDA.MODEL
             this.situacao = situacao;
         }
 
+        public double getEntrada()
+        {
+            if (pagamentos.Count > 0)
+                return pagamentos[0].valor;
+            return 0;
+        }
+
 
 
 
@@ -90,10 +91,7 @@ namespace MEGAGENDA.MODEL
                     Database.ObjToString(reader["Tipo"]),
                     Database.ObjToString(reader["Protagonista"]),
                     Database.ObjToDouble(reader["Valor"]),
-                    Database.ObjToDouble(reader["Entrada"]),
-                    bool.Parse(reader["EntradaQuitada"].ToString()),
                     Equipe.GetIdents(Database.ObjToInt(reader["Evento_ID"])),
-                    Database.ObjToString(reader["Cabine_FK"]),
                     Endereco.Get(Database.ObjToInt(reader["Endereco_FK"])),
                     Database.ObjToDate(reader["Data"]),
                     Database.ObjToTime(reader["horaCabine"]),
@@ -118,10 +116,7 @@ namespace MEGAGENDA.MODEL
                     Database.ObjToString(reader["Tipo"]),
                     Database.ObjToString(reader["Protagonista"]),
                     Database.ObjToDouble(reader["Valor"]),
-                    Database.ObjToDouble(reader["Entrada"]),
-                    bool.Parse(reader["EntradaQuitada"].ToString()),
                     Equipe.GetIdents(Database.ObjToInt(reader["Evento_ID"])),
-                    Database.ObjToString(reader["Cabine_FK"]),
                     Endereco.Get(Database.ObjToInt(reader["Endereco_FK"])),
                     Database.ObjToDate(reader["Data"]),
                     Database.ObjToTime(reader["horaCabine"]),
@@ -213,19 +208,16 @@ namespace MEGAGENDA.MODEL
             if (ev.local.id < 1)
                 return ev.local.id;
 
-            string sql = "INSERT INTO Evento (Pessoa_FK, Endereco_FK, Cabine_FK, Tipo, Situacao, Protagonista, Valor, Entrada, EntradaQuitada, Data, Duracao, horaCabine, horaEvento, Guestbook, MaterialPronto, Observacoes) ";
-            sql += $"VALUES (@pid, @local, @cabine, @tipo, @situacao, @protagonista, @valor, @entrada, @entradaquitada,  @data, @duracao, @horacabine, @horaevento, @guestbook, @material, @observacoes)";
+            string sql = "INSERT INTO Evento (Pessoa_FK, Endereco_FK, Tipo, Situacao, Protagonista, Valor, Data, Duracao, horaCabine, horaEvento, Guestbook, MaterialPronto, Observacoes) ";
+            sql += $"VALUES (@pid, @local, @tipo, @situacao, @protagonista, @valor, @data, @duracao, @horacabine, @horaevento, @guestbook, @material, @observacoes)";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@pid", ev.PID);
             parameters.Add("@local", ev.local.id);
-            parameters.Add("@cabine", ev.cabine);
             parameters.Add("@tipo", ev.tipo);
             parameters.Add("@situacao", ev.situacao);
             parameters.Add("@protagonista", ev.protagonista);
             parameters.Add("@valor", ev.valor);
-            parameters.Add("@entrada", ev.entrada);
-            parameters.Add("@entradaquitada", ev.entradaQuitada);
             parameters.Add("@data", ev.data.ToString("yyyy-MM-dd"));
             parameters.Add("@duracao", ev.duracao);
             parameters.Add("@horacabine", ev.horaCabine);
@@ -258,7 +250,7 @@ namespace MEGAGENDA.MODEL
         public static int Edit(Evento ev)
         {
             string sql = "UPDATE Evento SET ";
-            sql += $"Pessoa_FK = @pid, Endereco_FK = @local, Cabine_FK = @cabine, Tipo = @tipo, Situacao = @situacao, Protagonista = @protagonista, Valor = @valor, Entrada = @entrada, EntradaQuitada = @entradaquitada, Data = @data, Duracao = @duracao, horaCabine = @horacabine, horaEvento = @horaevento, Guestbook = @guestbook, MaterialPronto = @material, Observacoes = @observacoes ";
+            sql += $"Pessoa_FK = @pid, Endereco_FK = @local, Tipo = @tipo, Situacao = @situacao, Protagonista = @protagonista, Valor = @valor, Data = @data, Duracao = @duracao, horaCabine = @horacabine, horaEvento = @horaevento, Guestbook = @guestbook, MaterialPronto = @material, Observacoes = @observacoes ";
             sql += $"WHERE Evento_ID = @id";
 
             int result = Endereco.Edit(ev.local);
@@ -274,13 +266,10 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@id", ev.ID);
             parameters.Add("@pid", ev.PID);
             parameters.Add("@local", ev.local.id);
-            parameters.Add("@cabine", ev.cabine);
             parameters.Add("@tipo", ev.tipo);
             parameters.Add("@situacao", ev.situacao);
             parameters.Add("@protagonista", ev.protagonista);
             parameters.Add("@valor", ev.valor);
-            parameters.Add("@entrada", ev.entrada);
-            parameters.Add("@entradaquitada", ev.entradaQuitada);
             parameters.Add("@data", ev.data.ToString("yyyy-MM-dd"));
             parameters.Add("@duracao", ev.duracao);
             parameters.Add("@horacabine", ev.horaCabine);
@@ -289,8 +278,8 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@material", ev.material);
             parameters.Add("@observacoes", ev.observacoes);
                                     
-            result = Database.DoNonQuery(sql, parameters, -304);
-            if (result == -304)
+            result = Database.DoNonQuery(sql, parameters, Erro.EVENTO_NAO_EDITADO);
+            if (result == Erro.EVENTO_NAO_EDITADO)
                 Debug.Log("EVENTO NÃO FOI EDITADO");
             else
                 Debug.Log("EVENTO FOI EDITADO");
@@ -317,8 +306,8 @@ namespace MEGAGENDA.MODEL
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@id", id);
 
-            int result = Database.DoNonQuery(sql, parameters, -306);
-            if (result == -306)
+            int result = Database.DoNonQuery(sql, parameters, Erro.EVENTO_NAO_DELETADO);
+            if (result == Erro.EVENTO_NAO_DELETADO)
                 Debug.Log($"EVENTO {id} NÃO DELETADO");
             else
                 Debug.Log($"EVENTO {id} DELETADO");

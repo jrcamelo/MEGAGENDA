@@ -86,7 +86,7 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@eid", EID);
 
             int result = Database.DoScalar(sql, parameters);
-            if (result == -101)
+            if (result == Erro.ERRO_SCALAR)
                 result = 0;
             Debug.Log($"{result} MEMBROS DA EQUIPE DELETADOS NO EVENTO {EID}");
             return result;

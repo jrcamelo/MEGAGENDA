@@ -71,21 +71,15 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Email VARCHAR(36), "
                 + "    Facebook VARCHAR(36), "
                 + "    Anotacoes TEXT);",
-
-                "CREATE TABLE IF NOT EXISTS Cabine("
-                + "    Cabine_Nome VARCHAR (24) PRIMARY KEY);",
-
+                
                 "CREATE TABLE IF NOT EXISTS Evento("
                 + "    Evento_ID INTEGER  PRIMARY KEY AUTOINCREMENT, "
                 + "    Pessoa_FK INTEGER  NOT NULL REFERENCES Pessoa (Pessoa_ID) ON DELETE CASCADE, "
                 + "    Endereco_FK INTEGER  REFERENCES Endereco(Endereco_ID) NOT NULL, "
-                + "    Cabine_FK  VARCHAR(24) REFERENCES Cabine(Cabine_Nome), "
                 + "    Tipo VARCHAR(32) NOT NULL, "
                 + "    Situacao   INTEGER DEFAULT 0, "
                 + "    Protagonista   VARCHAR(64), "
                 + "    Valor DOUBLE   NOT NULL, "
-                + "    Entrada DOUBLE, "
-                + "    EntradaQuitada BOOLEAN  DEFAULT(0), "
                 + "    Data DATE NOT NULL, "
                 + "    Duracao INTEGER NOT NULL, "
                 + "    horaCabine TIME NOT NULL, "
@@ -98,7 +92,7 @@ namespace MEGAGENDA.CONTROLLER
                 + "    Evento_FK INTEGER REFERENCES Evento (Evento_ID) ON DELETE CASCADE, "
                 + "    Parcela INTEGER NOT NULL, "
                 + "    Valor DOUBLE  NOT NULL, "
-                + "    Vencimento DATE, "
+                + "    Vencimento DATE NOT NULL, "
                 + "    Pago BOOLEAN DEFAULT (0), "
                 + "    PRIMARY KEY(Evento_FK, Parcela));",
 
@@ -192,7 +186,7 @@ namespace MEGAGENDA.CONTROLLER
         public static int DoScalar(string sql, Dictionary<string, object> parameters = null, bool silent = false)
         {
             if (DoNonQuery(sql, parameters, -111, true) == -111)
-                return -111;
+                return Erro.DADOS_INVALIDOS;
 
             try
             {
@@ -212,7 +206,7 @@ namespace MEGAGENDA.CONTROLLER
                     Debug.Log(ex.Message);
             }
 
-            return -21;
+            return Erro.ERRO_SCALAR;
         }
 
         public static SQLiteDataReader DoReader(string sql, Dictionary<string, object> parameters = null, bool silent = false)
@@ -242,8 +236,10 @@ namespace MEGAGENDA.CONTROLLER
             return null;
         }
 
-        public static int DoNonQuery(string sql, Dictionary<string, object> parameters = null, int code = -101, bool silent = false)
+        public static int DoNonQuery(string sql, Dictionary<string, object> parameters = null, int code = -1001, bool silent = false)
         {
+            if (code == -1001) code = Erro.ERRO_NONQUERY;
+
             if (parameters == null)
                 parameters = new Dictionary<string, object>();
 
@@ -282,70 +278,17 @@ namespace MEGAGENDA.CONTROLLER
             }
             return code;
         }
-
-
-        #region Equipe
-        public static List<Funcionario> GetEquipe(int evento)
-        {
-            List<Funcionario> funcs = new List<Funcionario>();
-
-            return funcs;
-        }
-        public static string GetEquipeString(int evento)
-        {
-
-
-
-
-            return "";
-        }
-
-        public static int AddEquipe(string equipe)
-        {
-
-            return 0;
-        }
-
-        public static int DeleteEquipeEvento(int EID)
-        {
-
-            return 0;
-        }
-
-        public static Funcionario GetFuncionario(string nome)
-        {
-            Funcionario func = null;
-
-            return func;
-        }
-
-        public static int AddFuncionario(Funcionario func)
-        {
-
-            return 0;
-        }
-
-        public static List<Funcionario> GetAllFuncionarios()
-        {
-            List<Funcionario> funcs = new List<Funcionario>();
-
-            return funcs;
-        }
-
-        #endregion
         
-
-
 
         public static int ObjToInt(object obj)
         {
-            int result = -2;
+            int result = Erro.ERRO_INT;
             int.TryParse(obj.ToString(), out result);
             return result;
         }
         public static double ObjToDouble(object obj)
         {
-            double result = -3;
+            double result = Erro.ERRO_DOUBLE;
             double.TryParse(obj.ToString(), out result);
             return result;
         }

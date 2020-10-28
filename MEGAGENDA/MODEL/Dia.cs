@@ -30,7 +30,7 @@ namespace MEGAGENDA.MODEL
         {
             Color cor;
             if (pagamento.data <= DateTime.Today)
-                cor = Color.Gray;
+                cor = Color.SandyBrown;
             else
                 cor = Color.Empty;
 

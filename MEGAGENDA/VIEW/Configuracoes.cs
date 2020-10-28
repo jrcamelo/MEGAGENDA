@@ -32,31 +32,9 @@ namespace MEGAGENDA.VIEW
         private void Inicializar()
         {
             AtualizarFuncionarios();
-            AtualizarCabines();
             AtualizarEmpresa();
         }
-
-        private void AtualizarCabines()
-        {
-            cabinesBox.Items.Clear();
-            foreach (string c in Cabine.GetAll())
-                cabinesBox.Items.Add(c);
-        }
-
-        private void cabineDeleteButton_Click(object sender, EventArgs e)
-        {
-            if (cabinesBox.Text != "")
-                Cabine.Delete(cabinesBox.Text);
-            AtualizarCabines();
-        }
-
-        private void CabineAddButton_Click(object sender, EventArgs e)
-        {
-            if (novaCabineBox.Text != "")
-                if (Cabine.Add(new Cabine(novaCabineBox.Text)) > 0)
-                    novaCabineBox.Text = "";
-            AtualizarCabines();
-        }
+        
         private void AtualizarFuncionarios()
         {
             funcionariosBox.Items.Clear();
@@ -115,19 +93,13 @@ namespace MEGAGENDA.VIEW
                 funcionario.pessoa.celular = celularfBox.Text;
 
                 int result = Funcionario.Edit(funcionario);
+                Erro.Mensagem(result, true, "");
                 if (result > 0)
                 {
                     result = Pessoa.Edit(funcionario.pessoa);
                     if (result > 0)
-                    {
-                        MessageBox.Show("Editado com sucesso");
                         CancelEdit();
-                    }
-                    else
-                        MessageBox.Show(result.ToString());
                 }
-                else
-                    MessageBox.Show(result.ToString());
             }
         }
 
@@ -164,15 +136,9 @@ namespace MEGAGENDA.VIEW
                 Funcionario func = new Funcionario(identBox.Text, pessoa);
 
                 int result = Funcionario.Add(func);
+                Erro.Mensagem(result, true, "");
                 if (result > 0)
-                {
-                    MessageBox.Show("Adicionado com sucesso");
                     CancelEdit();
-                }
-                else
-                {
-                    MessageBox.Show(result.ToString());
-                }
             }
         }
 
@@ -204,10 +170,7 @@ namespace MEGAGENDA.VIEW
             Configs.Empresa.facebook = faceeBox.Text;
 
             int result = Pessoa.Edit(Configs.Empresa);
-            if (result > 0)
-                MessageBox.Show("Editado com sucesso");
-            else
-                MessageBox.Show(result.ToString());
+            Erro.Mensagem(result, true, "");
             
         }
     }

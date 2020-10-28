@@ -57,16 +57,16 @@ namespace MEGAGENDA.VIEW
             Empresa.rg = "030.099.874 - 04";
             Empresa.endereco.rua = "Rua São Mateus, 1060, Condomínio Jardim Renascença, Bl. D, Apto. 302, Iputinga, Recife/PE";
 
-            Pessoa.Add(Empresa, false); 
-            Configs.Empresa = Pessoa.Get(1, false);
+            if (Pessoa.Get("25.425.706/0001-26", false) == null)
+                Pessoa.Add(Empresa, false); 
+
+            Configs.Empresa = Pessoa.Get("25.425.706/0001-26", false);
 
             Pessoa nido = new Pessoa("Ivanildo Fernandes da Silva", "030.099.874 - 04", "4985734", "M", "4100.1566", "98806.7578", "ivanildo@megaselfie.net.br", "", new Endereco("Rua São Mateus, 1060, Condomínio Jardim Renascença, Bl. D, Apto. 302, Iputinga, Recife/PE"), "");
             nido.tipo = "FUNCIONARIO";
             Funcionario dono = new Funcionario("Nido", nido);
             Funcionario.Add(dono);
-
-            Cabine.Add(new Cabine("Padrão"));
-
+            
             Modelo modelo = new Modelo("Padrão", new Dictionary<string, List<string>>());
             modelo.padrao_teste();
             Modelo.Add(modelo, true);
@@ -75,18 +75,14 @@ namespace MEGAGENDA.VIEW
 
         public void Test()
         {
-            //
-            Cabine.Add(new Cabine("Padrão"));
-            //
         }
 
         public void Test2()
         {
-            Cabine.Add(new Cabine("Primeira"));
 
             int pid = Pessoa.Add(new Pessoa("João", "9084461", "10846444445", "M", "3241-5803", "995363055", "joaorafaelx@gmail.com", "", new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), "Observ"));
 
-            Evento.Add(new Evento(pid, "Formatura", "João Rafael", 1200, 400, true, new List<string> { "Nido" }, "Primeira", new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, 0, "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1), new Pagamento(1, 0, DateTime.Today, false, 2) }));
+            Evento.Add(new Evento(pid, "Formatura", "João Rafael", 1200, new List<string> { "Nido" }, new Endereco("Rua", "277", "BL D 301", "Tejipió", "Recife", "PE"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, 0, "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1), new Pagamento(1, 0, DateTime.Today, false, 2) }));
 
             Modelo modelo = new Modelo("Padrão", new Dictionary<string, List<string>>());
             modelo.padrao_teste();
@@ -144,6 +140,18 @@ namespace MEGAGENDA.VIEW
         private void testeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Telas.TrocarTela("Resumo");
+        }
+
+        Ajuda ajuda;
+        private void ajudaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ajuda = new Ajuda();
+            ajuda.Show();
+        }
+
+        private void sobreOMEGGENDAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

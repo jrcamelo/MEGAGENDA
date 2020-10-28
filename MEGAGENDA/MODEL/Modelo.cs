@@ -45,9 +45,9 @@ namespace MEGAGENDA.MODEL
             // CONTRATO
             List<String> Clausulas_Contrato = new List<string>(12);
 
-            Clausulas_Contrato.Add("É objeto do presente contrato o aluguel, montagem e operação de uma Cabine Fotográfica pelo período de [EVENTO DURACAO_MINUTOS] consecutivos, em [EVENTO TIPO]  a realizar-se no dia [EVENTO DATA], com início previsto para às [EVENTO HORA_INICIO] e prestação do serviço a partir das [EVENTO HORA_CABINE], localizada à [EVENTO ENDERECO].");
+            Clausulas_Contrato.Add("É objeto do presente contrato o aluguel, montagem e operação de uma Cabine Fotográfica pelo período de [EVENTO DURACAO_HORAS] consecutivos, em [EVENTO TIPO]  a realizar-se no dia [EVENTO DATA], com início previsto para às [EVENTO HORA_INICIO] e prestação do serviço a partir das [EVENTO HORA_CABINE], localizada à [EVENTO ENDERECO].");
             Clausulas_Contrato.Add("A Cabine contará com equipe de apoio necessária a realização do evento durante as horas contratadas.");
-            Clausulas_Contrato.Add("Serão impressas até 4 (quatro) cópias de cada montagem feita pela Cabine sem número máximo de impressões durante as [EVENTO DURACAO_MINUTOS].");
+            Clausulas_Contrato.Add("Serão impressas até 4 (quatro) cópias de cada montagem feita pela Cabine sem número máximo de impressões durante os [EVENTO DURACAO_HORAS].");
             Clausulas_Contrato.Add("Serão disponibilizados adereços e plaquinhas divertidas para os convidados.");
             Clausulas_Contrato.Add("Serão disponibilizadas, como CORTESIA, 60 (sessenta) folhas pretas, 4 (quatro) canetas prateadas e 2 (duas) colas em bastão para que os convidados fixem 1 (uma) das fotos impressas e deixem mensagens aos anfitriões. Estas páginas serão encadernadas com uma capa contendo uma arte aprovada pelo Contratante. As imagens para a arte da capa, cuja autorização de uso é de inteira responsabilidade do Contratante, deverão ser fornecidas, já tratadas, com antecedência mínima de 20 (vinte) dias para que a arte possa ser produzida e aprovada faltando no mínimo 10 (dez) dias para o evento sob pena do Guestbook ser entregue sem a capa ou de ser usada uma foto enviada anteriormente para outra arte. O Guestbook deverá ser retirado pelo Contratado no endereço constante no preâmbulo deste dispositivo ou em local acordado entre as partes, no prazo de até 30 (trinta) dias após a aprovação da arte.");
             Clausulas_Contrato.Add("A Cabine terá uma de suas laterais personalizada, no tamanho 1,25 x 1,85 metros, com a arte do evento, aprovada pelo Contratante, como CORTESIA.");
@@ -166,7 +166,7 @@ namespace MEGAGENDA.MODEL
         public static int Add(Modelo modelo, bool silent = false)
         {
             if (modelo == null)
-                return -604;
+                return -404;
             
             string sql = "INSERT INTO Modelo (Nome) ";
             sql += $"VALUES (@nome)";
@@ -222,8 +222,11 @@ namespace MEGAGENDA.MODEL
             parameters.Add("@id", id);
 
             int result = Database.DoScalar(sql, parameters);
-            if (result == -101)
+            if (result == Erro.ERRO_SCALAR)
+            {
+                result = Erro.MODELO_NAO_DELETADO;
                 Debug.Log($"ERRO AO DELETAR MODELO {id}");
+            }
             else
                 Debug.Log($"MODELO {id} DELETADO");
             return result;
@@ -232,14 +235,14 @@ namespace MEGAGENDA.MODEL
         public static int Update(Modelo modelo)
         {
             if (modelo == null)
-                return -604;
+                return Erro.DADOS_INVALIDOS;
 
             string sql = "SELECT Modelo_ID FROM Modelo WHERE Nome = @nome";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@nome", modelo.Nome);
 
-            int id = -1;
+            int id = Erro.SEM_RESULTADO;
             SQLiteDataReader reader = Database.DoReader(sql, parameters);
             if (reader != null && reader.HasRows)
                 while (reader.Read())
@@ -255,11 +258,11 @@ namespace MEGAGENDA.MODEL
 
             int deleted = Database.DoScalar(sql, parameters);
             if (deleted < 0)
-                return deleted;
+                return Erro.MODELO_NAO_DELETADO;
 
             int added = AddClausulaLoop(id, modelo.Clausulas);  
 
-            Debug.Log($"{deleted} CLAUSULAS DELETADAS E {added} ADICIONADAS NO MODELO {modelo.Nome} COM ID {id}");
+            Debug.Log($"{deleted} CLAUSULAS DELETADAS E {added} CLAUSULAS ADICIONADAS NO MODELO {modelo.Nome} COM ID {id}");
             return added;
         }
 

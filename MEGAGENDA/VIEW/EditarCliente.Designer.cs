@@ -128,7 +128,7 @@
             this.deletarButton.ForeColor = System.Drawing.Color.DarkRed;
             this.deletarButton.Location = new System.Drawing.Point(12, 252);
             this.deletarButton.Name = "deletarButton";
-            this.deletarButton.Size = new System.Drawing.Size(105, 36);
+            this.deletarButton.Size = new System.Drawing.Size(138, 36);
             this.deletarButton.TabIndex = 139;
             this.deletarButton.Text = "Deletar Cliente";
             this.deletarButton.UseVisualStyleBackColor = false;
@@ -541,7 +541,7 @@
             this.femininoBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.femininoBox.Location = new System.Drawing.Point(444, 95);
             this.femininoBox.Name = "femininoBox";
-            this.femininoBox.Size = new System.Drawing.Size(75, 23);
+            this.femininoBox.Size = new System.Drawing.Size(96, 23);
             this.femininoBox.TabIndex = 3;
             this.femininoBox.Text = "Feminino";
             this.femininoBox.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -559,9 +559,9 @@
             this.masculinoBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.masculinoBox.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.masculinoBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.masculinoBox.Location = new System.Drawing.Point(323, 95);
+            this.masculinoBox.Location = new System.Drawing.Point(302, 95);
             this.masculinoBox.Name = "masculinoBox";
-            this.masculinoBox.Size = new System.Drawing.Size(75, 23);
+            this.masculinoBox.Size = new System.Drawing.Size(96, 23);
             this.masculinoBox.TabIndex = 4;
             this.masculinoBox.Text = "Masculino";
             this.masculinoBox.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -633,7 +633,7 @@
             this.juridicaButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.juridicaButton.Location = new System.Drawing.Point(444, 35);
             this.juridicaButton.Name = "juridicaButton";
-            this.juridicaButton.Size = new System.Drawing.Size(75, 23);
+            this.juridicaButton.Size = new System.Drawing.Size(96, 23);
             this.juridicaButton.TabIndex = 1;
             this.juridicaButton.Text = "JURÍDICA";
             this.juridicaButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -651,9 +651,9 @@
             this.fisicaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fisicaButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fisicaButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.fisicaButton.Location = new System.Drawing.Point(323, 35);
+            this.fisicaButton.Location = new System.Drawing.Point(302, 35);
             this.fisicaButton.Name = "fisicaButton";
-            this.fisicaButton.Size = new System.Drawing.Size(75, 23);
+            this.fisicaButton.Size = new System.Drawing.Size(96, 23);
             this.fisicaButton.TabIndex = 2;
             this.fisicaButton.Text = "FÍSICA";
             this.fisicaButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -736,9 +736,9 @@
             this.cancelarButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelarButton.Font = new System.Drawing.Font("Microsoft NeoGothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelarButton.ForeColor = System.Drawing.Color.Black;
-            this.cancelarButton.Location = new System.Drawing.Point(456, 252);
+            this.cancelarButton.Location = new System.Drawing.Point(404, 252);
             this.cancelarButton.Name = "cancelarButton";
-            this.cancelarButton.Size = new System.Drawing.Size(140, 36);
+            this.cancelarButton.Size = new System.Drawing.Size(192, 36);
             this.cancelarButton.TabIndex = 21;
             this.cancelarButton.Text = "Cancelar Mudanças";
             this.cancelarButton.UseVisualStyleBackColor = false;

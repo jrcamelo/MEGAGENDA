@@ -72,7 +72,7 @@ namespace MEGAGENDA.MODEL
             {
                 Pessoa p = new Pessoa(i.ToString(), i.ToString(), i.ToString(), "M", "tel", "cel", "email", "facebook", new Endereco("aa", i.ToString(), "aaa", "aa", "aaa", "aa"), "aa");
                 int pid = Pessoa.Add(p);
-                Evento e = new Evento(pid, i.ToString(), pid.ToString(), 1200, 400, true, new List<string> { "Nido" }, "Primeira", new Endereco("teste"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, 0, "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1) });
+                Evento e = new Evento(pid, i.ToString(), pid.ToString(), 1200, new List<string> { "Nido" }, new Endereco("teste"), DateTime.Today, DateTime.Today, DateTime.Today, 4, true, true, 0, "Vai ser muito legal", new List<Pagamento>() { new Pagamento(1, 0, DateTime.Today, true, 1) });
                 Evento.Add(e);
             }
             timer.Stop();

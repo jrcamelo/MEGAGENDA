@@ -40,6 +40,7 @@
             this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sobreOMEGGENDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,22 +49,22 @@
             this.panelPrincipal.AutoScroll = true;
             this.panelPrincipal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPrincipal.Location = new System.Drawing.Point(0, 28);
+            this.panelPrincipal.Location = new System.Drawing.Point(0, 29);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1072, 493);
+            this.panelPrincipal.Size = new System.Drawing.Size(1253, 492);
             this.panelPrincipal.TabIndex = 2;
             // 
             // testeToolStripMenuItem
             // 
             this.testeToolStripMenuItem.Name = "testeToolStripMenuItem";
-            this.testeToolStripMenuItem.Size = new System.Drawing.Size(74, 24);
+            this.testeToolStripMenuItem.Size = new System.Drawing.Size(79, 25);
             this.testeToolStripMenuItem.Text = "Resumo";
             this.testeToolStripMenuItem.Click += new System.EventHandler(this.testeToolStripMenuItem_Click);
             // 
             // teste2ToolStripMenuItem
             // 
             this.teste2ToolStripMenuItem.Name = "teste2ToolStripMenuItem";
-            this.teste2ToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
+            this.teste2ToolStripMenuItem.Size = new System.Drawing.Size(62, 25);
             this.teste2ToolStripMenuItem.Text = "Listas";
             this.teste2ToolStripMenuItem.Click += new System.EventHandler(this.teste2ToolStripMenuItem_Click);
             // 
@@ -71,7 +72,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.menuStrip1.Font = new System.Drawing.Font("Microsoft NeoGothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Font = new System.Drawing.Font("Microsoft NeoGothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testeToolStripMenuItem,
             this.teste2ToolStripMenuItem,
@@ -84,20 +85,20 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1072, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1253, 29);
             this.menuStrip1.TabIndex = 1;
             // 
             // agendaToolStripMenuItem
             // 
             this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
-            this.agendaToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.agendaToolStripMenuItem.Size = new System.Drawing.Size(78, 25);
             this.agendaToolStripMenuItem.Text = "Agenda";
             this.agendaToolStripMenuItem.Click += new System.EventHandler(this.agendaToolStripMenuItem_Click);
             // 
             // contratosToolStripMenuItem
             // 
             this.contratosToolStripMenuItem.Name = "contratosToolStripMenuItem";
-            this.contratosToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
+            this.contratosToolStripMenuItem.Size = new System.Drawing.Size(92, 25);
             this.contratosToolStripMenuItem.Text = "Contratos";
             this.contratosToolStripMenuItem.Click += new System.EventHandler(this.contratosToolStripMenuItem_Click);
             // 
@@ -105,44 +106,53 @@
             // 
             this.lembreteToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.lembreteToolStripMenuItem.Name = "lembreteToolStripMenuItem";
-            this.lembreteToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.lembreteToolStripMenuItem.Size = new System.Drawing.Size(90, 25);
             this.lembreteToolStripMenuItem.Text = "Lembrete";
             // 
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(93, 25);
             this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
             // configuraçõesToolStripMenuItem
             // 
             this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
-            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(116, 24);
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(123, 25);
             this.configuraçõesToolStripMenuItem.Text = "Configurações";
             this.configuraçõesToolStripMenuItem.Click += new System.EventHandler(this.configuraçõesToolStripMenuItem_Click);
             // 
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sobreOMEGGENDAToolStripMenuItem});
+            this.sobreOMEGGENDAToolStripMenuItem,
+            this.ajudaToolStripMenuItem});
             this.sobreToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // sobreOMEGGENDAToolStripMenuItem
             // 
             this.sobreOMEGGENDAToolStripMenuItem.Name = "sobreOMEGGENDAToolStripMenuItem";
-            this.sobreOMEGGENDAToolStripMenuItem.Size = new System.Drawing.Size(229, 24);
+            this.sobreOMEGGENDAToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.sobreOMEGGENDAToolStripMenuItem.Text = "Sobre o MEG@GENDA";
+            this.sobreOMEGGENDAToolStripMenuItem.Click += new System.EventHandler(this.sobreOMEGGENDAToolStripMenuItem_Click);
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            this.ajudaToolStripMenuItem.Click += new System.EventHandler(this.ajudaToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(1072, 521);
+            this.ClientSize = new System.Drawing.Size(1253, 521);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -170,5 +180,6 @@
         private System.Windows.Forms.ToolStripMenuItem sobreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sobreOMEGGENDAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
     }
 }
